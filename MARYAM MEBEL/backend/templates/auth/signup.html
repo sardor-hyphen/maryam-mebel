@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish - MARYAM MEBEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 2rem 1rem;
+        }
+        
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #ff4444);
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .auth-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .auth-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+        }
+        
+        .form-input.error {
+            border-color: #ff4444;
+            background: #fff5f5;
+        }
+        
+        .form-input.success {
+            border-color: #4caf50;
+            background: #f0fff4;
+        }
+        
+        .input-feedback {
+            position: absolute;
+            right: 1rem;
+            top: 2.7rem;
+            font-size: 1.2rem;
+        }
+        
+        .feedback-loading {
+            color: #666;
+        }
+        
+        .feedback-success {
+            color: #4caf50;
+        }
+        
+        .feedback-error {
+            color: #ff4444;
+        }
+        
+        .error-message {
+            color: #ff4444;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .success-message {
+            color: #4caf50;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .password-strength {
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .password-strength.show {
+            display: block;
+        }
+        
+        .strength-bar {
+            height: 4px;
+            background: #e1e1e1;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .strength-fill {
+            height: 100%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .strength-weak { background: #ff4444; width: 25%; }
+        .strength-fair { background: #ff9800; width: 50%; }
+        .strength-good { background: #2196f3; width: 75%; }
+        .strength-strong { background: #4caf50; width: 100%; }
+        
+        .strength-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .auth-btn:hover:not(:disabled) {
+            background: #aa0000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.3);
+        }
+        
+        .auth-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .auth-links {
+            text-align: center;
+        }
+        
+        .auth-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .auth-link:hover {
+            color: #aa0000;
+            text-decoration: underline;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+            color: var(--text-light);
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e1e1e1;
+            z-index: 1;
+        }
+        
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .alert-error {
+            background: #fff5f5;
+            color: #cc0000;
+            border: 1px solid #ffebee;
+        }
+        
+        .alert-success {
+            background: #f0fff4;
+            color: #2e7d32;
+            border: 1px solid #e8f5e8;
+        }
+        
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .terms-checkbox input[type="checkbox"] {
+            accent-color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
+        
+        .loading {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .btn-loading .loading {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .auth-card {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+            
+            .auth-title {
+                font-size: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="MARYAM MEBEL" class="auth-logo">
+                <h1 class="auth-title">Ro'yxatdan o'tish</h1>
+                <p class="auth-subtitle">Yangi hisob yarating va bizga qo'shiling</p>
+            </div>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'error' if category == 'error' else 'success' }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <form id="signupForm" method="POST" action="{{ url_for('signup') }}">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name" class="form-label">Ism</label>
+                        <input type="text" id="first_name" name="first_name" class="form-input" required>
+                        <div class="error-message" id="first_nameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last_name" class="form-label">Familiya</label>
+                        <input type="text" id="last_name" name="last_name" class="form-input" required>
+                        <div class="error-message" id="last_nameError"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="username" class="form-label">Foydalanuvchi nomi</label>
+                    <input type="text" id="username" name="username" class="form-input" required>
+                    <div class="error-message" id="usernameError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email manzil</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telegram_username" class="form-label">Telegram Username (parolni tiklash uchun)</label>
+                    <input type="text" id="telegram_username" name="telegram_username" class="form-input" placeholder="@username">
+                    <div class="error-message" id="telegram_usernameError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">Parol</label>
+                    <input type="password" id="password" name="password" class="form-input" required>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText"></div>
+                    </div>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm_password" class="form-label">Parolni tasdiqlang</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-input" required>
+                    <div class="error-message" id="confirm_passwordError"></div>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">
+                        Men <a href="#" class="auth-link">foydalanish shartlari</a> va 
+                        <a href="#" class="auth-link">maxfiylik siyosati</a>ni o'qidim va rozi bo'ldim.
+                    </label>
+                </div>
+                
+                <button type="submit" class="auth-btn" id="signupBtn" disabled>
+                    <span class="loading"></span>
+                    <span class="btn-text">Ro'yxatdan o'tish</span>
+                </button>
+            </form>
+            
+            <div class="divider">
+                <span>yoki</span>
+            </div>
+            
+            <div class="auth-links">
+                <p>Hisobingiz bormi? <a href="{{ url_for('login') }}" class="auth-link">Kirish</a></p>
+                <p><a href="{{ url_for('index') }}" class="auth-link">Bosh sahifaga qaytish</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('signupForm');
+            const submitBtn = document.getElementById('signupBtn');
+            const usernameInput = document.getElementById('username');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm_password');
+            const termsCheckbox = document.getElementById('terms');
+            
+            // Remove username and email from validation states since the availability check no longer exists
+            // let validationStates = {
+            //     first_name: false,
+            //     last_name: false,
+            //     username: false,
+            //     email: false,
+            //     telegram_username: false,
+            //     password: false,
+            //     confirmPassword: false,
+            //     terms: false
+            // };
+            
+            let validationStates = {
+                first_name: false,
+                last_name: false,
+                username: true, // Set to true since we're not checking availability anymore
+                email: true,    // Set to true since we're not checking availability anymore
+                telegram_username: false,
+                password: false,
+                confirmPassword: false,
+                terms: false
+            };
+            
+            // Password strength checker
+            function checkPasswordStrength(password) {
+                const strengthElement = document.getElementById('passwordStrength');
+                const fillElement = document.getElementById('strengthFill');
+                const textElement = document.getElementById('strengthText');
+                
+                if (password.length === 0) {
+                    strengthElement.classList.remove('show');
+                    validationStates.password = false;
+                    updateSubmitButton();
+                    return;
+                }
+                
+                strengthElement.classList.add('show');
+                
+                let score = 0;
+                let feedback = '';
+                
+                // Length check
+                if (password.length >= 8) score += 1;
+                else feedback = 'Kamida 8 ta belgi kerak';
+                
+                // Complexity checks
+                if (/[a-z]/.test(password)) score += 1;
+                if (/[A-Z]/.test(password)) score += 1;
+                if (/[0-9]/.test(password)) score += 1;
+                if (/[^A-Za-z0-9]/.test(password)) score += 1;
+                
+                // Update UI based on score
+                fillElement.className = 'strength-fill';
+                if (score <= 2) {
+                    fillElement.classList.add('strength-weak');
+                    textElement.textContent = feedback || 'Zaif parol';
+                    textElement.style.color = '#ff4444';
+                    validationStates.password = false;
+                } else if (score === 3) {
+                    fillElement.classList.add('strength-fair');
+                    textElement.textContent = 'O\'rtacha parol';
+                    textElement.style.color = '#ff9800';
+                    validationStates.password = true;
+                } else if (score === 4) {
+                    fillElement.classList.add('strength-good');
+                    textElement.textContent = 'Yaxshi parol';
+                    textElement.style.color = '#2196f3';
+                    validationStates.password = true;
+                } else {
+                    fillElement.classList.add('strength-strong');
+                    textElement.textContent = 'Kuchli parol';
+                    textElement.style.color = '#4caf50';
+                    validationStates.password = true;
+                }
+                
+                updateSubmitButton();
+            }
+            
+            // Confirm password checker
+            function checkPasswordConfirmation() {
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+                const errorElement = document.getElementById('confirm_passwordError');
+                const input = confirmPasswordInput;
+                
+                if (confirmPassword.length === 0) {
+                    validationStates.confirmPassword = false;
+                    updateSubmitButton();
+                    return;
+                }
+                
+                if (password === confirmPassword) {
+                    input.classList.remove('error');
+                    input.classList.add('success');
+                    errorElement.classList.remove('show');
+                    validationStates.confirmPassword = true;
+                } else {
+                    input.classList.remove('success');
+                    input.classList.add('error');
+                    errorElement.textContent = 'Parollar mos kelmaydi';
+                    errorElement.classList.add('show');
+                    validationStates.confirmPassword = false;
+                }
+                
+                updateSubmitButton();
+            }
+            
+            // Update submit button state
+            function updateSubmitButton() {
+                const allValid = Object.values(validationStates).every(state => state === true);
+                submitBtn.disabled = !allValid;
+            }
+            
+            // Event listeners
+            passwordInput.addEventListener('input', (e) => {
+                checkPasswordStrength(e.target.value);
+                if (confirmPasswordInput.value) {
+                    checkPasswordConfirmation();
+                }
+            });
+            
+            confirmPasswordInput.addEventListener('input', checkPasswordConfirmation);
+            
+            termsCheckbox.addEventListener('change', (e) => {
+                validationStates.terms = e.target.checked;
+                updateSubmitButton();
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                const btn = document.getElementById('signupBtn');
+                const btnText = btn.querySelector('.btn-text');
+                
+                btn.classList.add('btn-loading');
+                btn.disabled = true;
+                btnText.textContent = 'Ro\'yxatdan o\'tilmoqda...';
+            });
+            
+            // Clear errors on input
+            document.querySelectorAll('.form-input').forEach(input => {
+                input.addEventListener('input', function() {
+                    // Remove username and email from the condition since we're not checking availability anymore
+                    // if (this.id !== 'username' && this.id !== 'email' && this.id !== 'password' && this.id !== 'confirm_password') {
+                    if (this.id !== 'password' && this.id !== 'confirm_password') {
+                        this.classList.remove('error');
+                        const errorElement = document.getElementById(this.id + 'Error');
+                        if (errorElement) {
+                            errorElement.classList.remove('show');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

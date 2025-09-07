@@ -1,0 +1,313 @@
+/* Auth Modal Styles */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.auth-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.auth-modal-container {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+    /* Add padding for mobile devices to account for notch */
+    margin: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) 
+          env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+}
+
+.auth-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.auth-modal-close:hover {
+    color: #cc0000;
+}
+
+.auth-form {
+    display: none;
+    padding: 2.5rem;
+    padding-top: 3rem;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-logo {
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.auth-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #cc0000;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: #cc0000;
+}
+
+.form-options a {
+    color: #cc0000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-options a:hover {
+    color: #aa0000;
+    text-decoration: underline;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.auth-btn:hover:not(:disabled) {
+    background: #aa0000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(204, 0, 0, 0.3);
+}
+
+.auth-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+    color: #7f8c8d;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e1e1e1;
+    z-index: 1;
+}
+
+.auth-divider span {
+    background: white;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.auth-switch a {
+    color: #cc0000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.auth-switch a:hover {
+    color: #aa0000;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .auth-modal {
+        align-items: flex-start;
+        padding-top: 60px;
+        background: rgba(0, 0, 0, 0.95);
+    }
+    
+    .auth-modal-container {
+        max-width: 95%;
+        border-radius: 20px;
+        margin: 0 10px;
+        max-height: 95vh;
+    }
+    
+    .auth-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .auth-title {
+        font-size: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .auth-btn {
+        font-size: 1.1rem;
+        padding: 1.2rem;
+    }
+    
+    .auth-divider {
+        margin: 1rem 0;
+    }
+    
+    .auth-switch {
+        font-size: 0.85rem;
+    }
+    
+    .auth-modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 1.8rem;
+    }
+    
+    /* Add iOS 11+ safe area padding */
+    @supports (padding: max(0px)) {
+        .auth-modal-container {
+            margin: calc(10px + env(safe-area-inset-top)) 
+                    calc(10px + env(safe-area-inset-right)) 
+                    calc(10px + env(safe-area-inset-bottom)) 
+                    calc(10px + env(safe-area-inset-left));
+        }
+    }
+    
+    /* Force full screen on mobile when modal is open */
+    .auth-modal-open {
+        overflow: hidden;
+    }
+}
+
+/* Additional styles for modal scroll */
+.auth-modal-container {
+    /* Add smooth scrolling for long forms */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent body scroll when modal is open */
+.auth-modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}

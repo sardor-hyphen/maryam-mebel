@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"sdffsg" - Maryam Furniture Factory</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --color-primary: #cc0000;
+            --color-secondary: #990000;
+            --color-accent: #f4f1eb;
+            --color-white: #ffffff;
+            --color-black: #0f0f0f;
+            --color-dark: #1a1a1a;
+            --color-grey: #2a2a2a;
+            --color-light-grey: #888;
+            --color-red: linear-gradient(135deg, #cc0000, #ff0000);
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-medium: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.25);
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
+            color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInPage 1.2s 0.3s forwards cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Header */
+        .main-header {
+            padding: 20px 0; background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(204, 0, 0, 0.2);
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; transition: transform 0.3s ease; }
+        .logo:hover { transform: translateY(-2px); }
+        .logo svg { width: 50px; height: auto; filter: drop-shadow(0 4px 8px rgba(204, 0, 0, 0.3)); }
+        .logo-text { 
+            color: var(--color-white); font-family: var(--font-heading); font-weight: 700; font-size: 2rem;
+            background: var(--color-red); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a {
+            color: var(--color-white); text-decoration: none; font-weight: 500; font-size: 1rem;
+            position: relative; letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase; font-size: 0.9rem;
+        }
+        .nav-links a::before {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -8px; left: 50%;
+            background: var(--color-red); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 100%; }
+        .nav-links a:hover { color: var(--color-primary); transform: translateY(-2px); }
+
+        /* Product Section */
+        .product-section { padding: 80px 0; }
+        .product-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: flex-start; }
+        .product-gallery .main-image {
+            width: 100%; height: 500px; border-radius: 20px; object-fit: cover;
+            margin-bottom: 20px; box-shadow: var(--shadow-heavy); transition: transform 0.3s ease;
+        }
+        .product-gallery .main-image:hover { transform: scale(1.02); }
+        .thumbnail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .thumbnail-grid img {
+            width: 100%; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer;
+            border: 2px solid transparent; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-light);
+        }
+        .thumbnail-grid img:hover, .thumbnail-grid img.active { 
+            border-color: var(--color-primary); transform: scale(1.05); 
+            box-shadow: var(--shadow-medium);
+        }
+        .product-details h1 {
+            font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900;
+            line-height: 1.2; margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-primary) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .product-details .description { 
+            font-size: 1.2rem; color: var(--color-light-grey); margin-bottom: 40px; 
+            line-height: 1.8;
+        }
+        .details-list { list-style: none; margin-bottom: 40px; }
+        .details-list li { 
+            margin-bottom: 20px; font-size: 1.1rem; padding: 15px 0;
+            border-bottom: 1px solid rgba(204, 0, 0, 0.1);
+        }
+        .details-list li strong { color: var(--color-primary); margin-right: 15px; font-weight: 600; }
+        .cta-button {
+            display: inline-flex; align-items: center; gap: 12px; width: 100%; justify-content: center;
+            padding: 20px 40px; background: var(--color-red); color: var(--color-white);
+            text-decoration: none; font-family: var(--font-body); font-weight: 600; font-size: 1.1rem;
+            border-radius: 50px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase; letter-spacing: 1px; box-shadow: var(--shadow-medium);
+            position: relative; overflow: hidden;
+        }
+        .cta-button::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .cta-button:hover::before { left: 100%; }
+        .cta-button:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--shadow-heavy); }
+
+        /* Footer */
+        .main-footer {
+            padding: 80px 0 40px; background: linear-gradient(135deg, var(--color-black) 0%, var(--color-dark) 100%);
+            border-top: 1px solid rgba(204, 0, 0, 0.2); text-align: center; position: relative;
+        }
+        .main-footer::before {
+            content: ''; position: absolute; top: 0; left: 50%; width: 100px; height: 4px;
+            background: var(--color-red); transform: translateX(-50%);
+        }
+        .main-footer .logo { justify-content: center; margin-bottom: 30px; }
+        .main-footer p { color: var(--color-light-grey); font-size: 1rem; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) { .product-layout { grid-template-columns: 1fr; gap: 50px; } }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .product-details h1 { font-size: 2.5rem; }
+            .thumbnail-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="{{ url_for('index') }}" class="logo">
+                    <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 60L25 0L50 60H35L25 20L15 60H0Z" fill="#CC0000"/>
+                        <path d="M50 60L75 0L100 60H85L75 20L65 60H50Z" fill="#CC0000"/>
+                    </svg>
+                    <span class="logo-text">Maryam</span>
+                </a>
+                <div class="nav-links">
+                    <a href="{{ url_for('index') }}">Bosh Sahifa</a>
+                    <a href="{{ url_for('collection') }}" class="active">Kolleksiya</a>
+                    <a href="{{ url_for('contact') }}">Bog'lanish</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="product-section">
+        <div class="container">
+            <div class="product-layout">
+                <div class="product-gallery" data-aos="fade-right">
+                    <img src="/static/uploads/photo_2_2025-07-04_19-19-12.png" alt="Main product image" class="main-image" id="mainImage">
+                    <div class="thumbnail-grid">
+                        <img src="/static/uploads/photo_2_2025-07-04_19-19-12.png" alt="Thumbnail 1" class="active">
+                        <img src="/static/uploads/pexels-eberhardgross-1624438.jpg" alt="Thumbnail 2"><img src="/static/uploads/3d_landscape_mountain_sun_glow_forest_trees_digital_art-wallpaper-1280x720.jpg" alt="Thumbnail 3"><img src="/static/uploads/3d_landscape_mountain_sun_glow_forest_trees_digital_art-wallpaper-1280x720.jpg" alt="Thumbnail 4"><img src="/static/uploads/futuristic_geometric_shapes-wallpaper-1280x720.jpg" alt="Thumbnail 5">
+                    </div>
+                </div>
+                <div class="product-details" data-aos="fade-left">
+                    <h1>sdffsg</h1>
+                    <p class="description">sefsdfsdfs</p>
+                    <ul class="details-list">
+                        <li><strong>Material:</strong> <span>sfssdsd</span></li>
+                        <li><strong>Ishlab chiqarilgan yili:</strong> <span>2008</span></li>
+                        <li><strong>Kafolat:</strong> <span>2028</span></li>
+                        <li><strong>To'plamda:</strong> <span>4 ta stul. 6 ta qol</span></li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}" class="cta-button">
+                        <span>BUYURTMA BERISH</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="logo">
+                <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 60L25 0L50 60H35L25 20L15 60H0Z" fill="#CC0000"/>
+                    <path d="M50 60L75 0L100 60H85L75 20L65 60H50Z" fill="#CC0000"/>
+                </svg>
+            </a>
+            <p>&copy; 2025 Maryam Furniture Factory. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100
+            });
+
+            // Gallery functionality
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail-grid img');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
