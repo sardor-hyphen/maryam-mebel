@@ -1,0 +1,1293 @@
+2025-10-21 02:38:33,069 - app - INFO - Telegram libraries loaded successfully
+2025-10-21 02:38:33,073 - app - INFO - User management modules loaded successfully
+2025-10-21 02:38:33,628 - app - INFO - Route modules loaded successfully
+2025-10-21 02:38:33,630 - app - INFO - Utility modules loaded successfully
+2025-10-21 02:38:33,682 - app - INFO - App utilities initialized successfully
+2025-10-21 02:38:33,695 - app - INFO - Bot token configured: 8068468848...
+2025-10-21 02:38:33,700 - root - ERROR - Error running WSGI application
+2025-10-21 02:38:33,707 - root - ERROR - NameError: name 'user_manager' is not defined
+2025-10-21 02:38:33,707 - root - ERROR -   File "/var/www/sardor1ubaydiy_pythonanywhere_com_wsgi.py", line 16, in <module>
+2025-10-21 02:38:33,707 - root - ERROR -     from app import app as application
+2025-10-21 02:38:33,708 - root - ERROR - 
+2025-10-21 02:38:33,708 - root - ERROR -   File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 158, in <module>
+2025-10-21 02:38:33,708 - root - ERROR -     if user_manager:
+2025-10-21 02:38:33,708 - root - ERROR -        ^^^^^^^^^^^^
+2025-10-21 02:38:33,709 - root - ERROR - ***************************************************
+2025-10-21 02:38:33,709 - root - ERROR - If you're seeing an import error and don't know why,
+2025-10-21 02:38:33,709 - root - ERROR - we have a dedicated help page to help you debug: 
+2025-10-21 02:38:33,710 - root - ERROR - https://help.pythonanywhere.com/pages/DebuggingImportError/
+2025-10-21 02:38:33,710 - root - ERROR - ***************************************************
+2025-10-21 13:18:27,816 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-21 13:18:27,816 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-21 13:18:27,843 - __main__ - INFO - User management modules loaded successfully
+2025-10-21 13:18:27,843 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:18:27,844 - __main__ - INFO - Route modules loaded successfully
+2025-10-21 13:18:27,864 - __main__ - INFO - Utility modules loaded successfully
+2025-10-21 13:18:27,945 - __main__ - INFO - App utilities initialized successfully
+2025-10-21 13:18:27,945 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:18:27,945 - __main__ - ERROR - Failed to import admin modules: No module named 'admin'
+2025-10-21 13:18:27,950 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-21 13:18:27,963 - __main__ - INFO - Database setup completed successfully
+2025-10-21 13:23:38,922 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-21 13:23:38,924 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-21 13:23:38,927 - __main__ - INFO - User management modules loaded successfully
+2025-10-21 13:23:38,928 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:23:38,930 - __main__ - INFO - Route modules loaded successfully
+2025-10-21 13:23:38,932 - __main__ - INFO - Utility modules loaded successfully
+2025-10-21 13:23:38,970 - __main__ - INFO - App utilities initialized successfully
+2025-10-21 13:23:38,971 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:23:38,971 - __main__ - ERROR - Failed to import admin modules: No module named 'admin'
+2025-10-21 13:23:38,975 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-21 13:23:38,987 - __main__ - INFO - Database setup completed successfully
+2025-10-21 13:26:16,312 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-21 13:26:16,317 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-21 13:26:16,327 - __main__ - INFO - User management modules loaded successfully
+2025-10-21 13:26:16,328 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:26:16,329 - __main__ - INFO - Route modules loaded successfully
+2025-10-21 13:26:16,332 - __main__ - INFO - Utility modules loaded successfully
+2025-10-21 13:26:16,372 - __main__ - INFO - App utilities initialized successfully
+2025-10-21 13:26:16,373 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:26:16,373 - __main__ - ERROR - Failed to import admin modules: No module named 'admin'
+2025-10-21 13:26:16,377 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-21 13:26:16,396 - __main__ - INFO - Database setup completed successfully
+2025-10-21 13:27:20,578 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-21 13:27:20,578 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-21 13:27:20,583 - __main__ - INFO - User management modules loaded successfully
+2025-10-21 13:27:20,584 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:27:20,584 - __main__ - INFO - Route modules loaded successfully
+2025-10-21 13:27:20,587 - __main__ - INFO - Utility modules loaded successfully
+2025-10-21 13:27:20,627 - __main__ - INFO - App utilities initialized successfully
+2025-10-21 13:27:20,628 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:27:20,628 - __main__ - ERROR - Failed to import admin modules: No module named 'admin'
+2025-10-21 13:27:20,633 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-21 13:27:20,646 - __main__ - INFO - Database setup completed successfully
+2025-10-21 13:30:44,836 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-21 13:30:44,836 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-21 13:30:44,838 - __main__ - INFO - User management modules loaded successfully
+2025-10-21 13:30:44,838 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:30:44,838 - __main__ - INFO - Route modules loaded successfully
+2025-10-21 13:30:44,840 - __main__ - INFO - Utility modules loaded successfully
+2025-10-21 13:30:44,868 - __main__ - INFO - App utilities initialized successfully
+2025-10-21 13:30:44,868 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:30:44,869 - __main__ - ERROR - Failed to import admin modules: No module named 'admin'
+2025-10-21 13:30:44,873 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-21 13:30:44,882 - __main__ - INFO - Database setup completed successfully
+2025-10-21 13:30:44,889 - __main__ - INFO - --- [FLASK] Starting in development mode ---
+2025-10-21 13:30:44,890 - __main__ - ERROR - Telegram libraries not available. Skipping bot startup.
+2025-10-21 13:30:44,890 - __main__ - ERROR - Failed to start bot. Starting web server only.
+2025-10-21 13:55:43,131 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-21 13:55:43,131 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-21 13:55:43,135 - __main__ - INFO - User management modules loaded successfully
+2025-10-21 13:55:44,105 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:55:44,105 - __main__ - INFO - Route modules loaded successfully
+2025-10-21 13:55:44,108 - __main__ - INFO - Utility modules loaded successfully
+2025-10-21 13:55:44,152 - __main__ - INFO - App utilities initialized successfully
+2025-10-21 13:55:44,153 - __main__ - ERROR - Failed to import routes: No module named 'admin'
+2025-10-21 13:55:44,154 - __main__ - ERROR - Failed to import admin modules: No module named 'admin'
+2025-10-21 13:55:44,159 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-21 13:55:44,170 - __main__ - INFO - Database setup completed successfully
+2025-10-21 13:55:44,178 - __main__ - INFO - --- [FLASK] Starting in development mode ---
+2025-10-21 13:55:44,178 - __main__ - ERROR - Telegram libraries not available. Skipping bot startup.
+2025-10-21 13:55:44,178 - __main__ - ERROR - Failed to start bot. Starting web server only.
+2025-10-21 14:09:14,338 - app - INFO - Telegram libraries loaded successfully
+2025-10-21 14:09:14,342 - app - INFO - User management modules loaded successfully
+2025-10-21 14:09:15,236 - app - INFO - Route modules loaded successfully
+2025-10-21 14:09:15,238 - app - INFO - Utility modules loaded successfully
+2025-10-21 14:09:15,304 - app - INFO - App utilities initialized successfully
+2025-10-21 14:09:15,320 - app - INFO - Bot token configured: 8068468848...
+2025-10-21 14:09:15,335 - app - INFO - Database setup completed successfully
+2025-10-21 14:29:34,104 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 595, in favicon
+TypeError: send_from_directory() missing 1 required positional argument: 'path'
+2025-10-22 01:58:36,117 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-22 01:58:36,117 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-22 01:58:36,122 - __main__ - INFO - User management modules loaded successfully
+2025-10-22 01:58:36,563 - __main__ - INFO - Route modules loaded successfully
+2025-10-22 01:58:36,565 - __main__ - INFO - Utility modules loaded successfully
+2025-10-22 01:58:36,597 - __main__ - INFO - App utilities initialized successfully
+2025-10-22 01:58:36,606 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-22 01:58:36,614 - __main__ - INFO - Database setup completed successfully
+2025-10-22 01:58:36,621 - __main__ - INFO - --- [FLASK] Starting in development mode ---
+2025-10-22 01:58:36,621 - __main__ - ERROR - Telegram libraries not available. Skipping bot startup.
+2025-10-22 01:58:36,621 - __main__ - ERROR - Failed to start bot. Starting web server only.
+2025-10-22 01:58:36,701 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.0.4.104:5001
+2025-10-22 01:58:36,701 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-22 01:58:36,719 - werkzeug - INFO -  * Restarting with stat
+2025-10-22 01:59:35,572 - app - INFO - Telegram libraries loaded successfully
+2025-10-22 01:59:35,576 - app - INFO - User management modules loaded successfully
+2025-10-22 01:59:36,070 - app - INFO - Route modules loaded successfully
+2025-10-22 01:59:36,072 - app - INFO - Utility modules loaded successfully
+2025-10-22 01:59:36,115 - app - INFO - App utilities initialized successfully
+2025-10-22 01:59:36,127 - app - INFO - Bot token configured: 8068468848...
+2025-10-22 01:59:36,219 - app - INFO - Database setup completed successfully
+2025-10-22 01:59:42,797 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 595, in favicon
+    return send_from_directory(os.path.join(app.root_path, 'static', 'favicon.ico'), mimetype='image/vnd.microsoft.icon')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_from_directory() missing 1 required positional argument: 'path'
+2025-10-22 02:00:03,698 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 595, in favicon
+    return send_from_directory(os.path.join(app.root_path, 'static', 'favicon.ico'), mimetype='image/vnd.microsoft.icon')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_from_directory() missing 1 required positional argument: 'path'
+2025-10-22 02:00:07,608 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 595, in favicon
+    return send_from_directory(os.path.join(app.root_path, 'static', 'favicon.ico'), mimetype='image/vnd.microsoft.icon')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_from_directory() missing 1 required positional argument: 'path'
+2025-10-22 02:23:50,690 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 595, in favicon
+    return send_from_directory(os.path.join(app.root_path, 'static', 'favicon.ico'), mimetype='image/vnd.microsoft.icon')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_from_directory() missing 1 required positional argument: 'path'
+2025-10-22 02:26:02,371 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-22 02:26:02,372 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-22 02:26:02,374 - __main__ - INFO - User management modules loaded successfully
+2025-10-22 02:26:03,416 - __main__ - INFO - Route modules loaded successfully
+2025-10-22 02:26:03,417 - __main__ - INFO - Utility modules loaded successfully
+2025-10-22 02:26:03,459 - __main__ - INFO - App utilities initialized successfully
+2025-10-22 02:26:03,481 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-22 02:26:03,492 - __main__ - INFO - Database setup completed successfully
+2025-10-22 02:26:03,505 - __main__ - INFO - --- [FLASK] Starting in development mode ---
+2025-10-22 02:26:03,505 - __main__ - ERROR - Telegram libraries not available. Skipping bot startup.
+2025-10-22 02:26:03,508 - __main__ - ERROR - Failed to start bot. Starting web server only.
+2025-10-22 02:26:03,535 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.0.4.104:5001
+2025-10-22 02:26:03,537 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-22 02:26:03,540 - werkzeug - INFO -  * Restarting with stat
+2025-10-22 02:26:27,256 - __main__ - ERROR - Telegram libraries not available: No module named 'imghdr'
+2025-10-22 02:26:27,256 - __main__ - ERROR - Webhook functionality will be disabled.
+2025-10-22 02:26:27,257 - __main__ - INFO - User management modules loaded successfully
+2025-10-22 02:26:27,777 - __main__ - INFO - Route modules loaded successfully
+2025-10-22 02:26:27,777 - __main__ - INFO - Utility modules loaded successfully
+2025-10-22 02:26:27,804 - __main__ - INFO - App utilities initialized successfully
+2025-10-22 02:26:27,811 - __main__ - INFO - Bot token configured: 8068468848...
+2025-10-22 02:26:27,817 - __main__ - INFO - Database setup completed successfully
+2025-10-22 02:26:27,821 - __main__ - INFO - --- [FLASK] Starting in development mode ---
+2025-10-22 02:26:27,821 - __main__ - ERROR - Telegram libraries not available. Skipping bot startup.
+2025-10-22 02:26:27,821 - __main__ - ERROR - Failed to start bot. Starting web server only.
+2025-10-22 02:26:27,829 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.0.4.104:5001
+2025-10-22 02:26:27,829 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-22 02:26:27,831 - werkzeug - INFO -  * Restarting with stat
+2025-10-22 02:29:08,359 - app - INFO - Telegram libraries loaded successfully
+2025-10-22 02:29:08,368 - app - INFO - User management modules loaded successfully
+2025-10-22 02:29:09,204 - app - INFO - Route modules loaded successfully
+2025-10-22 02:29:09,206 - app - INFO - Utility modules loaded successfully
+2025-10-22 02:29:09,242 - app - INFO - App utilities initialized successfully
+2025-10-22 02:29:09,253 - app - INFO - Bot token configured: 8068468848...
+2025-10-22 02:29:09,354 - app - INFO - Database setup completed successfully
+2025-10-22 02:40:47,980 - app - INFO - Telegram libraries loaded successfully
+2025-10-22 02:40:47,984 - app - INFO - User management modules loaded successfully
+2025-10-22 02:40:48,743 - app - INFO - Route modules loaded successfully
+2025-10-22 02:40:48,745 - app - INFO - Utility modules loaded successfully
+2025-10-22 02:40:48,799 - app - INFO - App utilities initialized successfully
+2025-10-22 02:40:48,823 - app - INFO - Bot token configured: 8068468848...
+2025-10-22 02:40:48,838 - app - INFO - Database setup completed successfully
+2025-10-22 17:45:14,332 - app - INFO - Telegram libraries loaded successfully
+2025-10-22 17:45:14,336 - app - INFO - User management modules loaded successfully
+2025-10-22 17:45:14,845 - app - INFO - Route modules loaded successfully
+2025-10-22 17:45:14,847 - app - INFO - Utility modules loaded successfully
+2025-10-22 17:45:14,914 - app - INFO - App utilities initialized successfully
+2025-10-22 17:45:14,925 - app - INFO - Bot token configured: 8068468848...
+2025-10-22 17:45:15,119 - app - INFO - Database setup completed successfully
+2025-10-23 15:07:48,854 - app - INFO - Telegram libraries loaded successfully
+2025-10-23 15:07:48,860 - app - INFO - User management modules loaded successfully
+2025-10-23 15:07:49,972 - app - INFO - Route modules loaded successfully
+2025-10-23 15:07:49,974 - app - INFO - Utility modules loaded successfully
+2025-10-23 15:07:50,053 - app - INFO - App utilities initialized successfully
+2025-10-23 15:07:50,069 - app - INFO - Bot token configured: 8068468848...
+2025-10-23 15:07:50,081 - app - INFO - Database setup completed successfully
+2025-10-23 15:46:58,879 - app - INFO - Telegram libraries loaded successfully
+2025-10-23 15:46:58,885 - app - INFO - User management modules loaded successfully
+2025-10-23 15:47:00,618 - app - INFO - Route modules loaded successfully
+2025-10-23 15:47:00,621 - app - INFO - Utility modules loaded successfully
+2025-10-23 15:47:00,764 - app - INFO - App utilities initialized successfully
+2025-10-23 15:47:00,802 - app - INFO - Bot token configured: 8068468848...
+2025-10-23 15:47:00,993 - app - INFO - Database setup completed successfully
+2025-10-23 16:01:07,602 - app - INFO - Telegram libraries loaded successfully
+2025-10-23 16:01:07,609 - app - INFO - User management modules loaded successfully
+2025-10-23 16:01:09,982 - app - INFO - Route modules loaded successfully
+2025-10-23 16:01:09,987 - app - INFO - Utility modules loaded successfully
+2025-10-23 16:01:10,098 - app - INFO - App utilities initialized successfully
+2025-10-23 16:01:10,140 - app - INFO - Bot token configured: 8068468848...
+2025-10-23 16:01:10,156 - app - INFO - Database setup completed successfully
+2025-11-02 13:27:23,089 - app - INFO - Telegram libraries loaded successfully
+2025-11-02 13:27:23,095 - app - INFO - User management modules loaded successfully
+2025-11-02 13:27:23,638 - app - INFO - Route modules loaded successfully
+2025-11-02 13:27:23,640 - app - INFO - Utility modules loaded successfully
+2025-11-02 13:27:23,723 - app - INFO - App utilities initialized successfully
+2025-11-02 13:27:23,737 - app - INFO - Bot token configured: 8068468848...
+2025-11-02 13:27:23,851 - app - INFO - Database setup completed successfully
+2025-11-04 04:09:42,977 - app - INFO - Telegram libraries loaded successfully
+2025-11-04 04:09:42,983 - app - INFO - User management modules loaded successfully
+2025-11-04 04:09:43,544 - app - INFO - Route modules loaded successfully
+2025-11-04 04:09:43,546 - app - INFO - Utility modules loaded successfully
+2025-11-04 04:09:43,592 - app - INFO - App utilities initialized successfully
+2025-11-04 04:09:43,601 - app - INFO - Bot token configured: 8068468848...
+2025-11-04 04:09:43,623 - app - INFO - Database setup completed successfully
+2025-11-04 04:15:47,012 - app - INFO - Telegram libraries loaded successfully
+2025-11-04 04:15:47,018 - app - INFO - User management modules loaded successfully
+2025-11-04 04:15:47,488 - app - INFO - Route modules loaded successfully
+2025-11-04 04:15:47,490 - app - INFO - Utility modules loaded successfully
+2025-11-04 04:15:47,532 - app - INFO - App utilities initialized successfully
+2025-11-04 04:15:47,540 - app - INFO - Bot token configured: 8068468848...
+2025-11-04 04:15:47,560 - app - INFO - Database setup completed successfully
+2025-11-04 16:19:52,853 - app - INFO - Telegram libraries loaded successfully
+2025-11-04 16:19:52,859 - app - INFO - User management modules loaded successfully
+2025-11-04 16:19:53,895 - app - INFO - Route modules loaded successfully
+2025-11-04 16:19:53,897 - app - INFO - Utility modules loaded successfully
+2025-11-04 16:19:53,963 - app - INFO - App utilities initialized successfully
+2025-11-04 16:19:53,976 - app - INFO - Bot token configured: 8068468848...
+2025-11-04 16:19:53,998 - app - INFO - Database setup completed successfully
+2025-11-05 10:43:50,200 - app - INFO - Telegram libraries loaded successfully
+2025-11-05 10:43:50,205 - app - INFO - User management modules loaded successfully
+2025-11-05 10:43:50,708 - app - INFO - Route modules loaded successfully
+2025-11-05 10:43:50,711 - app - INFO - Utility modules loaded successfully
+2025-11-05 10:43:50,762 - app - INFO - App utilities initialized successfully
+2025-11-05 10:43:50,772 - app - INFO - Bot token configured: 8068468848...
+2025-11-05 10:43:50,793 - app - INFO - Database setup completed successfully
+2025-11-06 12:17:50,917 - app - INFO - Telegram libraries loaded successfully
+2025-11-06 12:17:50,923 - app - INFO - User management modules loaded successfully
+2025-11-06 12:17:51,532 - app - INFO - Route modules loaded successfully
+2025-11-06 12:17:51,534 - app - INFO - Utility modules loaded successfully
+2025-11-06 12:17:51,591 - app - INFO - App utilities initialized successfully
+2025-11-06 12:17:51,601 - app - INFO - Bot token configured: 8068468848...
+2025-11-06 12:17:51,617 - app - INFO - Database setup completed successfully
+2025-11-12 14:44:46,622 - root - ERROR - OSError: write error
+2025-11-16 05:14:24,792 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 05:14:24,798 - app - INFO - User management modules loaded successfully
+2025-11-16 05:14:25,525 - app - INFO - Route modules loaded successfully
+2025-11-16 05:14:25,527 - app - INFO - Utility modules loaded successfully
+2025-11-16 05:14:25,596 - app - INFO - App utilities initialized successfully
+2025-11-16 05:14:25,611 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 05:14:25,634 - app - INFO - Database setup completed successfully
+2025-11-16 05:41:55,036 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 05:41:55,039 - app - INFO - User management modules loaded successfully
+2025-11-16 05:41:55,678 - app - INFO - Route modules loaded successfully
+2025-11-16 05:41:55,680 - app - INFO - Utility modules loaded successfully
+2025-11-16 05:41:55,720 - app - INFO - App utilities initialized successfully
+2025-11-16 05:41:55,732 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 05:41:55,748 - app - INFO - Database setup completed successfully
+2025-11-16 07:15:18,357 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 07:15:18,361 - app - INFO - User management modules loaded successfully
+2025-11-16 07:15:18,876 - app - INFO - Route modules loaded successfully
+2025-11-16 07:15:18,877 - app - INFO - Utility modules loaded successfully
+2025-11-16 07:15:18,916 - app - INFO - App utilities initialized successfully
+2025-11-16 07:15:18,926 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 07:15:18,940 - app - INFO - Database setup completed successfully
+2025-11-16 07:24:47,621 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 07:24:47,624 - app - INFO - User management modules loaded successfully
+2025-11-16 07:24:48,221 - app - INFO - Route modules loaded successfully
+2025-11-16 07:24:48,222 - app - INFO - Utility modules loaded successfully
+2025-11-16 07:24:48,257 - app - INFO - App utilities initialized successfully
+2025-11-16 07:24:48,267 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 07:24:48,284 - app - INFO - Database setup completed successfully
+2025-11-16 08:21:05,870 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 08:21:05,874 - app - INFO - User management modules loaded successfully
+2025-11-16 08:21:06,460 - app - INFO - Route modules loaded successfully
+2025-11-16 08:21:06,461 - app - INFO - Utility modules loaded successfully
+2025-11-16 08:21:06,494 - app - INFO - App utilities initialized successfully
+2025-11-16 08:21:06,506 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 08:21:06,522 - app - INFO - Database setup completed successfully
+2025-11-16 09:24:51,277 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 09:24:51,281 - app - INFO - User management modules loaded successfully
+2025-11-16 09:24:51,752 - app - INFO - Route modules loaded successfully
+2025-11-16 09:24:51,753 - app - INFO - Utility modules loaded successfully
+2025-11-16 09:24:51,788 - app - INFO - App utilities initialized successfully
+2025-11-16 09:24:51,799 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 09:24:51,815 - app - INFO - Database setup completed successfully
+2025-11-16 15:33:28,712 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 15:33:28,718 - app - INFO - User management modules loaded successfully
+2025-11-16 15:33:29,455 - app - INFO - Route modules loaded successfully
+2025-11-16 15:33:29,457 - app - INFO - Utility modules loaded successfully
+2025-11-16 15:33:29,507 - app - INFO - App utilities initialized successfully
+2025-11-16 15:33:29,519 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 15:33:29,537 - app - INFO - Database setup completed successfully
+2025-11-16 16:09:22,671 - app - INFO - Telegram libraries loaded successfully
+2025-11-16 16:09:22,675 - app - INFO - User management modules loaded successfully
+2025-11-16 16:09:23,252 - app - INFO - Route modules loaded successfully
+2025-11-16 16:09:23,254 - app - INFO - Utility modules loaded successfully
+2025-11-16 16:09:23,313 - app - INFO - App utilities initialized successfully
+2025-11-16 16:09:23,326 - app - INFO - Bot token configured: 8068468848...
+2025-11-16 16:09:23,341 - app - INFO - Database setup completed successfully
+2025-11-17 14:34:11,913 - app - INFO - Telegram libraries loaded successfully
+2025-11-17 14:34:11,918 - app - INFO - User management modules loaded successfully
+2025-11-17 14:34:12,430 - app - INFO - Route modules loaded successfully
+2025-11-17 14:34:12,432 - app - INFO - Utility modules loaded successfully
+2025-11-17 14:34:12,488 - app - INFO - App utilities initialized successfully
+2025-11-17 14:34:12,499 - app - INFO - Bot token configured: 8068468848...
+2025-11-17 14:34:12,516 - app - INFO - Database setup completed successfully
+2025-11-18 17:52:41,344 - app - INFO - Telegram libraries loaded successfully
+2025-11-18 17:52:41,350 - app - INFO - User management modules loaded successfully
+2025-11-18 17:52:42,023 - app - INFO - Route modules loaded successfully
+2025-11-18 17:52:42,025 - app - INFO - Utility modules loaded successfully
+2025-11-18 17:52:42,080 - app - INFO - App utilities initialized successfully
+2025-11-18 17:52:42,098 - app - INFO - Bot token configured: 8068468848...
+2025-11-18 17:52:42,118 - app - INFO - Database setup completed successfully
+2025-11-20 12:11:30,292 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 12:11:30,298 - app - INFO - User management modules loaded successfully
+2025-11-20 12:11:30,877 - app - INFO - Route modules loaded successfully
+2025-11-20 12:11:30,879 - app - INFO - Utility modules loaded successfully
+2025-11-20 12:11:30,935 - app - INFO - App utilities initialized successfully
+2025-11-20 12:11:30,951 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 12:11:30,970 - app - INFO - Database setup completed successfully
+2025-11-20 12:28:27,449 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 12:28:27,452 - app - INFO - User management modules loaded successfully
+2025-11-20 12:28:28,027 - app - INFO - Route modules loaded successfully
+2025-11-20 12:28:28,031 - app - INFO - Utility modules loaded successfully
+2025-11-20 12:28:28,065 - app - INFO - App utilities initialized successfully
+2025-11-20 12:28:28,076 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 12:28:28,090 - app - INFO - Database setup completed successfully
+2025-11-20 13:38:35,997 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 13:38:36,001 - app - INFO - User management modules loaded successfully
+2025-11-20 13:38:36,523 - app - INFO - Route modules loaded successfully
+2025-11-20 13:38:36,525 - app - INFO - Utility modules loaded successfully
+2025-11-20 13:38:36,561 - app - INFO - App utilities initialized successfully
+2025-11-20 13:38:36,571 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 13:38:36,588 - app - INFO - Database setup completed successfully
+2025-11-20 14:17:40,398 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 14:17:40,401 - app - INFO - User management modules loaded successfully
+2025-11-20 14:17:40,905 - app - INFO - Route modules loaded successfully
+2025-11-20 14:17:40,906 - app - INFO - Utility modules loaded successfully
+2025-11-20 14:17:40,952 - app - INFO - App utilities initialized successfully
+2025-11-20 14:17:40,963 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 14:17:40,979 - app - INFO - Database setup completed successfully
+2025-11-20 14:43:57,821 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 14:43:57,824 - app - INFO - User management modules loaded successfully
+2025-11-20 14:43:58,404 - app - INFO - Route modules loaded successfully
+2025-11-20 14:43:58,408 - app - INFO - Utility modules loaded successfully
+2025-11-20 14:43:58,449 - app - INFO - App utilities initialized successfully
+2025-11-20 14:43:58,461 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 14:43:58,479 - app - INFO - Database setup completed successfully
+2025-11-20 15:23:42,204 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 15:23:42,207 - app - INFO - User management modules loaded successfully
+2025-11-20 15:23:43,015 - app - INFO - Route modules loaded successfully
+2025-11-20 15:23:43,016 - app - INFO - Utility modules loaded successfully
+2025-11-20 15:23:43,053 - app - INFO - App utilities initialized successfully
+2025-11-20 15:23:43,063 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 15:23:43,078 - app - INFO - Database setup completed successfully
+2025-11-20 15:24:55,158 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 15:24:55,161 - app - INFO - User management modules loaded successfully
+2025-11-20 15:24:56,051 - app - INFO - Route modules loaded successfully
+2025-11-20 15:24:56,055 - app - INFO - Utility modules loaded successfully
+2025-11-20 15:24:56,125 - app - INFO - App utilities initialized successfully
+2025-11-20 15:24:56,163 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 15:24:56,186 - app - INFO - Database setup completed successfully
+2025-11-20 16:32:34,952 - app - INFO - Telegram libraries loaded successfully
+2025-11-20 16:32:34,968 - app - INFO - User management modules loaded successfully
+2025-11-20 16:32:39,734 - app - INFO - Route modules loaded successfully
+2025-11-20 16:32:39,739 - app - INFO - Utility modules loaded successfully
+2025-11-20 16:32:40,041 - app - INFO - App utilities initialized successfully
+2025-11-20 16:32:40,186 - app - INFO - Bot token configured: 8068468848...
+2025-11-20 16:32:40,250 - app - INFO - Database setup completed successfully
+2025-11-20 16:32:41,064 - root - ERROR - OSError: write error
+2025-11-20 16:32:41,136 - root - ERROR - OSError: write error
+2025-11-26 13:05:28,560 - app - INFO - Telegram libraries loaded successfully
+2025-11-26 13:05:28,565 - app - INFO - User management modules loaded successfully
+2025-11-26 13:05:29,237 - app - INFO - Route modules loaded successfully
+2025-11-26 13:05:29,241 - app - INFO - Utility modules loaded successfully
+2025-11-26 13:05:29,319 - app - INFO - App utilities initialized successfully
+2025-11-26 13:05:29,351 - app - INFO - Bot token configured: 8068468848...
+2025-11-26 13:05:29,391 - app - INFO - Database setup completed successfully
+2025-11-26 13:09:46,633 - app - INFO - Telegram libraries loaded successfully
+2025-11-26 13:09:46,637 - app - INFO - User management modules loaded successfully
+2025-11-26 13:09:47,168 - app - INFO - Route modules loaded successfully
+2025-11-26 13:09:47,169 - app - INFO - Utility modules loaded successfully
+2025-11-26 13:09:47,207 - app - INFO - App utilities initialized successfully
+2025-11-26 13:09:47,217 - app - INFO - Bot token configured: 8068468848...
+2025-11-26 13:09:47,232 - app - INFO - Database setup completed successfully
+2025-11-26 13:36:54,100 - app - INFO - Telegram libraries loaded successfully
+2025-11-26 13:36:54,104 - app - INFO - User management modules loaded successfully
+2025-11-26 13:36:54,749 - app - INFO - Route modules loaded successfully
+2025-11-26 13:36:54,750 - app - INFO - Utility modules loaded successfully
+2025-11-26 13:36:54,791 - app - INFO - App utilities initialized successfully
+2025-11-26 13:36:54,807 - app - INFO - Bot token configured: 8068468848...
+2025-11-26 13:36:54,826 - app - INFO - Database setup completed successfully
+2025-11-26 13:50:28,730 - app - INFO - Telegram libraries loaded successfully
+2025-11-26 13:50:28,734 - app - INFO - User management modules loaded successfully
+2025-11-26 13:50:29,391 - app - INFO - Route modules loaded successfully
+2025-11-26 13:50:29,392 - app - INFO - Utility modules loaded successfully
+2025-11-26 13:50:29,433 - app - INFO - App utilities initialized successfully
+2025-11-26 13:50:29,445 - app - INFO - Bot token configured: 8068468848...
+2025-11-26 13:50:29,460 - app - INFO - Database setup completed successfully
+2025-11-26 13:58:14,577 - app - INFO - Telegram libraries loaded successfully
+2025-11-26 13:58:14,581 - app - INFO - User management modules loaded successfully
+2025-11-26 13:58:15,174 - app - INFO - Route modules loaded successfully
+2025-11-26 13:58:15,176 - app - INFO - Utility modules loaded successfully
+2025-11-26 13:58:15,215 - app - INFO - App utilities initialized successfully
+2025-11-26 13:58:15,226 - app - INFO - Bot token configured: 8068468848...
+2025-11-26 13:58:15,242 - app - INFO - Database setup completed successfully
+2025-11-26 14:00:33,038 - app - INFO - Telegram libraries loaded successfully
+2025-11-26 14:00:33,041 - app - INFO - User management modules loaded successfully
+2025-11-26 14:00:33,766 - app - INFO - Route modules loaded successfully
+2025-11-26 14:00:33,769 - app - INFO - Utility modules loaded successfully
+2025-11-26 14:00:33,821 - app - INFO - App utilities initialized successfully
+2025-11-26 14:00:33,836 - app - INFO - Bot token configured: 8068468848...
+2025-11-26 14:00:33,858 - app - INFO - Database setup completed successfully
+2025-11-30 14:38:20,083 - app - INFO - Telegram libraries loaded successfully
+2025-11-30 14:38:20,093 - app - INFO - User management modules loaded successfully
+2025-11-30 14:38:20,666 - app - INFO - Route modules loaded successfully
+2025-11-30 14:38:20,669 - app - INFO - Utility modules loaded successfully
+2025-11-30 14:38:20,732 - app - INFO - App utilities initialized successfully
+2025-11-30 14:38:20,746 - app - INFO - Bot token configured: 8068468848...
+2025-11-30 14:38:20,765 - app - INFO - Database setup completed successfully
+2025-11-30 17:04:13,420 - app - INFO - Telegram libraries loaded successfully
+2025-11-30 17:04:13,424 - app - INFO - User management modules loaded successfully
+2025-11-30 17:04:14,361 - app - INFO - Route modules loaded successfully
+2025-11-30 17:04:14,363 - app - INFO - Utility modules loaded successfully
+2025-11-30 17:04:14,421 - app - INFO - App utilities initialized successfully
+2025-11-30 17:04:14,436 - app - INFO - Bot token configured: 8068468848...
+2025-11-30 17:04:14,459 - app - INFO - Database setup completed successfully
+2025-11-30 17:15:04,139 - app - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 1368, in login
+    return render_template('auth/login.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/auth/login.html", line 265, in top-level template code
+    <form id="loginForm" method="POST" action="{{ url_for('main.login') }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login'. Did you mean 'admin.login' instead?
+2025-11-30 17:15:07,334 - app - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/app.py", line 1368, in login
+    return render_template('auth/login.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/auth/login.html", line 265, in top-level template code
+    <form id="loginForm" method="POST" action="{{ url_for('main.login') }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login'. Did you mean 'admin.login' instead?
+2025-12-01 12:25:46,459 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 12:25:46,464 - app - INFO - User management modules loaded successfully
+2025-12-01 12:25:47,003 - app - INFO - Route modules loaded successfully
+2025-12-01 12:25:47,006 - app - INFO - Utility modules loaded successfully
+2025-12-01 12:25:47,067 - app - INFO - App utilities initialized successfully
+2025-12-01 12:25:47,080 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 12:25:47,099 - app - INFO - Database setup completed successfully
+2025-12-01 12:25:50,581 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:25:53,768 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:25:56,687 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:26:02,267 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:26:26,850 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 12:26:26,862 - app - INFO - User management modules loaded successfully
+2025-12-01 12:26:28,054 - app - INFO - Route modules loaded successfully
+2025-12-01 12:26:28,057 - app - INFO - Utility modules loaded successfully
+2025-12-01 12:26:28,099 - app - INFO - App utilities initialized successfully
+2025-12-01 12:26:28,109 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 12:26:28,127 - app - INFO - Database setup completed successfully
+2025-12-01 12:26:31,805 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:26:35,217 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:26:40,670 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:32:07,034 - app - ERROR - Exception on /collection [GET]
+Traceback (most recent call last):
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/routes/main.py", line 27, in collection
+    return render_template('collection.html', products=products)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sardor1ubaydiy/mysite/maryam-mebel/MARYAM MEBEL/backend/templates/collection.html", line 251, in top-level template code
+    const allProductsData = JSON.parse('{{ products | tojson | safe }}');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/filters.py", line 1721, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/jinja2/utils.py", line 669, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/sardor1ubaydiy/.virtualenvs/maryam-mebel-env/lib/python3.12/site-packages/flask/json/provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Product is not JSON serializable
+2025-12-01 12:32:42,776 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 12:32:42,781 - app - INFO - User management modules loaded successfully
+2025-12-01 12:32:43,499 - app - INFO - Route modules loaded successfully
+2025-12-01 12:32:43,502 - app - INFO - Utility modules loaded successfully
+2025-12-01 12:32:43,565 - app - INFO - App utilities initialized successfully
+2025-12-01 12:32:43,590 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 12:32:43,622 - app - INFO - Database setup completed successfully
+2025-12-01 13:05:34,118 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:05:34,124 - app - INFO - User management modules loaded successfully
+2025-12-01 13:05:35,115 - app - INFO - Route modules loaded successfully
+2025-12-01 13:05:35,120 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:05:35,184 - app - INFO - App utilities initialized successfully
+2025-12-01 13:05:35,198 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:05:35,219 - app - INFO - Database setup completed successfully
+2025-12-01 13:20:58,671 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:20:58,674 - app - INFO - User management modules loaded successfully
+2025-12-01 13:20:59,216 - app - INFO - Route modules loaded successfully
+2025-12-01 13:20:59,218 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:20:59,269 - app - INFO - App utilities initialized successfully
+2025-12-01 13:20:59,280 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:20:59,297 - app - INFO - Database setup completed successfully
+2025-12-01 13:21:50,524 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:21:50,527 - app - INFO - User management modules loaded successfully
+2025-12-01 13:21:51,006 - app - INFO - Route modules loaded successfully
+2025-12-01 13:21:51,008 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:21:51,062 - app - INFO - App utilities initialized successfully
+2025-12-01 13:21:51,074 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:21:51,091 - app - INFO - Database setup completed successfully
+2025-12-01 13:23:09,574 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:23:09,578 - app - INFO - User management modules loaded successfully
+2025-12-01 13:23:10,219 - app - INFO - Route modules loaded successfully
+2025-12-01 13:23:10,220 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:23:10,261 - app - INFO - App utilities initialized successfully
+2025-12-01 13:23:10,271 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:23:10,287 - app - INFO - Database setup completed successfully
+2025-12-01 13:30:33,423 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:30:33,426 - app - INFO - User management modules loaded successfully
+2025-12-01 13:30:33,945 - app - INFO - Route modules loaded successfully
+2025-12-01 13:30:33,947 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:30:33,979 - app - INFO - App utilities initialized successfully
+2025-12-01 13:30:33,989 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:30:34,005 - app - INFO - Database setup completed successfully
+2025-12-01 13:30:57,028 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:30:57,032 - app - INFO - User management modules loaded successfully
+2025-12-01 13:30:57,651 - app - INFO - Route modules loaded successfully
+2025-12-01 13:30:57,652 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:30:57,681 - app - INFO - App utilities initialized successfully
+2025-12-01 13:30:57,691 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:30:57,706 - app - INFO - Database setup completed successfully
+2025-12-01 13:36:11,275 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:36:11,283 - app - INFO - User management modules loaded successfully
+2025-12-01 13:36:12,230 - app - INFO - Route modules loaded successfully
+2025-12-01 13:36:12,232 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:36:12,286 - app - INFO - App utilities initialized successfully
+2025-12-01 13:36:12,309 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:36:12,340 - app - INFO - Database setup completed successfully
+2025-12-01 13:37:24,725 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:37:24,728 - app - INFO - User management modules loaded successfully
+2025-12-01 13:37:25,432 - app - INFO - Route modules loaded successfully
+2025-12-01 13:37:25,433 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:37:25,466 - app - INFO - App utilities initialized successfully
+2025-12-01 13:37:25,478 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:37:25,496 - app - INFO - Database setup completed successfully
+2025-12-01 13:38:21,297 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:38:21,300 - app - INFO - User management modules loaded successfully
+2025-12-01 13:38:23,314 - app - INFO - Route modules loaded successfully
+2025-12-01 13:38:23,316 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:38:23,363 - app - INFO - App utilities initialized successfully
+2025-12-01 13:38:23,380 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:38:23,403 - app - INFO - Database setup completed successfully
+2025-12-01 13:38:45,487 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:38:45,490 - app - INFO - User management modules loaded successfully
+2025-12-01 13:38:45,989 - app - INFO - Route modules loaded successfully
+2025-12-01 13:38:45,990 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:38:46,024 - app - INFO - App utilities initialized successfully
+2025-12-01 13:38:46,036 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:38:46,051 - app - INFO - Database setup completed successfully
+2025-12-01 13:39:50,578 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:39:50,582 - app - INFO - User management modules loaded successfully
+2025-12-01 13:39:51,096 - app - INFO - Route modules loaded successfully
+2025-12-01 13:39:51,098 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:39:51,135 - app - INFO - App utilities initialized successfully
+2025-12-01 13:39:51,147 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:39:51,164 - app - INFO - Database setup completed successfully
+2025-12-01 13:40:18,903 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:40:18,905 - app - INFO - User management modules loaded successfully
+2025-12-01 13:40:19,395 - app - INFO - Route modules loaded successfully
+2025-12-01 13:40:19,396 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:40:19,427 - app - INFO - App utilities initialized successfully
+2025-12-01 13:40:19,436 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:40:19,451 - app - INFO - Database setup completed successfully
+2025-12-01 13:41:56,131 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:41:56,134 - app - INFO - User management modules loaded successfully
+2025-12-01 13:41:56,606 - app - INFO - Route modules loaded successfully
+2025-12-01 13:41:56,607 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:41:56,648 - app - INFO - App utilities initialized successfully
+2025-12-01 13:41:56,659 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:41:56,675 - app - INFO - Database setup completed successfully
+2025-12-01 13:43:24,195 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:43:24,198 - app - INFO - User management modules loaded successfully
+2025-12-01 13:43:24,917 - app - INFO - Route modules loaded successfully
+2025-12-01 13:43:24,919 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:43:24,966 - app - INFO - App utilities initialized successfully
+2025-12-01 13:43:24,984 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:43:25,007 - app - INFO - Database setup completed successfully
+2025-12-01 13:44:31,569 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:44:31,573 - app - INFO - User management modules loaded successfully
+2025-12-01 13:44:32,046 - app - INFO - Route modules loaded successfully
+2025-12-01 13:44:32,048 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:44:32,080 - app - INFO - App utilities initialized successfully
+2025-12-01 13:44:32,093 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:44:32,110 - app - INFO - Database setup completed successfully
+2025-12-01 13:45:23,203 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:45:23,205 - app - INFO - User management modules loaded successfully
+2025-12-01 13:45:23,749 - app - INFO - Route modules loaded successfully
+2025-12-01 13:45:23,750 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:45:23,790 - app - INFO - App utilities initialized successfully
+2025-12-01 13:45:23,805 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:45:23,822 - app - INFO - Database setup completed successfully
+2025-12-01 13:45:44,014 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:45:44,016 - app - INFO - User management modules loaded successfully
+2025-12-01 13:45:44,539 - app - INFO - Route modules loaded successfully
+2025-12-01 13:45:44,540 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:45:44,573 - app - INFO - App utilities initialized successfully
+2025-12-01 13:45:44,583 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:45:44,600 - app - INFO - Database setup completed successfully
+2025-12-01 13:52:37,040 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 13:52:37,045 - app - INFO - User management modules loaded successfully
+2025-12-01 13:52:37,579 - app - INFO - Route modules loaded successfully
+2025-12-01 13:52:37,580 - app - INFO - Utility modules loaded successfully
+2025-12-01 13:52:37,620 - app - INFO - App utilities initialized successfully
+2025-12-01 13:52:37,631 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 13:52:37,650 - app - INFO - Database setup completed successfully
+2025-12-01 14:22:43,030 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 14:22:43,033 - app - INFO - User management modules loaded successfully
+2025-12-01 14:22:43,550 - app - INFO - Route modules loaded successfully
+2025-12-01 14:22:43,552 - app - INFO - Utility modules loaded successfully
+2025-12-01 14:22:43,603 - app - INFO - App utilities initialized successfully
+2025-12-01 14:22:43,618 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 14:22:43,638 - app - INFO - Database setup completed successfully
+2025-12-01 14:23:36,086 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 14:23:36,088 - app - INFO - User management modules loaded successfully
+2025-12-01 14:23:36,602 - app - INFO - Route modules loaded successfully
+2025-12-01 14:23:36,603 - app - INFO - Utility modules loaded successfully
+2025-12-01 14:23:36,634 - app - INFO - App utilities initialized successfully
+2025-12-01 14:23:36,643 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 14:23:36,659 - app - INFO - Database setup completed successfully
+2025-12-01 14:24:47,741 - app - INFO - Telegram libraries loaded successfully
+2025-12-01 14:24:47,747 - app - INFO - User management modules loaded successfully
+2025-12-01 14:24:48,335 - app - INFO - Route modules loaded successfully
+2025-12-01 14:24:48,336 - app - INFO - Utility modules loaded successfully
+2025-12-01 14:24:48,377 - app - INFO - App utilities initialized successfully
+2025-12-01 14:24:48,389 - app - INFO - Bot token configured: 8068468848...
+2025-12-01 14:24:48,405 - app - INFO - Database setup completed successfully
+2025-12-02 12:41:00,670 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 12:41:00,676 - app - INFO - User management modules loaded successfully
+2025-12-02 12:41:01,404 - app - INFO - Route modules loaded successfully
+2025-12-02 12:41:01,407 - app - INFO - Utility modules loaded successfully
+2025-12-02 12:41:01,474 - app - INFO - App utilities initialized successfully
+2025-12-02 12:41:01,496 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 12:41:01,530 - app - INFO - Database setup completed successfully
+2025-12-02 16:20:19,255 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:20:19,259 - app - INFO - User management modules loaded successfully
+2025-12-02 16:20:19,810 - app - INFO - Route modules loaded successfully
+2025-12-02 16:20:19,812 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:20:19,867 - app - INFO - App utilities initialized successfully
+2025-12-02 16:20:19,877 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:20:19,896 - app - INFO - Database setup completed successfully
+2025-12-02 16:23:49,649 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:23:49,656 - app - INFO - User management modules loaded successfully
+2025-12-02 16:23:51,048 - app - INFO - Route modules loaded successfully
+2025-12-02 16:23:51,050 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:23:51,106 - app - INFO - App utilities initialized successfully
+2025-12-02 16:23:51,126 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:23:51,148 - app - INFO - Database setup completed successfully
+2025-12-02 16:29:10,179 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:29:10,190 - app - INFO - User management modules loaded successfully
+2025-12-02 16:29:10,845 - app - INFO - Route modules loaded successfully
+2025-12-02 16:29:10,846 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:29:10,886 - app - INFO - App utilities initialized successfully
+2025-12-02 16:29:10,897 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:29:10,916 - app - INFO - Database setup completed successfully
+2025-12-02 16:30:13,029 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:30:13,036 - app - INFO - User management modules loaded successfully
+2025-12-02 16:30:14,264 - app - INFO - Route modules loaded successfully
+2025-12-02 16:30:14,266 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:30:14,327 - app - INFO - App utilities initialized successfully
+2025-12-02 16:30:14,353 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:30:14,373 - app - INFO - Database setup completed successfully
+2025-12-02 16:32:13,530 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:32:13,537 - app - INFO - User management modules loaded successfully
+2025-12-02 16:32:14,416 - app - INFO - Route modules loaded successfully
+2025-12-02 16:32:14,418 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:32:14,494 - app - INFO - App utilities initialized successfully
+2025-12-02 16:32:14,535 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:32:14,563 - app - INFO - Database setup completed successfully
+2025-12-02 16:35:08,953 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:35:08,961 - app - INFO - User management modules loaded successfully
+2025-12-02 16:35:09,560 - app - INFO - Route modules loaded successfully
+2025-12-02 16:35:09,567 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:35:09,633 - app - INFO - App utilities initialized successfully
+2025-12-02 16:35:09,659 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:35:09,689 - app - INFO - Database setup completed successfully
+2025-12-02 16:41:23,132 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:41:23,140 - app - INFO - User management modules loaded successfully
+2025-12-02 16:41:24,203 - app - INFO - Route modules loaded successfully
+2025-12-02 16:41:24,205 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:41:24,250 - app - INFO - App utilities initialized successfully
+2025-12-02 16:41:24,275 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:41:24,297 - app - INFO - Database setup completed successfully
+2025-12-02 16:42:12,114 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:42:12,120 - app - INFO - User management modules loaded successfully
+2025-12-02 16:42:14,456 - app - INFO - Route modules loaded successfully
+2025-12-02 16:42:14,459 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:42:14,556 - app - INFO - App utilities initialized successfully
+2025-12-02 16:42:14,595 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:42:14,623 - app - INFO - Database setup completed successfully
+2025-12-02 16:44:53,151 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:44:53,155 - app - INFO - User management modules loaded successfully
+2025-12-02 16:44:53,731 - app - INFO - Route modules loaded successfully
+2025-12-02 16:44:53,733 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:44:53,777 - app - INFO - App utilities initialized successfully
+2025-12-02 16:44:53,811 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:44:53,832 - app - INFO - Database setup completed successfully
+2025-12-02 16:50:00,299 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:50:00,303 - app - INFO - User management modules loaded successfully
+2025-12-02 16:50:00,954 - app - INFO - Route modules loaded successfully
+2025-12-02 16:50:00,956 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:50:00,993 - app - INFO - App utilities initialized successfully
+2025-12-02 16:50:01,004 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:50:01,023 - app - INFO - Database setup completed successfully
+2025-12-02 16:51:21,293 - app - INFO - Telegram libraries loaded successfully
+2025-12-02 16:51:21,297 - app - INFO - User management modules loaded successfully
+2025-12-02 16:51:21,859 - app - INFO - Route modules loaded successfully
+2025-12-02 16:51:21,860 - app - INFO - Utility modules loaded successfully
+2025-12-02 16:51:21,899 - app - INFO - App utilities initialized successfully
+2025-12-02 16:51:21,909 - app - INFO - Bot token configured: 8068468848...
+2025-12-02 16:51:21,927 - app - INFO - Database setup completed successfully
+2025-12-05 13:17:29,374 - app - INFO - Telegram libraries loaded successfully
+2025-12-05 13:17:29,385 - app - INFO - User management modules loaded successfully
+2025-12-05 13:17:30,425 - app - INFO - Route modules loaded successfully
+2025-12-05 13:17:30,427 - app - INFO - Utility modules loaded successfully
+2025-12-05 13:17:30,487 - app - INFO - App utilities initialized successfully
+2025-12-05 13:17:30,500 - app - INFO - Bot token configured: 8068468848...
+2025-12-05 13:17:30,521 - app - INFO - Database setup completed successfully
+2025-12-08 17:02:54,915 - app - INFO - Telegram libraries loaded successfully
+2025-12-08 17:02:54,923 - app - INFO - User management modules loaded successfully
+2025-12-08 17:02:55,607 - app - INFO - Route modules loaded successfully
+2025-12-08 17:02:55,610 - app - INFO - Utility modules loaded successfully
+2025-12-08 17:02:55,666 - app - INFO - App utilities initialized successfully
+2025-12-08 17:02:55,676 - app - INFO - Bot token configured: 8068468848...
+2025-12-08 17:02:55,697 - app - INFO - Database setup completed successfully
+2025-12-08 17:21:36,254 - app - INFO - Telegram libraries loaded successfully
+2025-12-08 17:21:36,257 - app - INFO - User management modules loaded successfully
+2025-12-08 17:21:37,062 - app - INFO - Route modules loaded successfully
+2025-12-08 17:21:37,064 - app - INFO - Utility modules loaded successfully
+2025-12-08 17:21:37,105 - app - INFO - App utilities initialized successfully
+2025-12-08 17:21:37,129 - app - INFO - Bot token configured: 8068468848...
+2025-12-08 17:21:37,169 - app - INFO - Database setup completed successfully
+2025-12-08 17:25:44,741 - app - INFO - Telegram libraries loaded successfully
+2025-12-08 17:25:44,747 - app - INFO - User management modules loaded successfully
+2025-12-08 17:25:45,366 - app - INFO - Route modules loaded successfully
+2025-12-08 17:25:45,368 - app - INFO - Utility modules loaded successfully
+2025-12-08 17:25:45,410 - app - INFO - App utilities initialized successfully
+2025-12-08 17:25:45,424 - app - INFO - Bot token configured: 8068468848...
+2025-12-08 17:25:45,441 - app - INFO - Database setup completed successfully
+2025-12-08 17:32:08,417 - app - INFO - Telegram libraries loaded successfully
+2025-12-08 17:32:08,421 - app - INFO - User management modules loaded successfully
+2025-12-08 17:32:08,933 - app - INFO - Route modules loaded successfully
+2025-12-08 17:32:08,934 - app - INFO - Utility modules loaded successfully
+2025-12-08 17:32:08,969 - app - INFO - App utilities initialized successfully
+2025-12-08 17:32:08,982 - app - INFO - Bot token configured: 8068468848...
+2025-12-08 17:32:09,003 - app - INFO - Database setup completed successfully
+2025-12-08 18:18:44,102 - app - INFO - Telegram libraries loaded successfully
+2025-12-08 18:18:44,107 - app - INFO - User management modules loaded successfully
+2025-12-08 18:18:44,679 - app - INFO - Route modules loaded successfully
+2025-12-08 18:18:44,680 - app - INFO - Utility modules loaded successfully
+2025-12-08 18:18:44,716 - app - INFO - App utilities initialized successfully
+2025-12-08 18:18:44,732 - app - INFO - Bot token configured: 8068468848...
+2025-12-08 18:18:44,750 - app - INFO - Database setup completed successfully
+2025-12-15 14:04:28,008 - app - INFO - Telegram libraries loaded successfully
+2025-12-15 14:04:28,015 - app - INFO - User management modules loaded successfully
+2025-12-15 14:04:29,074 - app - INFO - Route modules loaded successfully
+2025-12-15 14:04:29,077 - app - INFO - Utility modules loaded successfully
+2025-12-15 14:04:29,142 - app - INFO - App utilities initialized successfully
+2025-12-15 14:04:29,164 - app - INFO - Bot token configured: 8068468848...
+2025-12-15 14:04:29,189 - app - INFO - Database setup completed successfully
+2025-12-15 14:05:16,728 - root - ERROR - OSError: write error

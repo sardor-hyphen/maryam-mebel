@@ -1,6 +1,6 @@
 Flask==2.3.3
 Werkzeug==2.3.7
-Pillow==10.0.1
+Pillow
 python-dotenv==1.0.0
 Flask-Login==0.6.3
 Flask-WTF==1.1.1

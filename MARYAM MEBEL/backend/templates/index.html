@@ -4,404 +4,841 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maryam Furniture Factory - Premium Mebel</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth-modal.css') }}">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400&display=swap');
+        /* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
         :root {
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Roboto', sans-serif;
+            /* Colors - Black and Red only */
             --color-red: #cc0000;
+            --color-red-light: #ff3333;
+            --color-red-dark: #990000;
             --color-white: #ffffff;
-            --color-black: #0a0a0a;
-            --color-dark-grey: #1a1a1a;
-            --color-light-grey: #888;
-            --shadow-light: 0 5px 15px rgba(0,0,0,0.1);
-            --shadow-medium: 0 10px 30px rgba(0,0,0,0.15);
-            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.25);
+            --color-black: #000000;
+            --color-dark-black: #0a0a0a;
+            --color-medium-black: #121212;
+            --color-light-black: #1a1a1a;
+
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing & Sizing */
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --border-radius-large: 20px;
+            --container-max-width: 1200px;
+
+            /* Effects */
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.5);
+            --shadow-glow-red: 0 0 30px rgba(204, 0, 0, 0.5);
+            --shadow-float: 0 15px 35px rgba(0, 0, 0, 0.4);
+
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+
+        /* ==========================================================================
+   Global Styles & Reset
+   ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: var(--font-body);
-            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
+            background-color: var(--color-black);
             color: var(--color-white);
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
             overflow-x: hidden;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeInPage 1.2s 0.3s forwards cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
         }
-        .container { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
-        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Header */
-        .main-header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0;
-            background-color: transparent; transition: background-color 0.4s ease, padding 0.4s ease;
-        }
-        .main-header.scrolled {
-            background-color: rgba(10, 10, 10, 0.85); backdrop-filter: blur(10px);
-            padding: 15px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .navbar { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; transition: transform 0.3s ease; }
-        .logo:hover { transform: translateY(-2px); }
-        .logo img { 
-            width: 50px; height: auto; 
-            filter: drop-shadow(0 4px 8px rgba(204, 0, 0, 0.3)); 
-        }
-        .logo-text { 
-            color: var(--color-white); 
-            font-family: var(--font-heading); 
-            font-weight: 700; 
-            font-size: 2rem;
-            background: var(--color-red); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 40px; align-items: center; }
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                width: 70%;
-                background-color: rgba(10, 10, 10, 0.95);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-            }
-            .nav-links.show {
-                transform: translateX(0);
-            }
-        }
-        .nav-links a {
-            color: var(--color-white); text-decoration: none; margin: 0 18px; font-weight: 400; font-size: 1rem;
-            position: relative; letter-spacing: 0.5px;
-        }
-        .nav-links a::after {
-            content: ''; position: absolute; width: 0%; height: 2px; bottom: -6px; left: 0;
-            background-color: var(--color-red); transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(10,10,10,1)), url('https://images.unsplash.com/photo-1604578762246-41134e37f9cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw&auto=format&fit=crop&w=1740&q=80');
+
+        /* Wooden texture background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1589754628459-5b5a2e3c5e7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
+        }
+
+        .section {
+            padding: calc(var(--spacing-unit) * 10) 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 6);
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-unit);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--color-white);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ==========================================================================
+   Component Styles: Buttons, Cards
+   ========================================================================== */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            border: 2px solid var(--color-red);
+            background-color: var(--color-red);
+            color: var(--color-white);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium), var(--shadow-glow-red);
+            background-color: var(--color-red-light);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(204, 0, 0, 0.3);
+            border-radius: var(--border-radius-large);
+            padding: calc(var(--spacing-unit) * 3);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-float);
+            transform: translateY(0);
+        }
+
+        .card--hover-lift:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--color-red);
+        }
+
+        /* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--spacing-unit) 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            transition: all var(--transition-base);
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: var(--shadow-light);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+            text-decoration: none;
+            color: var(--color-red);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 2rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(204, 0, 0, 0.5));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 3);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-red);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -8px;
+            left: 50%;
+            background-color: var(--color-red);
+            transition: all var(--transition-base);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 80%;
+            left: 10%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: var(--color-red);
+            border-radius: 10px;
+            transition: all var(--transition-base);
+            transform-origin: 1px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        /* ==========================================================================
+   Hero Section
+   ========================================================================== */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            background-attachment: fixed;
         }
+
         .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(204, 0, 0, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600195351741-d0e54f0e3b1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
         }
+        
         .hero-content {
-            max-width: 700px;
-            padding: 0 20px;
-            z-index: 2;
+            max-width: 800px;
+            color: var(--color-white);
+            position: relative;
+            z-index: 1;
         }
+
         .hero h1 {
             font-family: var(--font-heading);
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 7vw, 5rem);
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-red) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--color-light-grey);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        .hero-btn {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--color-red);
-            color: var(--color-white);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            animation: pulse 1.5s infinite;
-            box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
-        }
-        .hero-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(204, 0, 0, 0.4);
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7); }
-            50% { box-shadow: 0 0 0 20px rgba(204, 0, 0, 0.3); }
-            100% { box-shadow: 0 0 0 30px rgba(204, 0, 0, 0); }
-        }
-        
-        /* Features Section */
-        .features-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-        .section-title h2, .section-title h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-red) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-title p {
-            color: var(--color-light-grey);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-        .feature-item {
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: none;
-        }
-        .feature-item svg {
-            width: 50px;
-            height: 50px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
             color: var(--color-red);
-            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
         }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-white);
+        }
+
+        /* ==========================================================================
+   Features Section
+   ========================================================================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 3);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto calc(var(--spacing-unit) * 2);
+            background: linear-gradient(135deg, rgba(204, 0, 0, 0.2), rgba(204, 0, 0, 0.4));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-red);
+            box-shadow: var(--shadow-light);
+        }
+
+        .feature-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
         .feature-item h3 {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-unit);
         }
+
         .feature-item p {
-            color: var(--color-light-grey);
-            font-size: 0.95rem;
-        }
-        
-        /* Latest Products Section */
-        .latest-products {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        .product-card {
-            background-color: var(--color-dark-grey);
-            border-radius: 10px;
-            overflow: hidden;
-            text-decoration: none;
             color: var(--color-white);
-            display: block;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            position: relative;
+            font-size: 1.1rem;
         }
-        .product-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(204, 0, 0, 0.1) 0%, transparent 50%);
-            opacity: 0; transition: opacity 0.4s ease; z-index: 1;
-        }
-        .product-card:hover::before { opacity: 1; }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        .product-image {
+
+        /* ==========================================================================
+   Testimonials Section
+   ========================================================================== */
+        .testimonial-slider {
             position: relative;
             overflow: hidden;
+            border-radius: var(--border-radius-large);
         }
-        .product-card .product-image img {
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: calc(var(--spacing-unit) * 4);
+        }
+
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            position: relative;
+            color: var(--color-white);
+        }
+
+        .testimonial-content::before, .testimonial-content::after {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--color-red);
+            opacity: 0.3;
+            position: absolute;
+            line-height: 1;
+        }
+        .testimonial-content::before { content: '"'; top: -20px; left: -20px; }
+        .testimonial-content::after { content: '"'; bottom: -50px; right: -20px; }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--color-red);
+        }
+
+        .author-image img {
             width: 100%;
-            height: 350px;
+            height: 100%;
             object-fit: cover;
         }
-        .product-card:hover .product-image img { transform: scale(1.05); }
-        .product-info {
-            padding: 30px;
-            position: relative;
-            z-index: 2;
+
+        .author-info {
+            text-align: left;
         }
-        .product-info h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+
+        .author-name {
+            font-weight: 600;
+            color: var(--color-red);
+            font-size: 1.2rem;
+        }
+
+        .author-title {
+            font-size: 1rem;
             color: var(--color-white);
         }
-        .product-info .price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            margin: 10px 0;
-        }
-        .product-info .original-price {
-            font-size: 1rem;
-            color: var(--color-light-grey);
-            text-decoration: line-through;
-            margin-right: 10px;
-        }
-        .product-info .discount {
-            background: var(--color-primary);
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-left: 10px;
-        }
-        .cta-button {
-            display: inline-block; padding: 18px 40px; background: var(--color-red); color: var(--color-white);
-            text-decoration: none; font-family: var(--font-heading); font-weight: 700; font-size: 1rem;
-            border-radius: 5px; transition: transform 0.3s ease, box-shadow 0.3s ease; border: none; cursor: pointer;
-        }
-        .cta-button:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
-        }
-        
-        /* Footer */
-        .main-footer {
-            padding: 50px 0;
-            background-color: #000;
-            border-top: 1px solid #222;
-            text-align: center;
-            position: relative;
-        }
-        .main-footer .logo {
+
+        .slider-controls {
+            display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            gap: var(--spacing-unit);
+            margin-top: calc(var(--spacing-unit) * 3);
         }
-        .main-footer .logo { justify-content: center; margin-bottom: 30px; }
-        .main-footer p { color: var(--color-light-grey); font-size: 0.9rem; }
-        
-        /* Mobile Responsiveness */
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
+
+        .slider-btn {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--color-red);
+            color: var(--color-red);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .slider-btn:hover {
+            background-color: var(--color-red);
+            color: var(--color-white);
+            transform: scale(1.1);
+        }
+
+        /* ==========================================================================
+   Product Grid Section
+   ========================================================================== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: calc(var(--spacing-unit) * 3);
+        }
+
+        .product-grid .card {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-base);
+        }
+
+        .product-grid .card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            padding: calc(var(--spacing-unit) * 2.5);
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-            z-index: 1001;
         }
-        .hamburger span {
-            display: block;
-            height: 3px;
+
+        .product-details h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .product-details p {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            flex-grow: 1;
+            color: var(--color-white);
+        }
+
+        /* ==========================================================================
+   Footer
+   ========================================================================== */
+        .main-footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid var(--color-red);
+            padding: calc(var(--spacing-unit) * 8) 0 calc(var(--spacing-unit) * 3);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-bottom: calc(var(--spacing-unit) * 5);
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-red);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            position: relative;
+            padding-bottom: calc(var(--spacing-unit) * 0.75);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--color-red);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: calc(var(--spacing-unit) * 0.75);
+        }
+
+        .footer-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-red);
+        }
+
+        /* NEW STYLE: Newsletter Form Beautification */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between input and button */
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-form input[type="email"] {
             width: 100%;
-            background-color: var(--color-white);
-            border-radius: 3px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 16px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.05); /* Glassy background */
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: all var(--transition-fast);
         }
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
-        .hamburger.active span:nth-child(2) {
+
+        .newsletter-form input[type="email"]:focus {
+            border-color: var(--color-red);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(204, 0, 0, 0.2);
+        }
+
+        .newsletter-form .btn {
+            width: 100%; /* Full width button */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* End Newsletter Styles */
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+            margin-bottom: calc(var(--spacing-unit) * 0.75);
+            color: var(--color-white);
+        }
+        
+        .contact-info svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-red);
+            flex-shrink: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-unit);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--color-red);
+            color: var(--color-red);
+            transition: all var(--transition-fast);
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-red);
+            color: var(--color-white);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: calc(var(--spacing-unit) * 2);
+            border-top: 1px solid rgba(204, 0, 0, 0.3);
+            font-size: 1rem;
+            color: var(--color-white);
+        }
+
+        /* ==========================================================================
+   Flashlight Effect (Premium Feature)
+   ========================================================================== */
+        #flashlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
             opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
+
+        .flashlight-active #flashlight {
+            opacity: 1;
         }
-        @media (max-width: 992px) {
-            .why-us-grid, .full-product-grid { grid-template-columns: 1fr 1fr; }
-            .product-grid, .contact-layout, .product-layout { grid-template-columns: 1fr; }
+
+        #flashlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.1) 20%,
+                rgba(255, 255, 255, 0.05) 40%,
+                transparent 70%
+            );
         }
+        
+        .flashlight-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--color-red);
+            color: var(--color-red);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .flashlight-toggle:hover {
+            background-color: var(--color-red);
+            color: var(--color-white);
+            transform: scale(1.1);
+        }
+        
+        .flashlight-toggle svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* ==========================================================================
+   Floating Elements
+   ========================================================================== */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        .floating-slow {
+            animation: floating 8s ease-in-out infinite;
+        }
+        
+        .floating-fast {
+            animation: floating 4s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* ==========================================================================
+   Responsive Design
+   ========================================================================== */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .hero, .page-header { text-align: center; }
-            .hero-content { margin: 0 auto; }
-            .hero h1, .page-header h1, .section-title h1, .section-title h2, .product-details h1 { font-size: 2.5rem; }
-            .section { padding: 80px 0; }
-            .why-us-grid, .full-product-grid { grid-template-columns: 1fr; }
-            .container { padding: 0 20px; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1rem; }
-            .hero-btn { padding: 15px 30px; font-size: 0.9rem; }
-            .section-title h2, .section-title h1 { font-size: 2rem; }
-            .feature-item svg { width: 40px; height: 40px; }
-            .feature-item h3 { font-size: 1.3rem; }
-            .product-card .product-image img { height: 250px; }
-            .product-info { padding: 20px; }
-            .product-info h3 { font-size: 1.3rem; }
-        }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-title h2, .section-title h1 { font-size: 1.8rem; }
-            .why-us-grid, .product-grid { gap: 25px; }
-            .feature-item { padding: 0 10px; }
-            .feature-item h3 { font-size: 1.2rem; }
-            .feature-item p { font-size: 0.9rem; }
-            .product-card .product-image img { height: 200px; }
-            .cta-button { padding: 15px 25px; font-size: 0.9rem; }
-        }
-        @media (max-width: 576px) {
-            .hero h1 { font-size: 2rem; }
-            .section-title h2, .section-title h1 { font-size: 1.6rem; }
-            .why-us-grid, .product-grid { gap: 20px; }
-            .feature-item { padding: 0 5px; }
-            .feature-item h3 { font-size: 1.1rem; }
-            .feature-item p { font-size: 0.85rem; }
-            .product-card .product-image img { height: 180px; }
-            .cta-button { padding: 12px 20px; font-size: 0.85rem; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: calc(var(--spacing-unit) * 2);
+                transition: right var(--transition-base);
+            }
+
+            .nav-links.show {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); }
+            .section { padding: calc(var(--spacing-unit) * 6) 0; }
         }
     </style>
 </head>
 <body>
+
     <header class="main-header">
         <div class="container">
             <nav class="navbar">
-                <a href="{{ url_for('index') }}" class="logo">
-                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Logo">
-                    <span class="logo-text">Maryam</span>
+                <a href="{{ url_for('main.index') }}" class="logo" aria-label="Maryam Furniture Factory Home">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Furniture Factory Logo">
+                    <span>Maryam</span>
                 </a>
-                <div class="nav-links">
-                    <a href="{{ url_for('index') }}" class="active">Bosh Sahifa</a>
-                    <a href="{{ url_for('collection') }}">Shop</a>
-                    <a href="{{ url_for('contact') }}">Bog'lanish</a>
-                </div>
-                <div class="hamburger" id="hamburger">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('main.index') }}" class="active">Bosh Sahifa</a></li>
+                    <li><a href="{{ url_for('main.collection') }}">Kolleksiya</a></li>
+                    <li><a href="{{ url_for('main.contact') }}">Bog'lanish</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </nav>
         </div>
     </header>
@@ -410,40 +847,46 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1>Sizning Uyingiz, Sizning Uslubingiz</h1>
+                <div class="hero-content">
+                    <h1 class="typing-text">Sizning Uyingiz, Sizning Uslubingiz</h1>
                     <p>Premium sifatli mebellarimiz bilan uy yoki ofisingizni chiroyliroq qiling. Bizning to'plamimiz zamonaviy dizayn va qulaylikni birlashtiradi.</p>
-                    <a href="{{ url_for('collection') }}" class="hero-btn">Kolleksiyani ko'rish</a>
+                    <a href="{{ url_for('main.collection') }}" class="btn">Kolleksiyani ko'rish</a>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section class="features-section">
+        <section class="features-section section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Nima Uchun <span>Biz?</span></h2>
+                    <h2 class="typing-text">Nima Uchun <span style="color: var(--color-red-light);">Biz?</span></h2>
                     <p>Biz faqat mebel ishlab chiqarmaymiz. Biz sizning uyingiz uchun san'at asarlari yaratamiz.</p>
                 </div>
-                <div class="why-us-grid">
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.472-2.472a3.375 3.375 0 000-4.773L6.75 2.25 2.25 6.75l8.477 8.477a3.375 3.375 0 004.773 0z" />
-                        </svg>
+                <div class="features-grid">
+                    <div class="card card--hover-lift floating">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.472-2.472a3.375 3.375 0 000-4.773L6.75 2.25 2.25 6.75l8.477 8.477a3.375 3.375 0 004.773 0z" />
+                            </svg>
+                        </div>
                         <h3>Betakror Dizayn</h3>
                         <p>Har bir to'plamimiz Italiyaning yetakchi dizaynerlari bilan hamkorlikda, eng so'nggi trendlar asosida yaratiladi.</p>
                     </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                    <div class="card card--hover-lift floating-slow">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
                         <h3>Beqiyos Sifat</h3>
                         <p>Biz faqat Yevropaning eng yaxshi, ekologik toza va sertifikatlangan materiallaridan foydalanamiz.</p>
                     </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
+                    <div class="card card--hover-lift floating-fast">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+                        </div>
                         <h3>Uzoq Yillik Kafolat</h3>
                         <p>Har bir mahsulotimizga 10 yillik kafolat beramiz, chunki biz o'z ishimiz sifatiga ishonamiz.</p>
                     </div>
@@ -451,20 +894,85 @@
             </div>
         </section>
 
-        <!-- Latest Products Section -->
-        <section class="latest-products">
+        <!-- Testimonials Section -->
+        <section class="testimonials-section section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Eng Ommabop <span>Modellar</span></h2>
-                    <p>Mijozlarimiz tomonidan eng yuqori baholangan va sevib tanlangan to'plamlar.</p>
+                    <h2 class="typing-text">Mijozlar <span style="color: var(--color-red-light);">Fikrlari</span></h2>
+                    <p>Bizning mijozlarimiz biz haqimizda nima deyishini tinglang.</p>
                 </div>
-                <div class="view-collection-link">
-                    <a href="{{ url_for('collection') }}" class="cta-button">BARCHA KOLLEKSIYANI KO'RISH</a>
+                <div class="testimonial-slider">
+                    <div class="testimonial-track">
+                        <div class="testimonial-card card">
+                            <div class="testimonial-content">
+                                Maryam Furniture Factorydan sotib olgan divanim mening kutganimdan ham yaxshi chiqdi. Sifati a'lo, dizayni chiroyli. Xodimlar esa juda malakali va do'stona. Tavsiya qilaman!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80" alt="Portrait of Shoxruh Toshmatov">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Shoxruh Toshmatov</div>
+                                    <div class="author-title">Tashkent</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card card">
+                            <div class="testimonial-content">
+                                Ofisimiz uchun mebel buyurtma berdik, natijadan juda mamnunmiz. Ish vaqtini hisobga olgan holda tez yetkazib berishdi. Sifat ham a'lo darajada. Keyingi buyurtmam ham shu yerda bo'ladi!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80" alt="Portrait of Dilshod Karimov">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Dilshod Karimov</div>
+                                    <div class="author-title">Samarkand</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card card">
+                            <div class="testimonial-content">
+                                Uyimiz uchun to'liq mebel komplektini buyurtma qildik. Dizaynerlar bilan birgalikda eng yaxshi yechimni topdik. Mahsulotlar sifati va xizmat ko'rsatish darajasi juda yuqori. Tavsiya qilaman!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80" alt="Portrait of Nigina Axmedova">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Nigina Axmedova</div>
+                                    <div class="author-title">Bukhara</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prev-testimonial" aria-label="Previous testimonial">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button class="slider-btn" id="next-testimonial" aria-label="Next testimonial">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Products Section -->
+        <section class="latest-products section">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="typing-text">Eng Ommabop <span style="color: var(--color-red-light);">Modellar</span></h2>
+                    <p>Mijozlarimiz tomonidan eng yuqori baholangan va sevib tanlangan to'plamlar.</p>
                 </div>
                 <div class="product-grid">
                     {% if products %}
-                        {% for product in products[:4] %}  <!-- Show only first 4 products -->
-                        <a href="{{ url_for('product', product_name=product.slug) }}" class="product-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                        {% for product in products[:6] %}
+                        <div class="card card--hover-lift floating">
                             <div class="product-image">
                                 {% if product.main_image %}
                                 <img src="{{ product.main_image }}" alt="{{ product.name }}">
@@ -472,14 +980,15 @@
                                 <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}">
                                 {% endif %}
                             </div>
-                            <div class="product-info">
+                            <div class="product-details">
                                 <h3>{{ product.name }}</h3>
                                 <p>Hashamatli klassika va zamonaviy qulaylik.</p>
+                                <a href="{{ url_for('main.product', product_name=product.slug) }}" class="btn">Batafsil ko'rish</a>
                             </div>
-                        </a>
+                        </div>
                         {% endfor %}
                     {% else %}
-                        <p style="grid-column: 1 / -1; text-align: center; color: var(--color-light-grey);">Hozircha mahsulotlar mavjud emas.</p>
+                        <p style="text-align: center; color: var(--color-white); grid-column: 1 / -1;">Hozircha mahsulotlar mavjud emas.</p>
                     {% endif %}
                 </div>
             </div>
@@ -488,61 +997,504 @@
 
     <footer class="main-footer">
         <div class="container">
-            <a href="{{ url_for('index') }}" class="logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Logo" style="width: 45px; height: auto;">
-            </a>
-            <p>&copy; 2025 Maryam Furniture Factory. Barcha huquqlar himoyalangan.</p>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="{{ url_for('main.index') }}" class="logo" aria-label="Maryam Furniture Factory Home">
+                        <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Furniture Factory Logo">
+                        <span>Maryam</span>
+                    </a>
+                    <p>Premium mebel ishlab chiqarish kompaniyasi. Biz sizning uyingizni chiroyli va qulay qilish uchun eng yaxshi yechimlarni taklif qilamiz.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/maryamfurniture" target="_blank" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.689-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://t.me/maryamfurniture" target="_blank" aria-label="Telegram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.84 5.18-4.68c.223-.198-.054-.308-.346-.11l-6.4 4.02-2.76-.918c-.6-.187-.612-.6.125-.89l10.782-4.156c.5-.18.94.12.78.88z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Bog'lanish</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                            <span>Chilonzor tumani, Toshkent, O'zbekiston</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                            <span>+998 90 123 45 67</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <span>info@maryamfurniture.uz</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Tezkor Havolalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('main.index') }}">Bosh Sahifa</a></li>
+                        <li><a href="{{ url_for('main.collection') }}">Mahsulotlar</a></li>
+                        <li><a href="{{ url_for('main.contact') }}">Bog'lanish</a></li>
+                        <li><a href="#">Biz Haqimizda</a></li>
+                        <li><a href="#">Yetkazib Berish</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Axborot Byulleteni</h3>
+                    <p>Eng so'nggi yangiliklar va chegirmalardan xabar toping.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email manzilingiz" required>
+                        <button type="submit" class="btn">Obuna Bo'lish</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Maryam Furniture Factory. Barcha huquqlar himoyalangan.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="{{ url_for('static', filename='js/auth-modal.js') }}"></script>
+    <!-- Flashlight Effect Element -->
+    <div id="flashlight"></div>
+    
+    <!-- Flashlight Toggle Button -->
+    <button class="flashlight-toggle" id="flashlight-toggle" aria-label="Toggle flashlight effect">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+        </svg>
+    </button>
+
+    <!-- Admin Access Button -->
+    <button class="admin-access" onclick="window.location.href='/admin/login'"
+            title="Admin Panel" style="position: fixed; bottom: 30px; left: 30px; z-index: 1000; background-color: var(--color-red); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; box-shadow: var(--shadow-medium); transition: all var(--transition-fast);">
+        🔧
+    </button>
+
     <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out-cubic',
-                once: true,
-                offset: 100
-            });
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             
-            // Initialize auth modal
-            if (typeof window.authModal === 'undefined') {
-                console.log('Creating new AuthModal instance');
-                window.authModal = new AuthModal();
+            // Set up flashlight effect
+            const flashlight = document.getElementById('flashlight');
+            const flashlightToggle = document.getElementById('flashlight-toggle');
+            const body = document.body;
+            
+            // Check if flashlight preference is saved in localStorage
+            let flashlightActive = localStorage.getItem('flashlightActive') === 'true';
+            
+            // Don't activate flashlight if user prefers reduced motion
+            if (prefersReducedMotion) {
+                flashlightActive = false;
+                flashlightToggle.style.display = 'none';
+            } else {
+                // Apply saved preference
+                if (flashlightActive) {
+                    body.classList.add('flashlight-active');
+                }
+                
+                // Toggle flashlight effect
+                flashlightToggle.addEventListener('click', () => {
+                    flashlightActive = !flashlightActive;
+                    body.classList.toggle('flashlight-active');
+                    localStorage.setItem('flashlightActive', flashlightActive);
+                });
+                
+                // Track mouse position for flashlight effect
+                document.addEventListener('mousemove', (e) => {
+                    if (flashlightActive) {
+                        const x = (e.clientX / window.innerWidth) * 100;
+                        const y = (e.clientY / window.innerHeight) * 100;
+                        flashlight.style.setProperty('--mouse-x', `${x}%`);
+                        flashlight.style.setProperty('--mouse-y', `${y}%`);
+                    }
+                });
             }
-            
+
             // Sticky header
-            const header = document.getElementById('mainHeader');
+            const header = document.querySelector('.main-header');
             window.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.scrollY > 50);
+                if (header) {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                }
             });
-            
+
             // Mobile menu toggle
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.querySelector('.nav-links');
-            
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-                hamburger.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            const navItems = document.querySelectorAll('.nav-links a');
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinks.classList.remove('show');
-                    hamburger.classList.remove('active');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('show');
+                    hamburger.classList.toggle('active');
+                    
+                    // Update aria-expanded for accessibility
+                    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                    hamburger.setAttribute('aria-expanded', !isExpanded);
+                });
+
+                // Close menu when clicking on a link
+                const navItems = document.querySelectorAll('.nav-links a');
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        navLinks.classList.remove('show');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+                
+                // Handle keyboard navigation for mobile menu
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.focus();
+                    }
+                });
+            }
+
+            // Typing animation for text elements
+            const typingElements = document.querySelectorAll('.typing-text');
+            typingElements.forEach(element => {
+                const text = element.innerText;
+                element.innerText = '';
+                
+                gsap.to(element, {
+                    text: text,
+                    duration: 2,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        onToggle: self => {
+                            if (self.isActive) {
+                                gsap.to(element, {
+                                    text: text,
+                                    duration: 2,
+                                    ease: "none"
+                                });
+                            }
+                        }
+                    }
                 });
             });
+
+            // Floating animation for elements
+            const floatingElements = document.querySelectorAll('.floating');
+            floatingElements.forEach((element, index) => {
+                gsap.to(element, {
+                    y: -20,
+                    duration: 3 + index * 0.5,
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    yoyo: true
+                });
+            });
+
+            const floatingSlowElements = document.querySelectorAll('.floating-slow');
+            floatingSlowElements.forEach((element, index) => {
+                gsap.to(element, {
+                    y: -15,
+                    duration: 5 + index * 0.5,
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    yoyo: true
+                });
+            });
+
+            const floatingFastElements = document.querySelectorAll('.floating-fast');
+            floatingFastElements.forEach((element, index) => {
+                gsap.to(element, {
+                    y: -25,
+                    duration: 2 + index * 0.3,
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    yoyo: true
+                });
+            });
+
+            // Scroll-triggered animations for cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                gsap.fromTo(card, 
+                    { 
+                        opacity: 0, 
+                        y: 50,
+                        scale: 0.9
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.8,
+                        delay: index * 0.1,
+                        ease: "back.out(1.7)",
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top 85%"
+                        }
+                    }
+                );
+            });
+
+            // Testimonial slider
+            const testimonialTrack = document.querySelector('.testimonial-track');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            let currentIndex = 0;
+            const testimonialCount = document.querySelectorAll('.testimonial-card').length;
+
+            if (prevBtn && nextBtn && testimonialTrack) {
+                // Set initial position
+                gsap.set(testimonialTrack, { x: 0 });
+                
+                // Next testimonial
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % testimonialCount;
+                    gsap.to(testimonialTrack, {
+                        x: -currentIndex * 100 + "%",
+                        duration: 0.5,
+                        ease: "power2.inOut"
+                    });
+                });
+                
+                // Previous testimonial
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + testimonialCount) % testimonialCount;
+                    gsap.to(testimonialTrack, {
+                        x: -currentIndex * 100 + "%",
+                        duration: 0.5,
+                        ease: "power2.inOut"
+                    });
+                });
+                
+                // Auto-rotate testimonials
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % testimonialCount;
+                    gsap.to(testimonialTrack, {
+                        x: -currentIndex * 100 + "%",
+                        duration: 0.5,
+                        ease: "power2.inOut"
+                    });
+                }, 8000);
+            }
+
+            // Handle touch/swipe for testimonial slider
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            if (testimonialTrack) {
+                testimonialTrack.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                testimonialTrack.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    if (touchEndX < touchStartX - 50) {
+                        // Swipe left - next testimonial
+                        if (nextBtn) nextBtn.click();
+                    }
+                    if (touchEndX > touchStartX + 50) {
+                        // Swipe right - previous testimonial
+                        if (prevBtn) prevBtn.click();
+                    }
+                }
+            }
+
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = newsletterForm.querySelector('input[type="email"]').value;
+                    
+                    // Here you would typically send the email to your server
+                    // For now, we'll just show a success message with animation
+                    const formContainer = newsletterForm.parentElement;
+                    const successMessage = document.createElement('p');
+                    successMessage.textContent = `Rahmat! ${email} manzili bilan obuna bo'ldingiz.`;
+                    successMessage.style.color = 'var(--color-red-light)';
+                    successMessage.style.marginTop = '1rem';
+                    
+                    // Animate form out and success message in
+                    gsap.to(newsletterForm, {
+                        opacity: 0,
+                        y: -20,
+                        duration: 0.3,
+                        onComplete: () => {
+                            formContainer.replaceChild(successMessage, newsletterForm);
+                            gsap.fromTo(successMessage, 
+                                { opacity: 0, y: 20 },
+                                { opacity: 1, y: 0, duration: 0.5 }
+                            );
+                        }
+                    });
+                });
+            }
+
+            // Blob animations for background
+            function createBlob() {
+                const blob = document.createElement('div');
+                blob.style.position = 'fixed';
+                blob.style.width = '300px';
+                blob.style.height = '300px';
+                blob.style.borderRadius = '50%';
+                blob.style.background = 'radial-gradient(circle, rgba(204, 0, 0, 0.1) 0%, rgba(204, 0, 0, 0.05) 50%, rgba(204, 0, 0, 0) 70%)';
+                blob.style.pointerEvents = 'none';
+                blob.style.zIndex = '-1';
+                blob.style.top = Math.random() * window.innerHeight + 'px';
+                blob.style.left = Math.random() * window.innerWidth + 'px';
+                
+                document.body.appendChild(blob);
+                
+                // Animate the blob
+                gsap.to(blob, {
+                    x: (Math.random() - 0.5) * 200,
+                    y: (Math.random() - 0.5) * 200,
+                    scale: Math.random() * 0.5 + 0.5,
+                    duration: 20 + Math.random() * 10,
+                    ease: "sine.inOut",
+                    repeat: -1,
+                    yoyo: true
+                });
+                
+                // Remove blob after animation
+                setTimeout(() => {
+                    gsap.to(blob, {
+                        opacity: 0,
+                        duration: 2,
+                        onComplete: () => {
+                            document.body.removeChild(blob);
+                        }
+                    });
+                }, 30000 + Math.random() * 20000);
+            }
+            
+            // Create initial blobs
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createBlob(), i * 2000);
+            }
+            
+            // Continue creating new blobs
+            setInterval(createBlob, 8000);
+
+            // Parallax effect for hero section
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                gsap.to('.hero::before', {
+                    yPercent: -50,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            }
+
+            // Reveal animation for section titles
+            const sectionTitles = document.querySelectorAll('.section-title h2');
+            sectionTitles.forEach(title => {
+                gsap.fromTo(title, 
+                    { 
+                        opacity: 0,
+                        y: 30
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: title,
+                            start: "top 85%"
+                        }
+                    }
+                );
+            });
+
+            // Stagger animation for feature items
+            const featureItems = document.querySelectorAll('.feature-item');
+            gsap.fromTo(featureItems, 
+                { 
+                    opacity: 0,
+                    y: 50,
+                    scale: 0.9
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    stagger: 0.2,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: '.features-grid',
+                        start: "top 80%"
+                    }
+                }
+            );
+
+            // Stagger animation for product items
+            const productItems = document.querySelectorAll('.product-grid .card');
+            gsap.fromTo(productItems, 
+                { 
+                    opacity: 0,
+                    y: 50,
+                    rotationY: -15
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    rotationY: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: '.product-grid',
+                        start: "top 80%"
+                    }
+                }
+            );
+
+            // Admin button hover effect
+            const adminButton = document.querySelector('.admin-access');
+            if (adminButton) {
+                adminButton.addEventListener('mouseenter', () => {
+                    gsap.to(adminButton, {
+                        rotation: 15,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+                
+                adminButton.addEventListener('mouseleave', () => {
+                    gsap.to(adminButton, {
+                        rotation: 0,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            }
         });
     </script>
-    
-    <!-- Admin Access Button -->
-    <button class="admin-access" onclick="window.location.href='/admin/login'"
-            title="Admin Panel" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: rgba(204, 0, 0, 0.9); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-        🔧
-    </button>
 </body>
 </html>

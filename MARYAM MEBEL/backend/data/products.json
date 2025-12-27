@@ -1,0 +1,48 @@
+[
+  {
+    "name": "demo",
+    "slug": "demo",
+    "description": "bu shunchaki demo uchun",
+    "category": "ofis",
+    "material": "toza oltin",
+    "year": "2008",
+    "warranty": "2028",
+    "includes": "4 ta stul. 6 ta qol",
+    "price": 20000000,
+    "discount": 10,
+    "main_image": "/static/uploads/download_2_1759860761.jpg",
+    "gallery_images": [
+      "/static/uploads/photo_2024-09-11_06-37-08_1759860761.jpg",
+      "/static/uploads/original-ea3f4c32f5e86c8a97971045368d42d7_1759860761.png",
+      "/static/uploads/photo_2024-12-19_20-36-07_1759860761.jpg",
+      "/static/uploads/mandel_1759860761.png"
+    ],
+    "created_at": "2025-10-07T18:12:41.452155",
+    "id": "b9df37b1-6388-44a3-af03-6eb1ec26dea8",
+    "is_active": true,
+    "ratings": []
+  },
+  {
+    "name": "demo",
+    "slug": "demo",
+    "description": "scdcsd",
+    "category": "xonaki",
+    "material": "toza oltin",
+    "year": "2008",
+    "warranty": "2028",
+    "includes": "4 ta stul. 6 ta qol",
+    "price": 20000000,
+    "discount": 50,
+    "main_image": "/static/uploads/download_1_1760973866.jpg",
+    "gallery_images": [
+      "/static/uploads/photo_2024-09-11_07-12-57_1760973866.jpg",
+      "/static/uploads/photo_2025-10-03_22-55-28_1760973866.jpg",
+      "/static/uploads/photo_2024-09-11_06-37-08_1760973866.jpg",
+      "/static/uploads/adc5f891bfbeab5b5b845bce90e63bc4_1760973866.jpg"
+    ],
+    "created_at": "2025-10-20T15:24:26.434107",
+    "id": "34a95432-32ba-4d58-9cce-26a53b991257",
+    "is_active": true,
+    "ratings": []
+  }
+]
