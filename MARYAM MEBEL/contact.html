@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bog'lanish - Maryam Furniture Factory</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400&display=swap');
+        :root {
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --color-primary: #cc0000;
+            --color-secondary: #990000;
+            --color-accent: #f4f1eb;
+            --color-white: #ffffff;
+            --color-black: #0f0f0f;
+            --color-dark: #1a1a1a;
+            --color-grey: #2a2a2a;
+            --color-light-grey: #888;
+            --color-red: linear-gradient(135deg, #cc0000, #ff0000);
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-medium: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.25);
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
+            color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInPage 1.2s 0.3s forwards cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Header */
+        .main-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 25px 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(204, 0, 0, 0.2);
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; transition: transform 0.3s ease; }
+        .logo:hover { transform: translateY(-2px); }
+        .logo svg, .logo img { 
+            width: 50px; height: auto; 
+            filter: drop-shadow(0 4px 8px rgba(204, 0, 0, 0.3)); 
+        }
+        .logo-text { 
+            color: var(--color-white); 
+            font-family: var(--font-heading); 
+            font-weight: 700; 
+            font-size: 1.7rem;
+            background: linear-gradient(135deg, #cc0000, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a {
+            color: var(--color-white); text-decoration: none; font-weight: 500; font-size: 1rem;
+            position: relative; letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase; font-size: 0.9rem;
+        }
+        .nav-links a::before {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -8px; left: 50%;
+            background: var(--color-gold); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+        .nav-links a:hover::before, .nav-links a.active::before { width: 100%; }
+        .nav-links a:hover { color: var(--color-primary); transform: translateY(-2px); }
+
+        /* Contact Section */
+        .contact-section { padding: 180px 0 120px; }
+        .section-title { text-align: center; margin-bottom: 80px; }
+        .section-title h1 { 
+            font-family: var(--font-heading); font-size: clamp(3rem, 6vw, 5rem); font-weight: 900;
+            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-primary) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;
+        }
+        .section-title h1 span { 
+            background: var(--color-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+        .section-title p {
+            color: var(--color-light-grey); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;
+        }
+        
+        .contact-layout {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start;
+            background: linear-gradient(135deg, var(--color-grey) 0%, var(--color-dark) 100%);
+            padding: 60px; border-radius: 20px; box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(212, 165, 116, 0.1); position: relative; overflow: hidden;
+        }
+        .contact-layout::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: var(--color-red);
+        }
+        
+        .contact-info { display: flex; flex-direction: column; gap: 40px; }
+        .contact-info-item { display: flex; align-items: flex-start; gap: 20px; }
+        .contact-info-item .icon {
+            width: 60px; height: 60px; background: var(--color-gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            box-shadow: var(--shadow-medium); transition: transform 0.3s ease;
+        }
+        .contact-info-item:hover .icon { transform: scale(1.1); }
+        .contact-info-item svg { 
+            width: 24px; height: 24px; 
+            stroke: var(--color-primary);
+        }
+        .contact-info-item .content h3 {
+            color: var(--color-white); font-family: var(--font-heading); font-size: 1.25rem;
+            margin-bottom: 8px; font-weight: 600;
+        }
+        .contact-info-item .content p { color: var(--color-light-grey); line-height: 1.6; }
+        
+        .contact-form { display: flex; flex-direction: column; gap: 25px; }
+        .form-group { position: relative; }
+        .form-group label {
+            position: absolute; top: 18px; left: 20px; color: var(--color-light-grey);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none;
+            font-weight: 500; font-size: 1rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 20px; background: rgba(15, 15, 15, 0.7);
+            border: 2px solid rgba(212, 165, 116, 0.2); border-radius: 12px; color: var(--color-white);
+            font-family: var(--font-body); font-size: 1rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--color-primary); outline: none; background: rgba(15, 15, 15, 0.9);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.2);
+        }
+        .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label, .form-group textarea:not(:placeholder-shown) + label {
+            top: -12px; left: 16px; font-size: 0.9rem; color: var(--color-primary);
+            background: var(--color-grey); padding: 0 8px; border-radius: 4px;
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-group input::placeholder, .form-group textarea::placeholder { opacity: 0; }
+        
+        .submit-btn {
+            padding: 18px 40px; background: var(--color-red); color: var(--color-white);
+            border: none; border-radius: 50px; font-family: var(--font-body); font-weight: 600;
+            font-size: 1rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+        .submit-btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .submit-btn:hover::before { left: 100%; }
+        .submit-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: var(--shadow-heavy); }
+        .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        /* Footer */
+        .main-footer {
+            padding: 80px 0 40px; background: linear-gradient(135deg, var(--color-black) 0%, var(--color-dark) 100%);
+            border-top: 1px solid rgba(212, 165, 116, 0.2); text-align: center; position: relative;
+        }
+        .main-footer::before {
+            content: ''; position: absolute; top: 0; left: 50%; width: 100px; height: 4px;
+            background: var(--color-gold); transform: translateX(-50%);
+        }
+        .main-footer .logo { justify-content: center; margin-bottom: 30px; }
+        .main-footer p { color: var(--color-light-grey); font-size: 1rem; }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) { .contact-layout { grid-template-columns: 1fr; gap: 50px; } }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--color-white);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        @media (max-width: 768px) { 
+            .nav-links { 
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background-color: rgba(15, 15, 15, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+            }
+            .nav-links.show {
+                transform: translateX(0);
+            }
+            .hamburger { display: flex; }
+            .contact-layout { padding: 40px 30px; }
+            .contact-info { gap: 30px; }
+        }
+        @media (max-width: 576px) {
+            .contact-layout { padding: 30px 20px; }
+            .contact-info { gap: 25px; }
+            .contact-info-item .icon { width: 50px; height: 50px; }
+            .contact-info-item svg { width: 20px; height: 20px; }
+            .contact-info-item .content h3 { font-size: 1.1rem; }
+            .form-group input, .form-group textarea { padding: 15px; }
+            .submit-btn { padding: 15px 30px; }
+        }
+        /* Success Message */
+        .success-message {
+            position: fixed; top: 20px; right: 20px; background: var(--color-red);
+            color: var(--color-white); padding: 15px 25px; border-radius: 10px;
+            font-weight: 600; z-index: 1000; transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-medium);
+        }
+        .success-message.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="{{ url_for('main.index') }}" class="logo">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Logo" style="width: 45px; height: auto;">
+                    <span class="logo-text">Maryam</span>
+                </a>
+                <div class="nav-links">
+                    <a href="{{ url_for('main.index') }}">Bosh Sahifa</a>
+                    <a href="{{ url_for('main.collection') }}">Shop</a>
+                    <a href="{{ url_for('main.contact') }}" class="active">Bog'lanish</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h1>Biz Bilan <span>Aloqa</span></h1>
+                <p>Sizning orzuingizdagi mebel to'plamini yaratish uchun biz bilan bog'laning. Mutaxassislarimiz sizga eng yaxshi maslahatlarni berishadi.</p>
+            </div>
+            
+            <div class="contact-layout" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h3>Manzil</h3>
+                            <p>Qo'qon sh., Bunyodkor ko'chasi, 42-uy<br>Yashil Dunyo, 2-qavat</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.211-.992-.55-1.33l-2.91-2.584c-.34-.301-.81-.37-1.21-.166l-1.88 1.076c-.44.25-1.023.21-1.42-.09L9.36 14.116c-.4-.3-.44-.88-.09-1.42l1.076-1.88c.204-.399.134-.87-.166-1.21L6.08 6.88c-.338-.299-.814-.51-1.33-.51H2.25A2.25 2.25 0 000 8.25v.228" />
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h3>Telefon</h3>
+                            <p>+998 (99) 123-45-67<br>+998 (95) 456-78-90</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <h3>Email</h3>
+                            <p>info@maryam-furniture.uz<br>sales@maryam-furniture.uz</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" method="POST" action="{{ url_for('main.contact') }}">
+                    <input type="hidden" name="product_name" value="{{ product_name or '' }}">
+                    <input type="hidden" name="product_slug" value="{{ product_slug or '' }}">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" placeholder=" " required>
+                        <label for="name">Ismingiz</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" placeholder=" " required>
+                        <label for="phone">Telefon raqamingiz</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" placeholder=" ">
+                        <label for="email">Email manzilingiz (ixtiyoriy)</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder=" " required></textarea>
+                        <label for="message">Sizni qiziqtirgan mebel to'plami va xabaringiz</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        Xabarni Yuborish
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <a href="{{ url_for('main.index') }}" class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Logo" style="width: 45px; height: auto;">
+            </a>
+            <p>&copy; 2025 Maryam Furniture Factory. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'success' %}
+                <div class="success-message" id="successMessage">
+                    {{ message }}
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const successMessage = document.getElementById('successMessage');
+                        if (successMessage) {
+                            // Show the success message
+                            successMessage.style.display = 'block';
+                            
+                            // Trigger confetti effect
+                            confetti({
+                                particleCount: 150,
+                                spread: 70,
+                                origin: { y: 0.6 }
+                            });
+                            
+                            // Hide message and redirect after 3 seconds
+                            setTimeout(() => {
+                                successMessage.style.display = 'none';
+                                window.location.href = "{{ url_for('main.collection') }}";
+                            }, 3000);
+                        }
+                    });
+                </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100
+            });
+
+            // Form submission handling
+            const form = document.querySelector('.contact-form');
+            const submitBtn = document.querySelector('.submit-btn');
+
+            form.addEventListener('submit', (e) => {
+                // Disable submit button to prevent double submission
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Yuborilmoqda...';
+            });
+            
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                hamburger.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('show');
+                    hamburger.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

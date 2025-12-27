@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.name }} - Maryam Furniture Factory</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - MARYAM MEBEL{% endblock %}
+
+{% block extra_css %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
         :root {
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
@@ -39,95 +37,6 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
         @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Header */
-        .main-header {
-            padding: 20px 0; background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            border-bottom: 1px solid rgba(204, 0, 0, 0.2);
-        }
-        .navbar { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; transition: transform 0.3s ease; }
-        .logo:hover { transform: translateY(-2px); }
-        .logo img { 
-            width: 50px; height: auto; 
-            filter: drop-shadow(0 4px 8px rgba(204, 0, 0, 0.3)); 
-        }
-        .logo-text { 
-            color: var(--color-white); font-family: var(--font-heading); font-weight: 700; font-size: 2rem;
-            background: var(--color-red); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 40px; align-items: center; }
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                width: 70%;
-                background-color: rgba(15, 15, 15, 0.95);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-            }
-            .nav-links.show {
-                transform: translateX(0);
-            }
-        }
-        .nav-links a {
-            color: var(--color-white); text-decoration: none; font-weight: 500; font-size: 1rem;
-            position: relative; letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase; font-size: 0.9rem;
-        }
-        .nav-links a::before {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -8px; left: 50%;
-            background: var(--color-red); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-50%);
-        }
-        .nav-links a:hover::before, .nav-links a.activon indexe::before { width: 100%; }
-        .nav-links a:hover { color: var(--color-primary); transform: translateY(-2px); }
-    
-        /* Cart Icon */
-        .cart-icon {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--color-primary);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .cart-icon:hover {
-            background: var(--color-secondary);
-            transform: translateY(-2px);
-        }
-        .cart-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ffcc00;
-            color: #000;
-            font-size: 0.7rem;
-            font-weight: bold;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         /* Product Section */
         .product-section { padding: 80px 0; }
         .product-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: flex-start; }
@@ -201,7 +110,7 @@
             overflow: hidden;
         }
         .quantity-btn {
-            background: rgba(204, 0, 0, 0.2);
+            background: var(--color-primary);
             color: white;
             border: none;
             width: 40px;
@@ -211,16 +120,16 @@
             transition: all 0.3s ease;
         }
         .quantity-btn:hover {
-            background: var(--color-primary);
+            background: var(--color-secondary);
         }
         .quantity-input {
             width: 60px;
             height: 40px;
-            background: transparent;
             border: none;
             text-align: center;
-            color: white;
             font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-white);
         }
         .quantity-input:focus {
             outline: none;
@@ -228,254 +137,231 @@
         
         /* Action Buttons */
         .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            display: flex;
+            gap: 20px;
             margin-top: 30px;
         }
         .btn-primary {
-            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-            padding: 15px 30px; background: var(--color-primary); color: var(--color-white);
-            text-decoration: none; font-family: var(--font-body); font-weight: 600; font-size: 1.1rem;
-            border-radius: 10px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase; letter-spacing: 1px; box-shadow: var(--shadow-medium);
-            border: none; cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
-        .btn-primary:hover { 
-            background: var(--color-secondary); transform: translateY(-4px) scale(1.02); 
-            box-shadow: var(--shadow-heavy);
+        .btn-primary:hover {
+            background: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
         .btn-secondary {
-            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-            padding: 15px 30px; background: transparent; color: var(--color-white);
-            text-decoration: none; font-family: var(--font-body); font-weight: 600; font-size: 1.1rem;
-            border-radius: 10px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase; letter-spacing: 1px; box-shadow: var(--shadow-medium);
-            border: 2px solid var(--color-primary); cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--color-white);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-primary);
         }
-        .btn-secondary:hover { 
-            background: var(--color-primary); transform: translateY(-4px) scale(1.02); 
-            box-shadow: var(--shadow-heavy);
-        }
-
-        /* Footer */
-        .main-footer {
-            padding: 80px 0 40px; background: linear-gradient(135deg, var(--color-black) 0%, var(--color-dark) 100%);
-            border-top: 1px solid rgba(204, 0, 0, 0.2); text-align: center; position: relative;
-        }
-        .main-footer::before {
-            content: ''; position: absolute; top: 0; left: 50%; width: 100px; height: 4px;
-            background: var(--color-red); transform: translateX(-50%);
-        }
-        .main-footer .logo { justify-content: center; margin-bottom: 30px; }
-        .main-footer p { color: var(--color-light-grey); font-size: 1rem; }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: var(--color-white);
-            border-radius: 3px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-        @media (max-width: 992px) { 
-            .product-layout { grid-template-columns: 1fr; gap: 50px; } 
-            .action-buttons { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .product-details h1 { font-size: 2.5rem; }
-            .thumbnail-grid { grid-template-columns: repeat(2, 1fr); }
-            .container { padding: 0 20px; }
-            .product-details h1 { font-size: 2rem; }
-            .price { font-size: 2rem; }
-            .description { font-size: 1rem; }
-            .details-list li { font-size: 0.9rem; }
-            .quantity-controls { width: 100%; }
-            .quantity-input { width: 100%; }
-        }
-        @media (max-width: 480px) {
-            .thumbnail-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .thumbnail-grid img { height: 80px; }
-            .main-image { height: 300px; }
-            .product-details h1 { font-size: 1.8rem; }
-            .price { font-size: 1.8rem; }
-            .btn-primary { padding: 12px 20px; font-size: 0.9rem; }
-            .rating-stars { justify-content: center; }
-        }
-        @media (max-width: 576px) {
-            .thumbnail-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .thumbnail-grid img { height: 90px; }
-            .main-image { height: 350px; }
-            .product-details h1 { font-size: 2rem; }
-            .price { font-size: 2rem; }
-            .btn-primary { padding: 13px 22px; font-size: 0.95rem; }
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
         
-        /* Rating styles */
-        .rating-star {
-            width: 24px;
-            height: 24px;
-            fill: rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-            transition: fill 0.3s ease;
+        /* Rating Section */
+        .rating-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .rating-star.active {
-            fill: #ffcc00;
+        .rating-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--color-white);
         }
-        
-        .rating-star:hover {
-            fill: #ffcc00;
-        }
-        
         .rating-stars {
             display: flex;
             gap: 5px;
             margin-bottom: 15px;
         }
+        .rating-star {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .rating-star:hover {
+            transform: scale(1.2);
+        }
         
+        /* Alert Styles */
         .alert {
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            margin-top: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 500;
         }
-        
         .alert-success {
-            background: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-            border: 1px solid rgba(46, 204, 113, 0.2);
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+        }
+        .alert-error {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #dc3545;
         }
         
-        .alert-error {
-            background: rgba(231, 76, 60, 0.1);
-            color: #e74c3c;
-            border: 1px solid rgba(231, 76, 60, 0.2);
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .product-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .product-gallery .main-image {
+                height: 400px;
+            }
         }
-    </style>
-</head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="{{ url_for('index') }}" class="logo">
-                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Logo">
-                    <span class="logo-text">Maryam</span>
-                </a>
-                <div class="nav-links">
-                    <a href="{{ url_for('index') }}">Bosh Sahifa</a>
-                    <a href="{{ url_for('collection') }}" class="active">Shop</a>
-                    <a href="{{ url_for('contact') }}">Bog'lanish</a>
-                </div>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+        @media (max-width: 768px) {
+            .product-section {
+                padding: 60px 0;
+            }
+            .product-gallery .main-image {
+                height: 300px;
+            }
+            .thumbnail-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+            .product-details h1 {
+                font-size: 2.5rem;
+            }
+            .product-details .price {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .product-gallery .main-image {
+                height: 250px;
+            }
+            .thumbnail-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .product-details h1 {
+                font-size: 2rem;
+            }
+            .quantity-controls {
+                width: 100%;
+            }
+            .quantity-input {
+                flex: 1;
+            }
+        }
+</style>
+{% endblock %}
 
-    <main class="product-section">
+{% block content %}
+<main>
         <div class="container">
-            <div class="product-layout">
-                <div class="product-gallery" data-aos="fade-right">
-                    <img src="{{ product.main_image }}" alt="Main product image" class="main-image" id="mainImage">
-                    <div class="thumbnail-grid">
-                        <img src="{{ product.main_image }}" alt="Thumbnail 1" class="active">
-                        {% for img in product.gallery_images %}
-                        <img src="{{ img }}" alt="Thumbnail">
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="product-details" data-aos="fade-left">
-                    <h1>{{ product.name }}</h1>
-                    <div class="price">
-                        {% if product.discount > 0 %}
-                            <span class="original-price">{{ "{:,}".format(product.price) }} so'm</span>
-                            {{ "{:,}".format(product.price - (product.price * product.discount // 100)) }} so'm
-                            <span class="discount">{{ product.discount }}% off</span>
+            <div class="product-section">
+                <div class="product-layout">
+                    <div class="product-gallery" data-aos="fade-right">
+                        {% if product.images %}
+                            <img src="{{ product.images[0] }}" alt="{{ product.name }}" class="main-image" id="mainImage">
+                            <div class="thumbnail-grid">
+                                {% for image in product.images %}
+                                    <img src="{{ image }}" alt="{{ product.name }}" class="{% if loop.index0 == 0 %}active{% endif %}">
+                                {% endfor %}
+                            </div>
                         {% else %}
-                            <span class="original-price">{{ "{:,}".format(product.price) }} so'm</span>
+                            <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}" class="main-image" id="mainImage">
+                            <div class="thumbnail-grid">
+                                <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}" class="active">
+                                <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}">
+                                <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}">
+                                <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}">
+                            </div>
                         {% endif %}
                     </div>
-                    <p class="description">{{ product.description }}</p>
-                    <ul class="details-list">
-                        <li><strong>Material:</strong> <span>{{ product.material }}</span></li>
-                        <li><strong>Ishlab chiqarilgan yili:</strong> <span>{{ product.year }}</span></li>
-                        <li><strong>Kafolat:</strong> <span>{{ product.warranty }}</span></li>
-                        <li><strong>To'plamda:</strong> <span>{{ product.includes }}</span></li>
-                    </ul>
                     
-                    <div class="quantity-selector">
-                        <label>Miqdor:</label>
-                        <div class="quantity-controls">
-                            <button class="quantity-btn" id="decreaseQty">-</button>
-                            <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
-                            <button class="quantity-btn" id="increaseQty">+</button>
+                    <div class="product-details" data-aos="fade-left">
+                        <h1>{{ product.name }}</h1>
+                        {% if product.discount and product.discount > 0 %}
+                            <div>
+                                <span class="original-price">{{ "{:,.0f}".format(product.price) }} so'm</span>
+                                <span class="price">{{ "{:,.0f}".format(product.price * (100 - product.discount) / 100) }} so'm</span>
+                                <span class="discount">-{{ product.discount }}%</span>
+                            </div>
+                        {% else %}
+                            <div class="price">{{ "{:,.0f}".format(product.price) }} so'm</div>
+                        {% endif %}
+                        <p class="description">{{ product.description }}</p>
+                        <ul class="details-list">
+                            <li><strong>Material:</strong> <span>{{ product.material }}</span></li>
+                            <li><strong>Ishlab chiqarilgan yili:</strong> <span>{{ product.year }}</span></li>
+                            <li><strong>Kafolat:</strong> <span>{{ product.warranty }}</span></li>
+                            <li><strong>To'plamda:</strong> <span>{{ product.includes }}</span></li>
+                        </ul>
+                        
+                        <div class="quantity-selector">
+                            <label>Miqdor:</label>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" id="decreaseQty">-</button>
+                                <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                                <button class="quantity-btn" id="increaseQty">+</button>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <a href="{{ url_for('contact') }}?product={{ product.slug }}" class="btn-primary">
-                            <span>Buyurtma berish</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    </div>
-                    
-                    <!-- Rating Section -->
-                    <div class="rating-section" style="margin-top: 30px;">
-                        <h3 style="margin-bottom: 15px; color: var(--color-white);">Mahsulotga baho bering</h3>
-                        <div class="rating-stars" style="display: flex; gap: 5px; margin-bottom: 15px;">
-                            {% for i in range(5) %}
-                                <svg class="rating-star" data-rating="{{ loop.index }}" style="width: 24px; height: 24px; cursor: pointer;" viewBox="0 0 24 24">
-                                    <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" fill="{{ '#ffcc00' if loop.index <= (product.ratings|average_rating if product.ratings else 0) else 'rgba(255, 255, 255, 0.2)' }}" />
+                        
+                        <div class="action-buttons">
+                            <a href="{{ url_for('contact') }}?product={{ product.slug }}" class="btn-primary">
+                                <span>Buyurtma berish</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
                                 </svg>
-                            {% endfor %}
+                            </a>
                         </div>
-                        <p style="color: var(--color-light-grey);">
-                            O'rtacha baho: <strong style="color: var(--color-primary);">{{ product.ratings|average_rating if product.ratings else '0.0' }}</strong> ({{ product.ratings|length if product.ratings else 0 }} ta baholar)
-                        </p>
-                        <input type="hidden" id="productAverageRating" value="{{ product.ratings|average_rating if product.ratings else '0' }}">
+                        
+                        <!-- Rating Section -->
+                        <div class="rating-section" style="margin-top: 30px;">
+                            <h3 style="margin-bottom: 15px; color: var(--color-white);">Mahsulotga baho bering</h3>
+                            <div class="rating-stars" style="display: flex; gap: 5px; margin-bottom: 15px;">
+                                {% for i in range(5) %}
+                                    <svg class="rating-star" data-rating="{{ loop.index }}" style="width: 24px; height: 24px; cursor: pointer;" viewBox="0 0 24 24">
+                                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" fill="{{ '#ffcc00' if loop.index <= (product.ratings|average_rating if product.ratings else 0) else 'rgba(255, 255, 255, 0.2)' }}" />
+                                    </svg>
+                                {% endfor %}
+                            </div>
+                            <p style="color: var(--color-light-grey);">
+                                O'rtacha baho: <strong style="color: var(--color-primary);">{{ product.ratings|average_rating if product.ratings else '0.0' }}</strong> ({{ product.ratings|length if product.ratings else 0 }} ta baholar)
+                            </p>
+                            <input type="hidden" id="productAverageRating" value="{{ product.ratings|average_rating if product.ratings else '0' }}">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <a href="{{ url_for('index') }}" class="logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Maryam Logo" style="width: 45px; height: auto;">
-            </a>
-            <p>&copy; 2025 Maryam Furniture Factory. Barcha huquqlar himoyalangan.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Initialize AOS
@@ -521,24 +407,6 @@
             const ratingStars = document.querySelectorAll('.rating-star');
             const productId = "{{ product.id }}";
 
-            // Mobile menu toggle
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-                hamburger.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            const navItems = document.querySelectorAll('.nav-links a');
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinks.classList.remove('show');
-                    hamburger.classList.remove('active');
-                });
-            });
-            
             // Add click handlers to rating stars
             ratingStars.forEach(star => {
                 star.addEventListener('click', () => {
@@ -622,11 +490,7 @@
                     });
                 });
             });
-            
-            
+
         });
     </script>
-    
-
-</body>
-</html>
+{% endblock %}

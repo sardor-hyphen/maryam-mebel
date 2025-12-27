@@ -118,7 +118,7 @@ class AuthModal {
                 <!-- Forgot Password Form -->
                 <div id="forgotPasswordForm" class="auth-form">
                     <div class="auth-header">
-                        <img src="/static/images/logo.png" alt="MARYAM MEBEL" class="auth-logo">
+                        <img src="/static/logo.png" alt="MARYAM MEBEL" class="auth-logo">
                         <h2 class="auth-title">Parolni tiklash</h2>
                         <p class="auth-subtitle">Telegram username yoki email kiriting</p>
                     </div>
@@ -452,109 +452,3 @@ function requireAuth(action = 'login') {
     return false; // Prevent default action
 }
 
-// Authentication modal functionality
-$(document).ready(function() {
-    // Create a namespace for auth modal functions
-    window.authModal = {
-        // Show modal with specified mode ('login' or 'signup')
-        show: function(mode) {
-            // Create modal if it doesn't exist
-            if (!$('#authModal').length) {
-                this.createModal();
-            }
-            
-            // Set modal mode
-            $('#authModal').data('mode', mode);
-            
-            // Show the correct form
-            if (mode === 'login') {
-                $('#loginForm').show();
-                $('#signupForm').hide();
-                $('#authModalLabel').text('Kirish');
-            } else {
-                $('#signupForm').show();
-                $('#loginForm').hide();
-                $('#authModalLabel').text('Ro\'yxatdan o\'tish');
-            }
-            
-            // Show the modal
-            $('#authModal').modal('show');
-        },
-        
-        // Create modal HTML if it doesn't exist
-        createModal: function() {
-            // Create modal HTML structure
-            var modalHtml = `
-                <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="authModalLabel">Kirish</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Login Form -->
-                                <form id="loginForm" action="/login" method="POST">
-                                    <div class="form-group">
-                                        <label for="username">Foydalanuvchi nomi</label>
-                                        <input type="text" class="form-control" id="username" name="username" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password">Parol</label>
-                                        <input type="password" class="form-control" id="password" name="password" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-block">Kirish</button>
-                                </form>
-                                
-                                <!-- Signup Form -->
-                                <form id="signupForm" action="/signup" method="POST" style="display: none;">
-                                    <div class="form-group">
-                                        <label for="newUsername">Foydalanuvchi nomi</label>
-                                        <input type="text" class="form-control" id="newUsername" name="username" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="newEmail">Email</label>
-                                        <input type="email" class="form-control" id="newEmail" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="newTelegram">Telegram username</label>
-                                        <input type="text" class="form-control" id="newTelegram" name="telegram_username" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="newPassword">Parol</label>
-                                        <input type="password" class="form-control" id="newPassword" name="password" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-success btn-block">Ro'yxatdan o'tish</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Add modal to body
-            $('body').append(modalHtml);
-            
-            // Initialize bootstrap modal
-            $('#authModal').modal({
-                backdrop: 'static',
-                keyboard: false
-            });
-            
-            // Handle form submission
-            $('#loginForm').on('submit', function(e) {
-                // Handle login form submission
-                // This will be handled by the server
-                // We can add client-side validation if needed
-            });
-            
-            $('#signupForm').on('submit', function(e) {
-                // Handle signup form submission
-                // This will be handled by the server
-                // We can add client-side validation if needed
-            });
-        }
-    };
-});

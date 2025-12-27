@@ -1,0 +1,812 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - MARYAM MEBEL{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary-color: #cc0000;
+        --secondary-color: #990000;
+        --text-dark: #2c3e50;
+        --text-light: #7f8c8d;
+        --bg-light: #f8f9fa;
+        --bg-dark: #2c3e50;
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .admin-container {
+        display: flex;
+        min-height: calc(100vh - 200px); /* Adjust for header and footer */
+    }
+    
+    /* Sidebar */
+    .admin-sidebar {
+        width: 80px;
+        background: var(--bg-dark);
+        color: var(--white);
+        padding: 20px 0;
+        transition: all 0.3s ease;
+        position: fixed;
+        height: calc(100vh - 200px); /* Adjust for header and footer */
+        overflow-y: auto;
+        z-index: 1000;
+        margin-top: 80px; /* Account for fixed header */
+    }
+    
+    .admin-sidebar:hover {
+        width: 250px;
+    }
+    
+    .admin-logo {
+        text-align: center;
+        padding: 0 20px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+    
+    .admin-logo img {
+        height: 50px;
+    }
+    
+    .admin-nav {
+        list-style: none;
+    }
+    
+    .admin-nav-item {
+        margin-bottom: 5px;
+    }
+    
+    .admin-nav-link {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    
+    .admin-nav-link:hover,
+    .admin-nav-link.active {
+        background: var(--primary-color);
+        color: var(--white);
+        border-left: 4px solid var(--white);
+    }
+    
+    .admin-nav-link i {
+        margin-right: 15px;
+        width: 20px;
+        text-align: center;
+        min-width: 20px;
+    }
+    
+    .admin-nav-link span {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        transform: translateX(-20px);
+    }
+    
+    .admin-sidebar:hover .admin-nav-link span {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* Main Content */
+    .admin-main {
+        flex: 1;
+        margin-left: 80px;
+        transition: all 0.3s ease;
+        padding-top: 20px;
+    }
+    
+    .admin-sidebar:hover ~ .admin-main {
+        margin-left: 250px;
+    }
+    
+    .admin-header {
+        background: var(--white);
+        padding: 20px 30px;
+        box-shadow: var(--shadow);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 80px; /* Account for fixed header */
+        z-index: 100;
+    }
+    
+    .admin-header-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+    
+    .admin-header-actions {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .admin-btn {
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        border: none;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+    
+    .btn-primary:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+    }
+    
+    .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+    }
+    
+    .btn-outline:hover {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+    
+    /* Stats */
+    .admin-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 30px;
+    }
+    
+    .stat-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+    
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin: 15px 0;
+    }
+    
+    .stat-label {
+        color: var(--text-light);
+        font-size: 1rem;
+    }
+    
+    /* Sections */
+    .admin-section {
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        margin: 30px;
+        overflow: hidden;
+    }
+    
+    .section-header {
+        padding: 25px 30px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .section-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0;
+    }
+    
+    .section-actions {
+        display: flex;
+        gap: 15px;
+    }
+    
+    /* Tables */
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .admin-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: var(--text-dark);
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .admin-table tbody tr:hover {
+        background: #f8f9fa;
+    }
+    
+    .status-badge {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .status-active {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+    }
+    
+    .status-inactive {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+    }
+    
+    .status-unread {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+    }
+    
+    .status-read {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+    }
+    
+    .action-btn {
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .btn-view {
+        background: rgba(0, 123, 255, 0.1);
+        color: #007bff;
+    }
+    
+    .btn-view:hover {
+        background: #007bff;
+        color: var(--white);
+    }
+    
+    .btn-edit {
+        background: rgba(255, 193, 7, 0.1);
+        color: #ffc107;
+    }
+    
+    .btn-edit:hover {
+        background: #ffc107;
+        color: var(--white);
+    }
+    
+    .btn-delete {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+    }
+    
+    .btn-delete:hover {
+        background: #dc3545;
+        color: var(--white);
+    }
+    
+    .btn-mark-read {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+    }
+    
+    .btn-mark-read:hover {
+        background: #28a745;
+        color: var(--white);
+    }
+    
+    /* Alerts */
+    .alert {
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin: 20px 30px;
+        font-weight: 500;
+    }
+    
+    .alert-success {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+        border: 1px solid rgba(40, 167, 69, 0.2);
+    }
+    
+    .alert-error {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        border: 1px solid rgba(220, 53, 69, 0.2);
+    }
+    
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-content {
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-heavy);
+        max-width: 500px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-light);
+    }
+    
+    .modal-content h2 {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        margin: 0;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-body p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+    
+    .modal-body strong {
+        color: var(--text-dark);
+    }
+    
+    /* Filters */
+    .admin-filters {
+        padding: 20px 30px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        min-width: 200px;
+    }
+    
+    .filter-group label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+    }
+    
+    .filter-group select {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: var(--white);
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .admin-container {
+            flex-direction: column;
+        }
+        
+        .admin-sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+            margin-top: 0;
+        }
+        
+        .admin-sidebar:hover {
+            width: 100%;
+        }
+        
+        .admin-main {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+        
+        .admin-sidebar:hover ~ .admin-main {
+            margin-left: 0;
+        }
+        
+        .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .admin-header {
+            top: 0;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="MARYAM MEBEL">
+        </div>
+        <ul class="admin-nav">
+            <li class="admin-nav-item">
+                <a href="{{ url_for('admin.dashboard') }}" class="admin-nav-link active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="admin-nav-item">
+                <a href="{{ url_for('admin.products') }}" class="admin-nav-link">
+                    <i class="fas fa-box"></i>
+                    <span>Mahsulotlar</span>
+                </a>
+            </li>
+            <li class="admin-nav-item">
+                <a href="{{ url_for('admin.orders') }}" class="admin-nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Buyurtmalar</span>
+                </a>
+            </li>
+            <li class="admin-nav-item">
+                <a href="{{ url_for('admin.messages') }}" class="admin-nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Xabarlar</span>
+                </a>
+            </li>
+            <li class="admin-nav-item">
+                <a href="{{ url_for('admin.settings') }}" class="admin-nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Sozlamalar</span>
+                </a>
+            </li>
+            <li class="admin-nav-item">
+                <a href="{{ url_for('logout') }}" class="admin-nav-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Chiqish</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="admin-main">
+        <div class="admin-header">
+            <h1 class="admin-header-title">Admin Dashboard</h1>
+            <div class="admin-header-actions">
+                <a href="{{ url_for('admin.new_product') }}" class="admin-btn btn-primary">
+                    <i class="fas fa-plus"></i> Yangi Mahsulot
+                </a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'success' if category == 'success' else 'error' }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Stats -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <h3>Jami Mahsulotlar</h3>
+                <div class="stat-value">{{ products_count }}</div>
+                <div class="stat-label">mahsulotlar</div>
+            </div>
+            <div class="stat-card">
+                <h3>Jami Buyurtmalar</h3>
+                <div class="stat-value">{{ orders_count }}</div>
+                <div class="stat-label">buyurtmalar</div>
+            </div>
+            <div class="stat-card">
+                <h3>Xabarlar</h3>
+                <div class="stat-value">{{ messages_count }}</div>
+                <div class="stat-label">yangi xabarlar</div>
+            </div>
+            <div class="stat-card">
+                <h3>Foydalanuvchilar</h3>
+                <div class="stat-value">{{ users_count }}</div>
+                <div class="stat-label">ro'yxatdan o'tgan</div>
+            </div>
+        </div>
+
+        <!-- Recent Products -->
+        <div class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">Oxirgi Mahsulotlar</h2>
+                <div class="section-actions">
+                    <a href="{{ url_for('admin.products') }}" class="admin-btn btn-outline">
+                        <i class="fas fa-eye"></i> Barchasini ko'rish
+                    </a>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Rasm</th>
+                            <th>Nomi</th>
+                            <th>Toifasi</th>
+                            <th>Narxi</th>
+                            <th>Chegirma</th>
+                            <th>Holati</th>
+                            <th>Yaratilgan</th>
+                            <th>Harakatlar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products|reverse|slice(":5")|first %}
+                        <tr>
+                            <td>
+                                {% if product.main_image %}
+                                <img src="{{ product.main_image }}" alt="{{ product.name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                                {% else %}
+                                <div style="width: 50px; height: 50px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-image" style="color: #999;"></i>
+                                </div>
+                                {% endif %}
+                            </td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ "{:,}".format(product.price) }} so'm</td>
+                            <td>{{ product.discount }}%</td>
+                            <td>
+                                <span class="status-badge {% if product.is_active %}status-active{% else %}status-inactive{% endif %}">
+                                    {{ 'Aktiv' if product.is_active else 'Noaktiv' }}
+                                </span>
+                            </td>
+                            <td>{{ product.created_at[:10] }}</td>
+                            <td>
+                                <a href="{{ url_for('admin.edit_product', product_id=product.id) }}" class="action-btn btn-view">
+                                    <i class="fas fa-edit"></i>
+                                    Tahrirlash
+                                </a>
+                                <a href="{{ url_for('admin.delete_product', product_id=product.id) }}" class="action-btn btn-delete" onclick="return confirm('Ushbu mahsulotni o\'chirishni xohlaysizmi?')">
+                                    <i class="fas fa-trash"></i>
+                                    O'chirish
+                                </a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="10" style="text-align: center; color: var(--text-light);">
+                                Hozircha mahsulotlar yo'q
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- All Messages -->
+        <div class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">Barcha xabarlar</h2>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Ism</th>
+                            <th>Telefon</th>
+                            <th>Email</th>
+                            <th>Xabar</th>
+                            <th>Sana</th>
+                            <th>Holat</th>
+                            <th>Harakatlar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for message in messages|reverse|slice(":5")|first %}
+                        <tr>
+                            <td>{{ message.name }}</td>
+                            <td>{{ message.phone }}</td>
+                            <td>{{ message.email or 'Kiritilmagan' }}</td>
+                            <td>{{ message.message[:50] }}{% if message.message|length > 50 %}...{% endif %}</td>
+                            <td>{{ message.timestamp[:10] }}</td>
+                            <td>
+                                <span class="status-badge status-{{ 'unread' if not message.read else 'read' }}">
+                                    {{ 'O\'qilmagan' if not message.read else 'O\'qilgan' }}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="action-btn btn-view" data-message-id="{{ message.id }}">
+                                    <i class="fas fa-eye"></i> Batafsil
+                                </button>
+                                {% if not message.read %}
+                                <a href="{{ url_for('admin.mark_message_read', message_id=message.id) }}" 
+                                   class="action-btn btn-mark-read">O'qildi</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: var(--text-light);">
+                                Hozircha xabarlar yo'q
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    // Store messages data for lookup by ID
+    const messagesData = {};
+    document.addEventListener('DOMContentLoaded', function() {
+        const messagesElement = document.getElementById('messages-data');
+        if (messagesElement) {
+            try {
+                const messagesJson = messagesElement.getAttribute('data-messages');
+                if (messagesJson) {
+                    const messages = JSON.parse(messagesJson);
+                    messages.forEach(message => {
+                        messagesData[message.id] = message;
+                    });
+                }
+            } catch (e) {
+                console.error('Error parsing messages data:', e);
+            }
+        }
+    });
+    
+    // Auto-hide alerts
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+            alert.style.transition = 'opacity 0.5s ease';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500);
+        });
+    }, 5000);
+    
+    // Product filtering
+    function filterProducts() {
+        const categoryFilter = document.getElementById('category-filter').value;
+        const statusFilter = document.getElementById('status-filter').value;
+        const rows = document.querySelectorAll('#all-products-table tbody tr');
+        
+        rows.forEach(row => {
+            const category = row.getAttribute('data-category');
+            const isActive = row.getAttribute('data-active') === 'true';
+            
+            let show = true;
+            
+            if (categoryFilter !== 'all' && category !== categoryFilter) {
+                show = false;
+            }
+            
+            if (statusFilter !== 'all') {
+                const isActiveMatch = statusFilter === 'active' ? isActive : !isActive;
+                if (!isActiveMatch) {
+                    show = false;
+                }
+            }
+            
+            row.style.display = show ? '' : 'none';
+        });
+    }
+    
+    // Add event listeners to all view buttons
+    const viewButtons = document.querySelectorAll('.btn-view[data-message-id]');
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const messageId = this.getAttribute('data-message-id');
+            showMessageDetails(messageId);
+        });
+    });
+    
+    // Setup event listeners for filters
+    document.getElementById('category-filter').addEventListener('change', filterProducts);
+    document.getElementById('status-filter').addEventListener('change', filterProducts);
+    
+    // Show message details in modal
+    function showMessageDetails(messageId) {
+        const message = messagesData[messageId];
+        if (message) {
+            document.getElementById('messageDetailName').textContent = message.name;
+            document.getElementById('messageDetailPhone').textContent = message.phone;
+            document.getElementById('messageDetailEmail').textContent = message.email || 'Kiritilmagan';
+            document.getElementById('messageDetailMessage').textContent = message.message;
+            document.getElementById('messageDetailDate').textContent = message.timestamp;
+            document.getElementById('messageDetailModal').style.display = 'block';
+        }
+    }
+    
+    // Close modal
+    function closeMessageModal() {
+        document.getElementById('messageDetailModal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('messageDetailModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+<!-- Message Detail Modal -->
+<div id="messageDetailModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeMessageModal()">&times;</span>
+        <h2>Xabar tafsilotlari</h2>
+        <div class="modal-body">
+            <p><strong>Ism:</strong> <span id="messageDetailName"></span></p>
+            <p><strong>Telefon:</strong> <span id="messageDetailPhone"></span></p>
+            <p><strong>Email:</strong> <span id="messageDetailEmail"></span></p>
+            <p><strong>Xabar:</strong> <span id="messageDetailMessage"></span></p>
+            <p><strong>Sana:</strong> <span id="messageDetailDate"></span></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
