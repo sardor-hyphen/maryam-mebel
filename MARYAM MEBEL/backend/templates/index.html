@@ -1,433 +1,933 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryam Furniture Factory - Premium Mebel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 
-{% block title %}MARYAM MEBEL{% endblock %}
-
-{% block extra_css %}
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400&display=swap');
+    <style>
+        /* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
         :root {
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Roboto', sans-serif;
+            /* Colors - Black and Red only */
             --color-red: #cc0000;
+            --color-red-light: #ff3333;
+            --color-red-dark: #990000;
             --color-white: #ffffff;
-            --color-black: #0a0a0a;
-            --color-dark-grey: #1a1a1a;
-            --color-light-grey: #888;
-            --shadow-light: 0 5px 15px rgba(0,0,0,0.1);
-            --shadow-medium: 0 10px 30px rgba(0,0,0,0.15);
-            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.25);
+            --color-black: #000000;
+            --color-dark-black: #0a0a0a;
+            --color-medium-black: #121212;
+            --color-light-black: #1a1a1a;
+
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing & Sizing */
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --border-radius-large: 20px;
+            --container-max-width: 1200px;
+
+            /* Effects */
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.5);
+            --shadow-glow-red: 0 0 30px rgba(204, 0, 0, 0.5);
+            --shadow-float: 0 15px 35px rgba(0, 0, 0, 0.4);
+
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+
+        /* ==========================================================================
+   Global Styles & Reset
+   ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: var(--font-body);
-            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
+            background-color: var(--color-black);
             color: var(--color-white);
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
             overflow-x: hidden;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeInPage 1.2s 0.3s forwards cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
         }
-        .container { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
-        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(10,10,10,1)), url('https://images.unsplash.com/photo-1604578762246-41134e37f9cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw&auto=format&fit=crop&w=1740&q=80');
+
+        /* Wooden texture background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1589754628459-5b5a2e3c5e7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
+        }
+
+        .section {
+            padding: calc(var(--spacing-unit) * 10) 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 6);
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-unit);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--color-white);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ==========================================================================
+   Component Styles: Buttons, Cards
+   ========================================================================== */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            border: 2px solid var(--color-red);
+            background-color: var(--color-red);
+            color: var(--color-white);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium), var(--shadow-glow-red);
+            background-color: var(--color-red-light);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(204, 0, 0, 0.3);
+            border-radius: var(--border-radius-large);
+            padding: calc(var(--spacing-unit) * 3);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-float);
+            transform: translateY(0);
+        }
+
+        .card--hover-lift:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--color-red);
+        }
+
+        /* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--spacing-unit) 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            transition: all var(--transition-base);
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: var(--shadow-light);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+            text-decoration: none;
+            color: var(--color-red);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 2rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(204, 0, 0, 0.5));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 3);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-red);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -8px;
+            left: 50%;
+            background-color: var(--color-red);
+            transition: all var(--transition-base);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 80%;
+            left: 10%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: var(--color-red);
+            border-radius: 10px;
+            transition: all var(--transition-base);
+            transform-origin: 1px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        /* ==========================================================================
+   Hero Section
+   ========================================================================== */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            background-attachment: fixed;
         }
+
         .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(204, 0, 0, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero-content {
-            max-width: 700px;
-            padding: 0 20px;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-family: var(--font-heading);
-            font-size: 4.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-red) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--color-light-grey);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        .hero-btn {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--color-red);
-            color: var(--color-white);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            animation: pulse 1.5s infinite;
-            box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
-        }
-        .hero-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(204, 0, 0, 0.4);
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7); }
-            50% { box-shadow: 0 0 0 20px rgba(204, 0, 0, 0.3); }
-            100% { box-shadow: 0 0 0 30px rgba(204, 0, 0, 0); }
-        }
-        
-        /* Features Section */
-        .features-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-        .section-title h2, .section-title h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--color-white) 0%, var(--color-red) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-title p {
-            color: var(--color-light-grey);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-        .feature-item {
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: none;
-        }
-        .feature-item svg {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 20px;
-            color: var(--color-red);
-        }
-        .feature-item h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--color-white);
-        }
-        .feature-item p {
-            color: var(--color-light-grey);
-            line-height: 1.7;
-        }
-        
-        /* Latest Products Section */
-        .latest-products {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, var(--color-black) 100%);
-        }
-        .view-collection-link {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: transparent;
-            color: var(--color-white);
-            border: 2px solid var(--color-red);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1rem;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .cta-button::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: var(--color-red);
-            transition: all 0.5s ease;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600195351741-d0e54f0e3b1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             z-index: -1;
         }
-        .cta-button:hover::before {
-            width: 100%;
-        }
-        .cta-button:hover {
+        
+        .hero-content {
+            max-width: 800px;
             color: var(--color-white);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
-        .product-grid {
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--color-red);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-white);
+        }
+
+        /* ==========================================================================
+   Features Section
+   ========================================================================== */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 3);
         }
-        .product-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto calc(var(--spacing-unit) * 2);
+            background: linear-gradient(135deg, rgba(204, 0, 0, 0.2), rgba(204, 0, 0, 0.4));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-red);
+            box-shadow: var(--shadow-light);
         }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(204, 0, 0, 0.3);
+
+        .feature-icon svg {
+            width: 40px;
+            height: 40px;
         }
-        .product-image {
+
+        .feature-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .feature-item p {
+            color: var(--color-white);
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================================================
+   Testimonials Section
+   ========================================================================== */
+        .testimonial-slider {
             position: relative;
             overflow: hidden;
+            border-radius: var(--border-radius-large);
         }
-        .product-image img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: calc(var(--spacing-unit) * 4);
         }
-        .product-info {
-            padding: 25px;
-        }
-        .product-info h3 {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            position: relative;
             color: var(--color-white);
         }
-        .product-info p {
-            color: var(--color-light-grey);
-            line-height: 1.6;
-            margin-bottom: 15px;
+
+        .testimonial-content::before, .testimonial-content::after {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--color-red);
+            opacity: 0.3;
+            position: absolute;
+            line-height: 1;
+        }
+        .testimonial-content::before { content: '"'; top: -20px; left: -20px; }
+        .testimonial-content::after { content: '"'; bottom: -50px; right: -20px; }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--color-red);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--color-red);
+            font-size: 1.2rem;
+        }
+
+        .author-title {
+            font-size: 1rem;
+            color: var(--color-white);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-unit);
+            margin-top: calc(var(--spacing-unit) * 3);
+        }
+
+        .slider-btn {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--color-red);
+            color: var(--color-red);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .slider-btn:hover {
+            background-color: var(--color-red);
+            color: var(--color-white);
+            transform: scale(1.1);
+        }
+
+        /* ==========================================================================
+   Product Grid Section
+   ========================================================================== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: calc(var(--spacing-unit) * 3);
+        }
+
+        .product-grid .card {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-base);
+        }
+
+        .product-grid .card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            padding: calc(var(--spacing-unit) * 2.5);
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-details h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-red);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .product-details p {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            flex-grow: 1;
+            color: var(--color-white);
+        }
+
+        /* ==========================================================================
+   Footer
+   ========================================================================== */
+        .main-footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: var(--color-white);
+            padding: 60px 0 30px;
         }
         
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .why-us-grid, .full-product-grid { grid-template-columns: 1fr 1fr; }
-            .product-grid, .contact-layout, .product-layout { grid-template-columns: 1fr; }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        @media (max-width: 768px) {
-            .hero, .page-header { text-align: center; }
-            .hero-content { margin: 0 auto; }
-            .hero h1, .page-header h1, .section-title h1, .section-title h2, .product-details h1 { font-size: 2.5rem; }
-            .section { padding: 80px 0; }
-            .why-us-grid, .full-product-grid { grid-template-columns: 1fr; }
-            .container { padding: 0 20px; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1rem; }
-            .hero-btn { padding: 15px 30px; font-size: 0.9rem; }
-            .section-title h2, .section-title h1 { font-size: 2rem; }
-            .feature-item svg { width: 40px; height: 40px; }
-            .feature-item h3 { font-size: 1.3rem; }
-            .product-card .product-image img { height: 250px; }
-            .product-info { padding: 20px; }
-            .product-info h3 { font-size: 1.3rem; }
+        
+        .footer-column h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-red);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-title h2, .section-title h1 { font-size: 1.8rem; }
-            .why-us-grid, .product-grid { gap: 25px; }
-            .feature-item { padding: 0 10px; }
-            .feature-item h3 { font-size: 1.2rem; }
-            .feature-item p { font-size: 0.9rem; }
-            .product-card .product-image img { height: 200px; }
-            .cta-button { padding: 15px 25px; font-size: 0.9rem; }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--color-red);
         }
-        @media (max-width: 576px) {
-            .hero h1 { font-size: 2rem; }
-            .section-title h2, .section-title h1 { font-size: 1.6rem; }
-            .why-us-grid, .product-grid { gap: 20px; }
-            .feature-item { padding: 0 5px; }
-            .feature-item h3 { font-size: 1.1rem; }
-            .feature-item p { font-size: 0.85rem; }
-            .product-card .product-image img { height: 180px; }
-            .cta-button { padding: 12px 20px; font-size: 0.85rem; }
+        
+        .footer-links {
+            list-style: none;
         }
-    
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/auth-modal.css') }}">
-</style>
-{% endblock %}
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-red);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--color-red);
+            border-radius: 50%;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <img src="/static/logo.png" alt="Maryam Logo">
+                    <span>Мебел</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Bosh Sahifa</a></li>
+                    <li><a href="/collection">Kolleksiya</a></li>
+                    <li><a href="/contact">Aloqa</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-{% block content %}
-<main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1>Sizning Uyingiz, Sizning Uslubingiz</h1>
-                    <p>Premium sifatli mebellarimiz bilan uy yoki ofisingizni chiroyliroq qiling. Bizning to'plamimiz zamonaviy dizayn va qulaylikni birlashtiradi.</p>
-                    <a href="{{ url_for('main.collection') }}" class="hero-btn">Kolleksiyani ko'rish</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-animate="fade-in">Sizning Uyingiz, Sizning Uslubingiz</h1>
+                <p data-animate="fade-in" data-delay="0.2s">
+                    Premium sifatli mebellarimiz bilan uy yoki ofisingizni chiroyliroq qiling. 
+                    Bizning to'plamimiz zamonaviy dizayn va qulaylikni birlashtiradi.
+                </p>
+                <a href="/collection" class="btn" data-animate="fade-in" data-delay="0.4s">
+                    Kolleksiyani Ko'rish
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-animate="fade-in">Nima Uchun Biz?</h2>
+                <p data-animate="fade-in" data-delay="0.2s">
+                    Biz faqat mebel ishlab chiqarmaymiz. Biz sizning uyingiz uchun san'at asarlari yaratamiz.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="card card--hover-lift" data-animate="slide-up" data-delay="0.3s">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12a2.5 2.5 0 01-1.77 4.27m-4.64-4.64A2.5 2.5 0 107.5 12a2.5 2.5 0 001.77 4.27" />
+                        </svg>
+                    </div>
+                    <h3>Betakror Dizayn</h3>
+                    <p>
+                        Har bir to'plamimiz Italiyaning yetakchi dizaynerlari bilan hamkorlikda, 
+                        eng so'nggi trendlar asosida yaratiladi.
+                    </p>
+                </div>
+                
+                <div class="card card--hover-lift" data-animate="slide-up" data-delay="0.5s">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.41-.24-2.76-.67-4.022A12 12 0 0021 9.75c0-1.8-.3-3.5-.81-5.036z" />
+                        </svg>
+                    </div>
+                    <h3>Beqiyos Sifat</h3>
+                    <p>
+                        Biz faqat Yevropaning eng yaxshi, ekologik toza va sertifikatlangan 
+                        materiallaridan foydalanamiz.
+                    </p>
+                </div>
+                
+                <div class="card card--hover-lift" data-animate="slide-up" data-delay="0.7s">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3>Uzoq Yillik Kafolat</h3>
+                    <p>
+                        Har bir mahsulotimizga 10 yillik kafolat beramiz, chunki biz o'z ishimiz sifatiga ishonamiz.
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Features Section -->
-        <section class="features-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Nima Uchun <span>Biz?</span></h2>
-                    <p>Biz faqat mebel ishlab chiqarmaymiz. Biz sizning uyingiz uchun san'at asarlari yaratamiz.</p>
-                </div>
-                <div class="why-us-grid">
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.472-2.472a3.375 3.375 0 000-4.773L6.75 2.25 2.25 6.75l8.477 8.477a3.375 3.375 0 004.773 0z" />
-                        </svg>
-                        <h3>Betakror Dizayn</h3>
-                        <p>Har bir to'plamimiz Italiyaning yetakchi dizaynerlari bilan hamkorlikda, eng so'nggi trendlar asosida yaratiladi.</p>
-                    </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <h3>Beqiyos Sifat</h3>
-                        <p>Biz faqat Yevropaning eng yaxshi, ekologik toza va sertifikatlangan materiallaridan foydalanamiz.</p>
-                    </div>
-                    <div class="feature-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
-                        <h3>Uzoq Yillik Kafolat</h3>
-                        <p>Har bir mahsulotimizga 10 yillik kafolat beramiz, chunki biz o'z ishimiz sifatiga ishonamiz.</p>
-                    </div>
-                </div>
+    <!-- Products Section -->
+    <section class="section" style="background: var(--color-dark-black);">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-animate="fade-in">Ommabop Mahsulotlar</h2>
+                <p data-animate="fade-in" data-delay="0.2s">
+                    Mijozlarimiz tomonidan eng yuqori baholangan va sevib tanlangan to'plamlar.
+                </p>
             </div>
-        </section>
+            
+            <div class="product-grid">
+                <?php if (!empty($products)): ?>
+                    <?php foreach (array_slice($products, 0, 4) as $index => $product): ?>
+                    <a href="/product/<?php echo $product['slug']; ?>" class="card card--hover-lift" data-animate="slide-up" data-delay="<?php echo 0.2 + ($index * 0.1); ?>s">
+                        <div class="product-image">
+                            <?php if (!empty($product['main_image'])): ?>
+                                <img src="<?php echo $product['main_image']; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                            <?php else: ?>
+                                <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                            <?php endif; ?>
+                        </div>
+                        <div class="product-details">
+                            <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                            <p><?php echo htmlspecialchars($product['description']); ?></p>
+                            <div class="price">
+                                <?php if ($product['discount'] > 0): ?>
+                                    <span class="discounted"><?php echo number_format($product['price'], 0, '', ' '); ?> UZS</span>
+                                    <span class="current"><?php echo number_format($product['price'] * (1 - $product['discount']/100), 0, '', ' '); ?> UZS</span>
+                                <?php else: ?>
+                                    <span class="current"><?php echo number_format($product['price'], 0, '', ' '); ?> UZS</span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </a>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p style="grid-column: 1 / -1; text-align: center; color: var(--color-white);">Hozircha mahsulotlar mavjud emas.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
 
-        <!-- Latest Products Section -->
-        <section class="latest-products">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Eng Ommabop <span>Modellar</span></h2>
-                    <p>Mijozlarimiz tomonidan eng yuqori baholangan va sevib tanlangan to'plamlar.</p>
-                </div>
-                <div class="view-collection-link">
-                    <a href="{{ url_for('main.collection') }}" class="cta-button">BARCHA KOLLEKSIYANI KO'RISH</a>
-                </div>
-                <div class="product-grid">
-                    {% if products %}
-                        {% for product in products[:4] %}  <!-- Show only first 4 products -->
-                        <a href="{{ url_for('product', product_name=product.slug) }}" class="product-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-                            <div class="product-image">
-                                {% if product.main_image %}
-                                <img src="{{ product.main_image }}" alt="{{ product.name }}">
-                                {% else %}
-                                <img src="https://images.unsplash.com/photo-1594026112271-b614f18be272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="{{ product.name }}">
-                                {% endif %}
-                            </div>
-                            <div class="product-info">
-                                <h3>{{ product.name }}</h3>
-                                <p>Hashamatli klassika va zamonaviy qulaylik.</p>
-                            </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Maryam Mebel</h3>
+                    <p style="color: var(--color-white); line-height: 1.6;">
+                        Premium sifatli mebellarimiz bilan uy yoki ofisingizni chiroyliroq qiling.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-telegram"></i>
                         </a>
-                        {% endfor %}
-                    {% else %}
-                        <p style="grid-column: 1 / -1; text-align: center; color: var(--color-light-grey);">Hozircha mahsulotlar mavjud emas.</p>
-                    {% endif %}
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Tezkor Havolalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Bosh Sahifa</a></li>
+                        <li><a href="/collection">Mahsulotlar</a></li>
+                        <li><a href="/about">Biz haqimizda</a></li>
+                        <li><a href="/contact">Aloqa</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Aloqa</h3>
+                    <ul class="footer-links">
+                        <li>📍 Qo'qon sh., Bunyodkor ko'chasi, 42-uy</li>
+                        <li>📱 +998 (99) 123-45-67</li>
+                        <li>✉️ info@maryam-mebel.uz</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Maryam Mebel. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="{{ url_for('static', filename='js/auth-modal.js') }}"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out-cubic',
-                once: true,
-                offset: 100
-            });
-            
-            // Initialize auth modal
-            if (typeof window.authModal === 'undefined') {
-                console.log('Creating new AuthModal instance');
-                window.authModal = new AuthModal();
-            }
-            
-            // Sticky header
-            const header = document.getElementById('mainHeader');
-            window.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.scrollY > 50);
-            });
-            
-            // Mobile menu toggle
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-                hamburger.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            const navItems = document.querySelectorAll('.nav-links a');
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinks.classList.remove('show');
-                    hamburger.classList.remove('active');
+        // Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation functions
+        function animateOnScroll() {
+            // Fade in animations
+            gsap.utils.toArray('[data-animate="fade-in"]').forEach((element, index) => {
+                const delay = parseFloat(element.getAttribute('data-delay') || 0);
+                
+                gsap.from(element, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                    },
+                    delay: delay
                 });
+            });
+
+            // Slide up animations
+            gsap.utils.toArray('[data-animate="slide-up"]').forEach((element, index) => {
+                const delay = parseFloat(element.getAttribute('data-delay') || 0);
+                
+                gsap.from(element, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 90%",
+                    },
+                    delay: delay
+                });
+            });
+        }
+
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        }
+
+        // Header scroll effect
+        function initHeaderScroll() {
+            const header = document.querySelector('.main-header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            initMobileMenu();
+            initHeaderScroll();
+            
+            // Additional animations
+            gsap.from('.hero h1', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.5
+            });
+            
+            gsap.from('.hero p', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.7
+            });
+            
+            gsap.from('.btn', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.9
             });
         });
     </script>
-    
-    <!-- Admin Access Button -->
-    <button class="admin-access" onclick="window.location.href='/admin/login'"
-            title="Admin Panel" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: rgba(204, 0, 0, 0.9); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-        🔧
-    </button>
-{% endblock %}
-
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/auth-modal.js') }}"></script>
-{% endblock %}
+</body>
+</html>

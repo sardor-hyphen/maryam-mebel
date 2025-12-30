@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block title %}MARYAM MEBEL{% endblock %}
@@ -941,3 +942,632 @@
     </script>
 {% endblock %}
 {% endblock %}
+=======
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - MARYAM MEBEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        .profile-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 6rem;
+        }
+        
+        .profile-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .profile-sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .profile-avatar {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .avatar-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #ff4444);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .avatar-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .avatar-email {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .profile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .profile-nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .profile-nav-link:hover,
+        .profile-nav-link.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .profile-nav-icon {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .profile-main {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-description {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+        }
+        
+        .form-input:disabled {
+            background: #f5f5f5;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #aa0000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #ff4444;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #cc0000;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .alert-success {
+            background: #f0fff4;
+            color: #2e7d32;
+            border: 1px solid #e8f5e8;
+        }
+        
+        .alert-error {
+            background: #fff5f5;
+            color: #cc0000;
+            border: 1px solid #ffebee;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), #ff4444);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .activity-item {
+            padding: 1rem;
+            border-left: 4px solid var(--primary-color);
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+        
+        .activity-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+        
+        .activity-text {
+            font-weight: 500;
+        }
+        
+        .danger-zone {
+            background: #fff5f5;
+            border: 2px solid #ffebee;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .danger-title {
+            color: #cc0000;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .profile-main {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .profile-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="MARYAM MEBEL" class="logo-img">
+            </div>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="{{ url_for('main.index') }}" class="nav-link">Bosh sahifa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('main.collection') }}" class="nav-link">Kolleksiya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('main.contact') }}" class="nav-link">Bog'lanish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('logout') }}" class="nav-link">Chiqish</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="container">
+            <div class="profile-header" data-aos="fade-up">
+                <h1 class="profile-title">Profil boshqaruvi</h1>
+                <p class="profile-subtitle">Hisobingiz ma'lumotlarini boshqaring</p>
+            </div>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'error' if category == 'error' else 'success' }}" data-aos="fade-up">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class="profile-content">
+                <div class="profile-sidebar" data-aos="fade-right">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">
+                            {{ current_user.first_name[0] + current_user.last_name[0] }}
+                        </div>
+                        <div class="avatar-name">{{ current_user.first_name }} {{ current_user.last_name }}</div>
+                        <div class="avatar-email">{{ current_user.email }}</div>
+                    </div>
+                    
+                    <ul class="profile-nav">
+                        <li class="profile-nav-item">
+                            <a href="#overview" class="profile-nav-link active" data-section="overview">
+                                <span class="profile-nav-icon">📊</span>
+                                Umumiy ma'lumot
+                            </a>
+                        </li>
+                        <li class="profile-nav-item">
+                            <a href="#personal" class="profile-nav-link" data-section="personal">
+                                <span class="profile-nav-icon">👤</span>
+                                Shaxsiy ma'lumotlar
+                            </a>
+                        </li>
+                        <li class="profile-nav-item">
+                            <a href="#security" class="profile-nav-link" data-section="security">
+                                <span class="profile-nav-icon">🔒</span>
+                                Xavfsizlik
+                            </a>
+                        </li>
+                        <li class="profile-nav-item">
+                            <a href="#activity" class="profile-nav-link" data-section="activity">
+                                <span class="profile-nav-icon">📝</span>
+                                Faoliyat tarixi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="profile-main" data-aos="fade-left">
+                    <!-- Overview Section -->
+                    <div class="section active" id="overview">
+                        <div class="section-header">
+                            <h2 class="section-title">Umumiy ma'lumot</h2>
+                            <p class="section-description">Hisobingiz haqida asosiy statistika va ma'lumotlar</p>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">{{ current_user.created_at.strftime('%d') }}</div>
+                                <div class="stat-label">Ro'yxatdan o'tgan sana</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">{{ current_user.last_login.strftime('%d/%m') if current_user.last_login else 'Hech qachon' }}</div>
+                                <div class="stat-label">Oxirgi kirish</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">{{ 'Ha' if current_user.is_verified else 'Yo\'q' }}</div>
+                                <div class="stat-label">Tasdiqlangan</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <h3 style="margin-bottom: 1rem;">Hisob holati</h3>
+                            <p><strong>Foydalanuvchi nomi:</strong> {{ current_user.username }}</p>
+                            <p><strong>Email:</strong> {{ current_user.email }}</p>
+                            <p><strong>Telegram:</strong> {{ current_user.telegram_username or 'Kiritilmagan' }}</p>
+                            <p><strong>Ro'yxatdan o'tgan:</strong> {{ current_user.created_at.strftime('%d.%m.%Y') }}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Information Section -->
+                    <div class="section" id="personal">
+                        <div class="section-header">
+                            <h2 class="section-title">Shaxsiy ma'lumotlar</h2>
+                            <p class="section-description">O'zingiz haqidagi ma'lumotlarni yangilang</p>
+                        </div>
+                        
+                        <form method="POST" action="{{ url_for('update_profile') }}">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first_name" class="form-label">Ism</label>
+                                    <input type="text" id="first_name" name="first_name" class="form-input" 
+                                           value="{{ current_user.first_name }}" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="last_name" class="form-label">Familiya</label>
+                                    <input type="text" id="last_name" name="last_name" class="form-input" 
+                                           value="{{ current_user.last_name }}" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email manzil</label>
+                                <input type="email" id="email" name="email" class="form-input" 
+                                       value="{{ current_user.email }}" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telegram_username" class="form-label">Telegram Username</label>
+                                <input type="text" id="telegram_username" name="telegram_username" class="form-input" 
+                                       value="{{ current_user.telegram_username or '' }}" placeholder="@username">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Ma'lumotlarni yangilash</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Security Section -->
+                    <div class="section" id="security">
+                        <div class="section-header">
+                            <h2 class="section-title">Xavfsizlik</h2>
+                            <p class="section-description">Hisobingiz xavfsizligini boshqaring</p>
+                        </div>
+                        
+                        <form method="POST" action="{{ url_for('change_password') }}">
+                            <div class="form-group">
+                                <label for="current_password" class="form-label">Joriy parol</label>
+                                <input type="password" id="current_password" name="current_password" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new_password" class="form-label">Yangi parol</label>
+                                <input type="password" id="new_password" name="new_password" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm_new_password" class="form-label">Yangi parolni tasdiqlang</label>
+                                <input type="password" id="confirm_new_password" name="confirm_new_password" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Parolni o'zgartirish</button>
+                            </div>
+                        </form>
+                        
+                        <div class="danger-zone">
+                            <h3 class="danger-title">Xavfli zona</h3>
+                            <p>Hisobingizni o'chirish qaytarib bo'lmaydi. Barcha ma'lumotlaringiz yo'qoladi.</p>
+                            <button type="button" class="btn btn-danger" onclick="confirmDeleteAccount()">
+                                Hisobni o'chirish
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity Section -->
+                    <div class="section" id="activity">
+                        <div class="section-header">
+                            <h2 class="section-title">Faoliyat tarixi</h2>
+                            <p class="section-description">Hisobingizdagi oxirgi faoliyatlar</p>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-date">{{ current_user.created_at.strftime('%d.%m.%Y %H:%M') }}</div>
+                            <div class="activity-text">Hisob yaratildi</div>
+                        </div>
+                        
+                        {% if current_user.last_login %}
+                        <div class="activity-item">
+                            <div class="activity-date">{{ current_user.last_login.strftime('%d.%m.%Y %H:%M') }}</div>
+                            <div class="activity-text">Tizimga kirildi</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Profile navigation
+        const navLinks = document.querySelectorAll('.profile-nav-link');
+        const sections = document.querySelectorAll('.section');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active from all links and sections
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                
+                // Add active to clicked link
+                link.classList.add('active');
+                
+                // Show corresponding section
+                const sectionId = link.dataset.section;
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const nav = document.getElementById('nav');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                nav.classList.toggle('nav-open');
+            });
+        }
+        
+        // Delete account confirmation
+        function confirmDeleteAccount() {
+            if (confirm('Rostdan ham hisobingizni o\'chirmoqchimisiz? Bu amal qaytarib bo\'lmaydi!')) {
+                if (confirm('Oxirgi ogohlantirish: Barcha ma\'lumotlaringiz yo\'qoladi. Davom etasizmi?')) {
+                    // Redirect to delete account endpoint
+                    window.location.href = "{{ url_for('delete_account') }}";
+                }
+            }
+        }
+        
+        // Auto-hide alerts
+        setTimeout(() => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
+>>>>>>> 63001de4bea333d6e2972632e6b4b0dc820fe417

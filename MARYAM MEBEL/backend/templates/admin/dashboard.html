@@ -1,10 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}MARYAM MEBEL{% endblock %}
-
-{% block extra_css %}
-<style>
-:root {
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - MARYAM MEBEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
             --primary-color: #cc0000;
             --secondary-color: #990000;
             --text-dark: #2c3e50;
@@ -557,1337 +560,242 @@
                 font-size: 0.65rem;
             }
         }
-        
-    
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</style>
-{% endblock %}
-
-{% block content %}
-{% extends "base.html" %}
-
-{% block title %}Admin Panel - MARYAM MEBEL{% endblock %}
-
-{% block extra_css %}
-<style>
-:root {
-            --primary-color: #cc0000;
-            --secondary-color: #990000;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #f8f9fa;
-            --bg-dark: #2c3e50;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            color: var(--text-dark);
-        }
-        
-        .admin-container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        /* Sidebar */
-        .admin-sidebar {
-            width: 80px;
-            background: var(--bg-dark);
-            color: var(--white);
-            padding: 20px 0;
-            transition: all 0.3s ease;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 1000;
-        }
-        
-        .admin-sidebar:hover {
-            width: 250px;
-        }
-        
-        .admin-logo {
-            text-align: center;
-            padding: 0 20px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        .admin-logo img {
-            height: 50px;
-        }
-        
-        .admin-nav {
-            list-style: none;
-        }
-        
-        .admin-nav-item {
-            margin-bottom: 5px;
-        }
-        
-        .admin-nav-link {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        
-        .admin-nav-link:hover,
-        .admin-nav-link.active {
-            background: var(--primary-color);
-            color: var(--white);
-            border-left: 4px solid var(--white);
-        }
-        
-        .admin-nav-link i {
-            margin-right: 15px;
-            width: 20px;
-            text-align: center;
-            min-width: 20px;
-        }
-        
-        .admin-nav-link span {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            transform: translateX(-20px);
-        }
-        
-        .admin-sidebar:hover .admin-nav-link span {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Main Content */
-        .admin-main {
-            flex: 1;
-            margin-left: 80px;
-            transition: all 0.3s ease;
-        }
-        
-        .admin-sidebar:hover ~ .admin-main {
-            margin-left: 250px;
-        }
-        
-        .admin-header {
-            background: var(--white);
-            padding: 20px 30px;
-            box-shadow: var(--shadow);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .admin-header-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        
-        .admin-header-actions {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .admin-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            font-size: 0.9rem;
-        }
-        
-        .btn-primary {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-        
-        /* Stats */
-        .admin-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 30px;
-        }
-        
-        .stat-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .stat-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .stat-icon.products {
-            background: rgba(204, 0, 0, 0.1);
-            color: var(--primary-color);
-        }
-        
-        .stat-icon.messages {
-            background: rgba(52, 152, 219, 0.1);
-            color: #3498db;
-        }
-        
-        .stat-icon.unread {
-            background: rgba(231, 76, 60, 0.1);
-            color: #e74c3c;
-        }
-        
-        .stat-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        /* Tables */
-        .admin-section {
-            background: var(--white);
-            margin: 0 30px 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-        
-        .section-header {
-            padding: 20px 25px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .table-responsive {
-            overflow-x: auto;
-        }
-        
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .admin-table th,
-        .admin-table td {
-            padding: 15px 25px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .admin-table th {
-            background: var(--bg-light);
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.9rem;
-        }
-        
-        .admin-table tr:hover {
-            background: rgba(204, 0, 0, 0.02);
-        }
-        
-        .status-badge {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .status-read {
-            background: rgba(46, 204, 113, 0.2);
-            color: #27ae60;
-        }
-        
-        .status-unread {
-            background: rgba(231, 76, 60, 0.2);
-            color: #e74c3c;
-        }
-        
-        .status-active {
-            background: rgba(46, 204, 113, 0.2);
-            color: #27ae60;
-        }
-        
-        .status-inactive {
-            background: rgba(231, 76, 60, 0.2);
-            color: #e74c3c;
-        }
-        
-        .action-btn {
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            margin-right: 5px;
-        }
-        
-        .btn-view {
-            background: rgba(52, 152, 219, 0.1);
-            color: #3498db;
-        }
-        
-        .btn-view:hover {
-            background: #3498db;
-            color: var(--white);
-        }
-        
-        .btn-mark-read {
-            background: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-        }
-        
-        .btn-mark-read:hover {
-            background: #27ae60;
-            color: var(--white);
-        }
-        
-        .btn-delete {
-            background: rgba(231, 76, 60, 0.1);
-            color: #e74c3c;
-        }
-        
-        .btn-delete:hover {
-            background: #e74c3c;
-            color: var(--white);
-        }
-        
-        /* Alert */
-        .alert {
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin: 20px 30px 0;
-            font-size: 0.9rem;
-        }
-        
-        .alert-success {
-            background: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-            border: 1px solid rgba(46, 204, 113, 0.2);
-        }
-        
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-
-        .modal-body p {
-            margin-bottom: 10px;
-        }
-
-        .modal-body strong {
-            display: inline-block;
-            width: 80px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .admin-sidebar {
-                width: 70px;
-            }
-            
-            .admin-sidebar:hover {
-                width: 70px;
-            }
-            
-            .admin-sidebar .admin-logo span,
-            .admin-sidebar .admin-nav-link span {
-                display: none;
-            }
-            
-            .admin-sidebar .admin-nav-link i {
-                margin-right: 0;
-                font-size: 1.2rem;
-            }
-            
-            .admin-main {
-                margin-left: 70px;
-            }
-            
-            .admin-sidebar:hover ~ .admin-main {
-                margin-left: 70px;
-            }
-            
-            .admin-stats {
-                grid-template-columns: 1fr;
-                padding: 20px;
-            }
-            
-            .admin-section {
-                margin: 0 20px 20px;
-            }
-            
-            .admin-header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .admin-header-actions {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .section-header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .admin-table th,
-            .admin-table td {
-                padding: 10px 15px;
-                font-size: 0.85rem;
-            }
-            
-            .action-btn {
-                padding: 4px 8px;
-                font-size: 0.8rem;
-            }
-            
-            /* Improved table responsiveness */
-            .table-responsive {
-                overflow-x: auto;
-            }
-            
-            .admin-table {
-                min-width: 800px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .admin-main {
-                margin-left: 0;
-            }
-            
-            .admin-sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            
-            .admin-sidebar .admin-nav {
-                display: flex;
-                overflow-x: auto;
-                padding: 10px 0;
-            }
-            
-            .admin-nav-item {
-                margin-bottom: 0;
-                margin-right: 5px;
-            }
-            
-            .admin-nav-link {
-                padding: 10px 15px;
-                white-space: nowrap;
-            }
-            
-            .admin-nav-link i {
-                margin-right: 5px;
-            }
-            
-            /* Further improve table responsiveness */
-            .admin-table th,
-            .admin-table td {
-                padding: 8px 10px;
-                font-size: 0.8rem;
-            }
-            
-            .action-btn {
-                padding: 3px 6px;
-                font-size: 0.7rem;
-            }
-        }
-        
-        /* Extra small devices */
-        @media (max-width: 360px) {
-            .admin-stats {
-                padding: 15px;
-            }
-            
-            .stat-card {
-                padding: 15px;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .admin-table th,
-            .admin-table td {
-                padding: 6px 8px;
-                font-size: 0.75rem;
-            }
-            
-            .action-btn {
-                padding: 2px 4px;
-                font-size: 0.65rem;
-            }
-        }
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</style>
-{% endblock %}
-
-{% block content %}
-<div class="admin-container">
+    </style>
+</head>
+<body>
+    <div class="admin-container">
         <!-- Sidebar -->
-        <aside class="admin-sidebar">
+        <div class="admin-sidebar">
             <div class="admin-logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="MARYAM MEBEL">
+                <img src="/static/logo.png" alt="Logo">
+                <span>Maryam Mebel</span>
             </div>
-            
             <ul class="admin-nav">
                 <li class="admin-nav-item">
-                    <a href="{{ url_for('admin.dashboard') }}" class="admin-nav-link active">
-                        <i class="fas fa-home"></i>
-                        <span>Bosh sahifa</span>
+                    <a href="/admin/dashboard" class="admin-nav-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="admin-nav-item">
-                    <a href="{{ url_for('admin.new_product') }}" class="admin-nav-link">
-                        <i class="fas fa-box"></i>
-                        <span>Mahsulot qo'shish</span>
+                    <a href="/admin/new_product" class="admin-nav-link">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Yangi Mahsulot</span>
                     </a>
                 </li>
                 <li class="admin-nav-item">
-                    <a href="{{ url_for('admin.orders') }}" class="admin-nav-link">
+                    <a href="/admin/orders" class="admin-nav-link">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Buyurtmalar</span>
                     </a>
                 </li>
                 <li class="admin-nav-item">
-                    <a href="{{ url_for('admin.logout') }}" class="admin-nav-link">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Chiqish</span>
+                    <a href="/collection" class="admin-nav-link">
+                        <i class="fas fa-box"></i>
+                        <span>Barcha Mahsulotlar</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="/" class="admin-nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Asosiy Sahifa</span>
                     </a>
                 </li>
             </ul>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="admin-main">
+        </div>
 
-            <!-- Store messages data in a hidden div for JavaScript access -->
-            <div id="messages-data" style="display: none;" data-messages="{{ messages|tojson|e }}"></div>
-            
-            <div class="admin-section">
-                <div class="section-header">
-                    <div class="section-title">Mahsulotlar filtri</div>
+        <!-- Main Content -->
+        <div class="admin-main">
+            <header class="admin-header">
+                <h1 class="admin-header-title">Admin Dashboard</h1>
+                <div class="admin-header-actions">
+                    <a href="/admin/new_product" class="admin-btn btn-primary">
+                        <i class="fas fa-plus"></i> Yangi Mahsulot
+                    </a>
+                    <a href="/" class="admin-btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> Saytga o'tish
+                    </a>
                 </div>
-                
-                <div class="section-body">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="category-filter" class="form-label">Toifaga ko'ra filtr</label>
-                            <select id="category-filter" class="form-control">
-                                <option value="all">Barcha toifalar</option>
-                                <option value="yotoqxona">Yotoqxona mebeli</option>
-                                <option value="mehmonxona">Mehmonxona mebeli</option>
-                                <option value="xonaki">Xonaki mebel</option>
-                                <option value="bolalar">Bolalar xonasi</option>
-                                <option value="ofis">Ofis mebeli</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="status-filter" class="form-label">Holat bo'yicha filtr</label>
-                            <select id="status-filter" class="form-control">
-                                <option value="all">Barcha holatlar</option>
-                                <option value="active">Faol</option>
-                                <option value="inactive">Nofaol</option>
-                            </select>
-                        </div>
-                    </div>
+            </header>
+
+            <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+                <div class="alert alert-success">
+                    Amaliyot muvaffaqiyatli bajarildi!
                 </div>
-            </div>
-            
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ 'success' if category == 'success' else 'error' }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            
-            <!-- Stats -->
+            <?php endif; ?>
+
             <div class="admin-stats">
                 <div class="stat-card">
                     <div class="stat-icon products">
                         <i class="fas fa-box"></i>
                     </div>
-                    <div class="stat-number">{{ products|length }}</div>
-                    <div class="stat-label">Mahsulotlar</div>
+                    <div class="stat-number"><?php echo count(loadJSON('products.json')); ?></div>
+                    <div class="stat-label">Jami Mahsulotlar</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon messages">
                         <i class="fas fa-envelope"></i>
                     </div>
-                    <div class="stat-number">{{ messages|length }}</div>
-                    <div class="stat-label">Xabarlar</div>
+                    <div class="stat-number"><?php echo count(loadJSON('messages.json')); ?></div>
+                    <div class="stat-label">Jami Xabarlar</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon unread">
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fas fa-comment"></i>
                     </div>
-                    <div class="stat-number">{{ unread_count }}</div>
-                    <div class="stat-label">O'qilmagan</div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="stat-number" id="total-value">0</div>
-                    <div class="stat-label">Jami qiymat</div>
+                    <div class="stat-number"><?php 
+                        $messages = loadJSON('messages.json');
+                        $unread = 0;
+                        foreach ($messages as $msg) {
+                            if (!$msg['read']) $unread++;
+                        }
+                        echo $unread; 
+                    ?></div>
+                    <div class="stat-label">O'qilmagan Xabarlar</div>
                 </div>
             </div>
-            
-            <!-- Recent Messages -->
+
             <div class="admin-section">
                 <div class="section-header">
-                    <h2 class="section-title">So'ngi xabarlar</h2>
+                    <h2 class="section-title">So'nggi Xabarlar</h2>
+                    <a href="/admin/orders" class="admin-btn btn-outline">Barchasini ko'rish</a>
                 </div>
                 
                 <div class="table-responsive">
                     <table class="admin-table">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Ism</th>
                                 <th>Telefon</th>
-                                <th>Email</th>
                                 <th>Xabar</th>
                                 <th>Sana</th>
-                                <th>Holat</th>
-                                <th>Harakatlar</th>
+                                <th>Status</th>
+                                <th>Amallar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for message in messages[-5:]|reverse %}
+                            <?php 
+                            $messages = array_slice(loadJSON('messages.json'), 0, 5);
+                            foreach ($messages as $message): 
+                            ?>
                             <tr>
-                                <td>{{ message.name }}</td>
-                                <td>{{ message.phone }}</td>
-                                <td>{{ message.email or 'Kiritilmagan' }}</td>
-                                <td>{{ message.message[:50] }}{% if message.message|length > 50 %}...{% endif %}</td>
-                                <td>{{ message.timestamp[:10] }}</td>
+                                <td><?php echo $message['id']; ?></td>
+                                <td><?php echo htmlspecialchars($message['name']); ?></td>
+                                <td><?php echo htmlspecialchars($message['phone']); ?></td>
+                                <td><?php echo htmlspecialchars(substr($message['message'], 0, 50)) . '...'; ?></td>
+                                <td><?php echo date('d.m.Y H:i', strtotime($message['timestamp'])); ?></td>
                                 <td>
-                                    <span class="status-badge status-{{ 'unread' if not message.read else 'read' }}">
-                                        {{ 'O\'qilmagan' if not message.read else 'O\'qilgan' }}
+                                    <span class="status-badge <?php echo $message['read'] ? 'status-read' : 'status-unread'; ?>">
+                                        <?php echo $message['read'] ? 'O\'qilgan' : 'O\'qilmagan'; ?>
                                     </span>
                                 </td>
                                 <td>
-                                    <button class="action-btn btn-view" data-message-id="{{ message.id }}">
-                                        <i class="fas fa-eye"></i> Batafsil
+                                    <button class="action-btn btn-view" onclick="viewMessage(<?php echo $message['id']; ?>)">
+                                        <i class="fas fa-eye"></i> Ko'rish
                                     </button>
-                                    {% if not message.read %}
-                                    <a href="{{ url_for('admin.mark_message_read', message_id=message.id) }}" 
-                                       class="action-btn btn-mark-read">O'qildi</a>
-                                    {% endif %}
                                 </td>
                             </tr>
-                            {% else %}
-                            <tr>
-                                <td colspan="7" style="text-align: center; color: var(--text-light);">
-                                    Hozircha xabarlar yo'q
-                                </td>
-                            </tr>
-                            {% endfor %}
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-            
-            <!-- Recent Products -->
+
             <div class="admin-section">
                 <div class="section-header">
-                    <h2 class="section-title">So'ngi mahsulotlar</h2>
-                </div>
-                
-                <div class="section-body">
-                    <div class="table-responsive">
-                        <table class="admin-table" id="recent-products-table">
-                            <thead>
-                                <tr>
-                                    <th>Nomi</th>
-                                    <th>Toifasi</th>
-                                    <th>Material</th>
-                                    <th>Yili</th>
-                                    <th>Kafolat</th>
-                                    <th>Narxi</th>
-                                    <th>Chegirma</th>
-                                    <th>Holati</th>
-                                    <th>Yaratilgan sana</th>
-                                    <th>Harakatlar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for product in products[-5:]|reverse %}
-                                <tr id="product-{{ product.id }}" data-category="{{ product.category }}" data-active="{{ 'true' if product.is_active else 'false' }}">
-                                    <td>{{ product.name }}</td>
-                                    <td>{{ product.category }}</td>
-                                    <td>{{ product.material }}</td>
-                                    <td>{{ product.year }}</td>
-                                    <td>{{ product.warranty }}</td>
-                                    <td>{{ "{:,}".format(product.price if product.price is defined else 0) }} so'm</td>
-                                    <td>{{ product.discount }}%</td>
-                                    <td>
-                                        <span class="status-badge {% if product.is_active %}status-active{% else %}status-inactive{% endif %}">
-                                            {{ 'Aktiv' if product.is_active else 'Noaktiv' }}
-                                        </span>
-                                    </td>
-                                    <td>{{ product.created_at[:10] }}</td>
-                                    <td>
-                                        <a href="{{ url_for('admin.edit_product', product_id=product.id) }}" class="action-btn btn-view">
-                                            <i class="fas fa-edit"></i>
-                                            Tahrirlash
-                                        </a>
-                                        <a href="{{ url_for('admin.delete_product', product_id=product.id) }}" class="action-btn btn-delete" onclick="return confirm('Ushbu mahsulotni o\'chirishni xohlaysizmi?')">
-                                            <i class="fas fa-trash"></i>
-                                            O'chirish
-                                        </a>
-                                    </td>
-                                </tr>
-                                {% else %}
-                                <tr>
-                                    <td colspan="10" style="text-align: center; color: var(--text-light);">
-                                        Hozircha mahsulotlar yo'q
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- All Products -->
-            <div class="admin-section">
-                <div class="section-header">
-                    <h2 class="section-title">Barcha mahsulotlar</h2>
-                </div>
-                
-                <div class="section-body">
-                    <div class="table-responsive">
-                        <table class="admin-table" id="all-products-table">
-                            <thead>
-                                <tr>
-                                    <th>Nomi</th>
-                                    <th>Toifasi</th>
-                                    <th>Material</th>
-                                    <th>Yili</th>
-                                    <th>Kafolat</th>
-                                    <th>Narxi</th>
-                                    <th>Chegirma</th>
-                                    <th>Holati</th>
-                                    <th>Yaratilgan sana</th>
-                                    <th>Harakatlar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for product in products|sort(attribute='created_at', reverse=True) %}
-                                <tr id="product-{{ product.id }}" data-category="{{ product.category }}" data-active="{{ 'true' if product.is_active else 'false' }}">
-                                    <td>{{ product.name }}</td>
-                                    <td>{{ product.category }}</td>
-                                    <td>{{ product.material }}</td>
-                                    <td>{{ product.year }}</td>
-                                    <td>{{ product.warranty }}</td>
-                                    <td>{{ "{:,}".format(product.price if product.price is defined else 0) }} so'm</td>
-                                    <td>{{ product.discount }}%</td>
-                                    <td>
-                                        <span class="status-badge {% if product.is_active %}status-active{% else %}status-inactive{% endif %}">
-                                            {{ 'Aktiv' if product.is_active else 'Noaktiv' }}
-                                        </span>
-                                    </td>
-                                    <td>{{ product.created_at[:10] }}</td>
-                                    <td>
-                                        <a href="{{ url_for('admin.edit_product', product_id=product.id) }}" class="action-btn btn-view">
-                                            <i class="fas fa-edit"></i>
-                                            Tahrirlash
-                                        </a>
-                                        <a href="{{ url_for('admin.delete_product', product_id=product.id) }}" class="action-btn btn-delete" onclick="return confirm('Ushbu mahsulotni o\'chirishni xohlaysizmi?')">
-                                            <i class="fas fa-trash"></i>
-                                            O'chirish
-                                        </a>
-                                    </td>
-                                </tr>
-                                {% else %}
-                                <tr>
-                                    <td colspan="10" style="text-align: center; color: var(--text-light);">
-                                        Hozircha mahsulotlar yo'q
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- All Messages -->
-            <div class="admin-section">
-                <div class="section-header">
-                    <h2 class="section-title">Barcha xabarlar</h2>
+                    <h2 class="section-title">So'nggi Mahsulotlar</h2>
+                    <a href="/admin/new_product" class="admin-btn btn-primary">Yangi qo'shish</a>
                 </div>
                 
                 <div class="table-responsive">
                     <table class="admin-table">
                         <thead>
                             <tr>
-                                <th>Ism</th>
-                                <th>Telefon</th>
-                                <th>Email</th>
-                                <th>Xabar</th>
-                                <th>Sana</th>
-                                <th>Holat</th>
-                                <th>Harakatlar</th>
+                                <th>ID</th>
+                                <th>Nomi</th>
+                                <th>Narxi</th>
+                                <th>Kategoriya</th>
+                                <th>Status</th>
+                                <th>Amallar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for message in messages|reverse %}
+                            <?php 
+                            $products = array_slice(loadJSON('products.json'), 0, 5);
+                            foreach ($products as $product): 
+                            ?>
                             <tr>
-                                <td>{{ message.name }}</td>
-                                <td>{{ message.phone }}</td>
-                                <td>{{ message.email or 'Kiritilmagan' }}</td>
-                                <td>{{ message.message[:50] }}{% if message.message|length > 50 %}...{% endif %}</td>
-                                <td>{{ message.timestamp[:10] }}</td>
+                                <td><?php echo $product['id']; ?></td>
+                                <td><?php echo htmlspecialchars($product['name']); ?></td>
+                                <td><?php echo number_format($product['price'], 0, '', ' '); ?> UZS</td>
+                                <td><?php echo htmlspecialchars($product['category']); ?></td>
                                 <td>
-                                    <span class="status-badge status-{{ 'unread' if not message.read else 'read' }}">
-                                        {{ 'O\'qilmagan' if not message.read else 'O\'qilgan' }}
+                                    <span class="status-badge <?php echo $product['is_active'] ? 'status-active' : 'status-inactive'; ?>">
+                                        <?php echo $product['is_active'] ? 'Faol' : 'Nofaol'; ?>
                                     </span>
                                 </td>
                                 <td>
-                                    <button class="action-btn btn-view" data-message-id="{{ message.id }}">
-                                        <i class="fas fa-eye"></i> Batafsil
-                                    </button>
-                                    {% if not message.read %}
-                                    <a href="{{ url_for('admin.mark_message_read', message_id=message.id) }}" 
-                                       class="action-btn btn-mark-read">O'qildi</a>
-                                    {% endif %}
+                                    <a href="/product/<?php echo $product['slug']; ?>" class="action-btn btn-view">
+                                        <i class="fas fa-eye"></i> Ko'rish
+                                    </a>
                                 </td>
                             </tr>
-                            {% else %}
-                            <tr>
-                                <td colspan="7" style="text-align: center; color: var(--text-light);">
-                                    Hozircha xabarlar yo'q
-                                </td>
-                            </tr>
-                            {% endfor %}
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </main>
-    </div>
-    
-    <script>
-        // Store messages data for lookup by ID
-        const messagesData = {};
-        document.addEventListener('DOMContentLoaded', function() {
-            const messagesElement = document.getElementById('messages-data');
-            if (messagesElement) {
-                try {
-                    const messagesJson = messagesElement.getAttribute('data-messages');
-                    if (messagesJson) {
-                        const messages = JSON.parse(messagesJson);
-                        messages.forEach(message => {
-                            messagesData[message.id] = message;
-                        });
-                    }
-                } catch (e) {
-                    console.error('Error parsing messages data:', e);
-                }
-            }
-        });
-        
-        // Auto-hide alerts
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                alert.style.transition = 'opacity 0.5s ease';
-                alert.style.opacity = '0';
-                setTimeout(() => alert.remove(), 500);
-            });
-        }, 5000);
-        
-        // Product filtering
-        function filterProducts() {
-            const categoryFilter = document.getElementById('category-filter').value;
-            const statusFilter = document.getElementById('status-filter').value;
-            const rows = document.querySelectorAll('#all-products-table tbody tr');
-            
-            rows.forEach(row => {
-                const category = row.getAttribute('data-category');
-                const isActive = row.getAttribute('data-active') === 'true';
-                
-                let show = true;
-                
-                if (categoryFilter !== 'all' && category !== categoryFilter) {
-                    show = false;
-                }
-                
-                if (statusFilter !== 'all') {
-                    const isActiveMatch = statusFilter === 'active' ? isActive : !isActive;
-                    if (!isActiveMatch) {
-                        show = false;
-                    }
-                }
-                
-                row.style.display = show ? '' : 'none';
-            });
-        }
-        
-        // Add event listeners to all view buttons
-        const viewButtons = document.querySelectorAll('.btn-view[data-message-id]');
-        viewButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const messageId = this.getAttribute('data-message-id');
-                showMessageDetails(messageId);
-            });
-        });
-        
-        // Setup event listeners for filters
-        document.getElementById('category-filter').addEventListener('change', filterProducts);
-        document.getElementById('status-filter').addEventListener('change', filterProducts);
-        
-        // Show message details in modal
-        function showMessageDetails(messageId) {
-            const message = messagesData[messageId];
-            if (message) {
-                document.getElementById('messageDetailName').textContent = message.name;
-                document.getElementById('messageDetailPhone').textContent = message.phone;
-                document.getElementById('messageDetailEmail').textContent = message.email || 'Kiritilmagan';
-                document.getElementById('messageDetailMessage').textContent = message.message;
-                document.getElementById('messageDetailDate').textContent = message.timestamp;
-                document.getElementById('messageDetailModal').style.display = 'block';
-            }
-        }
-        
-        // Close modal
-        function closeMessageModal() {
-            document.getElementById('messageDetailModal').style.display = 'none';
-        }
-        
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('messageDetailModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
-    
-    <!-- Message Detail Modal -->
-    <div id="messageDetailModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeMessageModal()">&times;</span>
-            <h2>Xabar tafsilotlari</h2>
-            <div class="modal-body">
-                <p><strong>Ism:</strong> <span id="messageDetailName"></span></p>
-                <p><strong>Telefon:</strong> <span id="messageDetailPhone"></span></p>
-                <p><strong>Email:</strong> <span id="messageDetailEmail"></span></p>
-                <p><strong>Xabar:</strong> <span id="messageDetailMessage"></span></p>
-                <p><strong>Sana:</strong> <span id="messageDetailDate"></span></p>
             </div>
         </div>
     </div>
-{% endblock %}
 
-{% block extra_js %}
-<script>
-        // Store messages data for lookup by ID
-        const messagesData = {};
-        document.addEventListener('DOMContentLoaded', function() {
-            const messagesElement = document.getElementById('messages-data');
-            if (messagesElement) {
-                try {
-                    const messagesJson = messagesElement.getAttribute('data-messages');
-                    if (messagesJson) {
-                        const messages = JSON.parse(messagesJson);
-                        messages.forEach(message => {
-                            messagesData[message.id] = message;
-                        });
-                    }
-                } catch (e) {
-                    console.error('Error parsing messages data:', e);
-                }
-            }
-        });
-        
-        // Auto-hide alerts
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                alert.style.transition = 'opacity 0.5s ease';
-                alert.style.opacity = '0';
-                setTimeout(() => alert.remove(), 500);
-            });
-        }, 5000);
-        
-        // Product filtering
-        function filterProducts() {
-            const categoryFilter = document.getElementById('category-filter').value;
-            const statusFilter = document.getElementById('status-filter').value;
-            const rows = document.querySelectorAll('#all-products-table tbody tr');
-            
-            rows.forEach(row => {
-                const category = row.getAttribute('data-category');
-                const isActive = row.getAttribute('data-active') === 'true';
-                
-                let show = true;
-                
-                if (categoryFilter !== 'all' && category !== categoryFilter) {
-                    show = false;
-                }
-                
-                if (statusFilter !== 'all') {
-                    const isActiveMatch = statusFilter === 'active' ? isActive : !isActive;
-                    if (!isActiveMatch) {
-                        show = false;
-                    }
-                }
-                
-                row.style.display = show ? '' : 'none';
-            });
-        }
-        
-        // Add event listeners to all view buttons
-        const viewButtons = document.querySelectorAll('.btn-view[data-message-id]');
-        viewButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const messageId = this.getAttribute('data-message-id');
-                showMessageDetails(messageId);
-            });
-        });
-        
-        // Setup event listeners for filters
-        document.getElementById('category-filter').addEventListener('change', filterProducts);
-        document.getElementById('status-filter').addEventListener('change', filterProducts);
-        
-        // Show message details in modal
-        function showMessageDetails(messageId) {
-            const message = messagesData[messageId];
-            if (message) {
-                document.getElementById('messageDetailName').textContent = message.name;
-                document.getElementById('messageDetailPhone').textContent = message.phone;
-                document.getElementById('messageDetailEmail').textContent = message.email || 'Kiritilmagan';
-                document.getElementById('messageDetailMessage').textContent = message.message;
-                document.getElementById('messageDetailDate').textContent = message.timestamp;
-                document.getElementById('messageDetailModal').style.display = 'block';
-            }
-        }
-        
-        // Close modal
-        function closeMessageModal() {
-            document.getElementById('messageDetailModal').style.display = 'none';
-        }
-        
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('messageDetailModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
-{% endblock %}
-{% endblock %}
+    <!-- Message View Modal -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h3>Xabar Tafsilotlari</h3>
+                <p><strong>ID:</strong> <span id="modal-id"></span></p>
+                <p><strong>Ism:</strong> <span id="modal-name"></span></p>
+                <p><strong>Telefon:</strong> <span id="modal-phone"></span></p>
+                <p><strong>Email:</strong> <span id="modal-email"></span></p>
+                <p><strong>Xabar:</strong> <span id="modal-message"></span></p>
+                <p><strong>Sana:</strong> <span id="modal-date"></span></p>
+            </div>
+        </div>
+    </div>
 
-{% block extra_js %}
-<script>
-        // Store messages data for lookup by ID
-        const messagesData = {};
-        document.addEventListener('DOMContentLoaded', function() {
-            const messagesElement = document.getElementById('messages-data');
-            if (messagesElement) {
-                try {
-                    const messagesJson = messagesElement.getAttribute('data-messages');
-                    if (messagesJson) {
-                        const messages = JSON.parse(messagesJson);
-                        messages.forEach(message => {
-                            messagesData[message.id] = message;
-                        });
-                    }
-                } catch (e) {
-                    console.error('Error parsing messages data:', e);
-                }
-            }
-        });
-        
-        // Auto-hide alerts
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                alert.style.transition = 'opacity 0.5s ease';
-                alert.style.opacity = '0';
-                setTimeout(() => alert.remove(), 500);
-            });
-        }, 5000);
-        
-        // Product filtering
-        function filterProducts() {
-            const categoryFilter = document.getElementById('category-filter').value;
-            const statusFilter = document.getElementById('status-filter').value;
-            const rows = document.querySelectorAll('#all-products-table tbody tr');
-            
-            rows.forEach(row => {
-                const category = row.getAttribute('data-category');
-                const isActive = row.getAttribute('data-active') === 'true';
-                
-                let show = true;
-                
-                if (categoryFilter !== 'all' && category !== categoryFilter) {
-                    show = false;
-                }
-                
-                if (statusFilter !== 'all') {
-                    const isActiveMatch = statusFilter === 'active' ? isActive : !isActive;
-                    if (!isActiveMatch) {
-                        show = false;
-                    }
-                }
-                
-                row.style.display = show ? '' : 'none';
-            });
+    <script>
+        // View message modal
+        function viewMessage(id) {
+            // In a real implementation, this would fetch the message details from the server
+            // For now, we'll just show a simple alert
+            alert('Xabar #' + id + ' tafsilotlari ko\'rish funksiyasi ishlamoqda');
         }
-        
-        // Add event listeners to all view buttons
-        const viewButtons = document.querySelectorAll('.btn-view[data-message-id]');
-        viewButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const messageId = this.getAttribute('data-message-id');
-                showMessageDetails(messageId);
-            });
-        });
-        
-        // Setup event listeners for filters
-        document.getElementById('category-filter').addEventListener('change', filterProducts);
-        document.getElementById('status-filter').addEventListener('change', filterProducts);
-        
-        // Show message details in modal
-        function showMessageDetails(messageId) {
-            const message = messagesData[messageId];
-            if (message) {
-                document.getElementById('messageDetailName').textContent = message.name;
-                document.getElementById('messageDetailPhone').textContent = message.phone;
-                document.getElementById('messageDetailEmail').textContent = message.email || 'Kiritilmagan';
-                document.getElementById('messageDetailMessage').textContent = message.message;
-                document.getElementById('messageDetailDate').textContent = message.timestamp;
-                document.getElementById('messageDetailModal').style.display = 'block';
-            }
-        }
-        
+
         // Close modal
-        function closeMessageModal() {
-            document.getElementById('messageDetailModal').style.display = 'none';
+        const modal = document.getElementById('messageModal');
+        const closeBtn = document.querySelector('.close');
+        
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
         }
         
-        // Close modal when clicking outside of it
         window.onclick = function(event) {
-            const modal = document.getElementById('messageDetailModal');
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = 'none';
             }
         }
-    </script>
-<script>
-        // Store messages data for lookup by ID
-        const messagesData = {};
-        document.addEventListener('DOMContentLoaded', function() {
-            const messagesElement = document.getElementById('messages-data');
-            if (messagesElement) {
-                try {
-                    const messagesJson = messagesElement.getAttribute('data-messages');
-                    if (messagesJson) {
-                        const messages = JSON.parse(messagesJson);
-                        messages.forEach(message => {
-                            messagesData[message.id] = message;
-                        });
-                    }
-                } catch (e) {
-                    console.error('Error parsing messages data:', e);
-                }
-            }
-        });
-        
-        // Auto-hide alerts
+
+        // Auto-hide alerts after 5 seconds
         setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                alert.style.transition = 'opacity 0.5s ease';
-                alert.style.opacity = '0';
-                setTimeout(() => alert.remove(), 500);
-            });
+            const alert = document.querySelector('.alert');
+            if (alert) {
+                alert.style.display = 'none';
+            }
         }, 5000);
-        
-        // Product filtering
-        function filterProducts() {
-            const categoryFilter = document.getElementById('category-filter').value;
-            const statusFilter = document.getElementById('status-filter').value;
-            const rows = document.querySelectorAll('#all-products-table tbody tr');
-            
-            rows.forEach(row => {
-                const category = row.getAttribute('data-category');
-                const isActive = row.getAttribute('data-active') === 'true';
-                
-                let show = true;
-                
-                if (categoryFilter !== 'all' && category !== categoryFilter) {
-                    show = false;
-                }
-                
-                if (statusFilter !== 'all') {
-                    const isActiveMatch = statusFilter === 'active' ? isActive : !isActive;
-                    if (!isActiveMatch) {
-                        show = false;
-                    }
-                }
-                
-                row.style.display = show ? '' : 'none';
-            });
-        }
-        
-        // Add event listeners to all view buttons
-        const viewButtons = document.querySelectorAll('.btn-view[data-message-id]');
-        viewButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const messageId = this.getAttribute('data-message-id');
-                showMessageDetails(messageId);
-            });
-        });
-        
-        // Setup event listeners for filters
-        document.getElementById('category-filter').addEventListener('change', filterProducts);
-        document.getElementById('status-filter').addEventListener('change', filterProducts);
-        
-        // Show message details in modal
-        function showMessageDetails(messageId) {
-            const message = messagesData[messageId];
-            if (message) {
-                document.getElementById('messageDetailName').textContent = message.name;
-                document.getElementById('messageDetailPhone').textContent = message.phone;
-                document.getElementById('messageDetailEmail').textContent = message.email || 'Kiritilmagan';
-                document.getElementById('messageDetailMessage').textContent = message.message;
-                document.getElementById('messageDetailDate').textContent = message.timestamp;
-                document.getElementById('messageDetailModal').style.display = 'block';
-            }
-        }
-        
-        // Close modal
-        function closeMessageModal() {
-            document.getElementById('messageDetailModal').style.display = 'none';
-        }
-        
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('messageDetailModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
     </script>
-{% endblock %}
+</body>
+</html>
